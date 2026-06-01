@@ -25,7 +25,7 @@ function Footer() {
   const lineScale = useTransform(scrollYProgress, [0, 0.4], [0, 1])
 
   return (
-    <footer ref={footerRef} className="relative overflow-hidden bg-[#f5f3ef]">
+    <footer ref={footerRef} className="relative overflow-hidden bg-[#f5f3ef] dark:bg-[#1a1a1a]">
       {/* Concrete texture overlay */}
       <div
         className="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none"
@@ -95,7 +95,7 @@ function Footer() {
                 02 — Contact
               </p>
 
-              <div className="rounded-2xl border border-foreground/[0.06] bg-[#f9f7f4] p-6 sm:p-8 relative">
+              <div className="rounded-2xl border border-foreground/[0.06] bg-[#f9f7f4] dark:bg-[#222222] p-6 sm:p-8 relative">
                 {/* Corner marks — architectural drawing style */}
                 <div className="absolute top-2 left-2 w-3 h-3 border-l border-t border-foreground/10" />
                 <div className="absolute top-2 right-2 w-3 h-3 border-r border-t border-foreground/10" />
@@ -149,8 +149,8 @@ function Footer() {
         {/* Marquee with fade edges */}
         <div className="relative py-8 overflow-hidden">
           {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#f5f3ef] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#f5f3ef] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#f5f3ef] dark:from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#f5f3ef] dark:from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
 
           <motion.div
             className="flex gap-6 whitespace-nowrap"
@@ -234,7 +234,7 @@ function Footer() {
                   <img
                     src={social.icon}
                     alt=""
-                    className="size-3 opacity-50 group-hover:opacity-80 group-hover:rotate-6 transition-all duration-300"
+                    className="size-3 opacity-50 group-hover:opacity-80 group-hover:rotate-6 transition-all duration-300 dark:invert dark:opacity-70 dark:group-hover:opacity-100"
                   />
                 </a>
               ))}

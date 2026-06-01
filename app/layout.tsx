@@ -4,6 +4,8 @@ import "./globals.css"
 
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
+import { ThemeProvider } from "@/components/layout/ThemeProvider"
+import { JsonLd } from "@/components/layout/JsonLd"
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -32,11 +34,15 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-[family-name:var(--font-sans)]">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <JsonLd />
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

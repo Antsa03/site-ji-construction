@@ -176,3 +176,87 @@
     background-size: 24px 24px;
   }
 }
+
+/* View Transitions API */
+:root {
+  --duration-exit: 150ms;
+  --duration-enter: 250ms;
+}
+
+/* Directional slide for forward navigation */
+::view-transition-old(.nav-forward) {
+  --slide-offset: -40px;
+  animation:
+    var(--duration-exit) ease-in both fade-vt reverse,
+    400ms ease-in-out both slide-vt reverse;
+}
+::view-transition-new(.nav-forward) {
+  --slide-offset: 40px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both fade-vt,
+    400ms ease-in-out both slide-vt;
+}
+
+/* Directional slide for back navigation */
+::view-transition-old(.nav-back) {
+  --slide-offset: 40px;
+  animation:
+    var(--duration-exit) ease-in both fade-vt reverse,
+    400ms ease-in-out both slide-vt reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -40px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both fade-vt,
+    400ms ease-in-out both slide-vt;
+}
+
+/* Crossfade for default transitions */
+::view-transition-old(.crossfade) {
+  animation: var(--duration-exit) ease-in both fade-vt reverse;
+}
+::view-transition-new(.crossfade) {
+  animation: var(--duration-enter) ease-out var(--duration-exit) both fade-vt;
+}
+
+@keyframes fade-vt {
+  from {
+    filter: blur(2px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-vt {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* Anchor the navbar during transitions */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

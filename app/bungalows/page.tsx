@@ -21,7 +21,7 @@ const bungalows = [
     bedrooms: 2,
     bathrooms: 1,
     price: "45 000 €",
-    image: "/images/projects/bungalow-nosy-be.jpg",
+    image: "/images/projects/bungalow-ravinala.jpg",
     features: ["Terrasse panoramique", "Toit végétalisé", "Matériaux locaux"],
   },
   {
@@ -30,7 +30,7 @@ const bungalows = [
     bedrooms: 3,
     bathrooms: 2,
     price: "65 000 €",
-    image: "/images/projects/bungalow-mahajanga.jpg",
+    image: "/images/projects/bungalow-baobab.jpg",
     features: ["Piscine privée", "Cuisine ouverte", "Jardin tropical"],
   },
   {
@@ -39,7 +39,7 @@ const bungalows = [
     bedrooms: 1,
     bathrooms: 1,
     price: "35 000 €",
-    image: "/images/projects/residence-ivandry.jpg",
+    image: "/images/projects/bungalow-orchidee.jpg",
     features: ["Compact et fonctionnel", "Idéal couple", "Faible empreinte"],
   },
   {
@@ -48,7 +48,7 @@ const bungalows = [
     bedrooms: 4,
     bathrooms: 3,
     price: "95 000 €",
-    image: "/images/projects/villa-andoharanofotsy.jpg",
+    image: "/images/projects/bungalow-palissandre.jpg",
     features: ["Grande terrasse", "Suite parentale", "Garage intégré"],
   },
   {
@@ -79,11 +79,7 @@ export default function BungalowsPage() {
       {/* Hero */}
       <section className="bg-card pt-20 pb-14 sm:pt-28 sm:pb-18">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer(0.1)}
-          >
+          <motion.div initial="hidden" animate="visible" variants={staggerContainer(0.1)}>
             <motion.div
               variants={slideUp}
               transition={transitionSmooth}
@@ -106,7 +102,8 @@ export default function BungalowsPage() {
               transition={transitionSmooth}
               className="mt-4 text-base text-muted-foreground max-w-md"
             >
-              Conçus pour s&apos;intégrer dans le paysage malgache. Du compact au spacieux, chacun a son charme.
+              Conçus pour s&apos;intégrer dans le paysage malgache. Du compact au spacieux, chacun a
+              son charme.
             </motion.p>
           </motion.div>
         </div>
@@ -138,6 +135,7 @@ export default function BungalowsPage() {
                       src={bungalow.image}
                       alt={bungalow.name}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
@@ -198,7 +196,8 @@ export default function BungalowsPage() {
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 20px, white 20px, white 21px)",
+            backgroundImage:
+              "repeating-linear-gradient(-45deg, transparent, transparent 20px, white 20px, white 21px)",
           }}
         />
         <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 sm:py-28">
@@ -215,9 +214,7 @@ export default function BungalowsPage() {
               className="flex items-center gap-3 mb-6"
             >
               <div className="w-8 h-px bg-primary" />
-              <span className="text-xs text-white/30 uppercase tracking-[0.2em]">
-                Sur mesure
-              </span>
+              <span className="text-xs text-white/30 uppercase tracking-[0.2em]">Sur mesure</span>
             </motion.div>
             <motion.h2
               variants={slideUp}
@@ -231,7 +228,8 @@ export default function BungalowsPage() {
               transition={transitionSmooth}
               className="text-sm text-white/40 mb-8 max-w-md"
             >
-              Chaque bungalow est unique. Discutons ensemble de votre projet pour créer l&apos;espace de vos rêves.
+              Chaque bungalow est unique. Discutons ensemble de votre projet pour créer
+              l&apos;espace de vos rêves.
             </motion.p>
             <motion.div variants={slideUp} transition={transitionSmooth}>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>

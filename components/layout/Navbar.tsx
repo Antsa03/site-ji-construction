@@ -4,7 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion"
-import { Menu } from "lucide-react"
+import { Menu, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/layout/Logo"
@@ -29,6 +30,7 @@ const navLinks = [
 function Navbar() {
   const pathname = usePathname()
   const { scrollY } = useScroll()
+  const { resolvedTheme, setTheme } = useTheme()
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
   const isHome = pathname === "/"
@@ -41,6 +43,7 @@ function Navbar() {
 
   return (
     <header
+      style={{ viewTransitionName: "site-header" }}
       className={cn(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
         isTransparent ? "bg-transparent" : "glass shadow-sm"
@@ -48,7 +51,7 @@ function Navbar() {
     >
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="group">
+        <Link href="/" className="group" transitionTypes={["nav-back"]}>
           <Logo
             animate
             size="sm"
@@ -71,6 +74,7 @@ function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                transitionTypes={link.href === "/" ? ["nav-back"] : ["nav-forward"]}
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={cn(
                   "relative px-4 py-2 text-[13px] font-medium transition-colors duration-200 rounded-md",
@@ -124,8 +128,20 @@ function Navbar() {
           })}
         </div>
 
-        {/* CTA desktop */}
-        <div className="hidden md:block">
+        {/* Right side: theme toggle + CTA */}
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            className={cn(
+              "flex size-8 items-center justify-center rounded-full transition-colors duration-200",
+              isTransparent
+                ? "text-white/60 hover:text-white hover:bg-white/10"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            )}
+            aria-label="Changer le thème"
+          >
+            {resolvedTheme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+          </button>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Button size="sm" className="rounded-full px-5 text-[13px]" asChild>
               <Link href="/devis">Devis gratuit</Link>
@@ -164,6 +180,7 @@ function Navbar() {
                   >
                     <Link
                       href={link.href}
+                      transitionTypes={link.href === "/" ? ["nav-back"] : ["nav-forward"]}
                       className={cn(
                         "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200",
                         pathname === link.href

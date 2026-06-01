@@ -4,7 +4,13 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
-import { slideUp, slideLeft, slideRight, staggerContainer, transitionSmooth } from "@/lib/animations"
+import {
+  slideUp,
+  slideLeft,
+  slideRight,
+  staggerContainer,
+  transitionSmooth,
+} from "@/lib/animations"
 
 const projects = [
   {
@@ -22,7 +28,7 @@ const projects = [
   {
     title: "Centre commercial Analakely",
     category: "Commercial",
-    image: "/images/projects/centre-commercial.jpg",
+    image: "/images/projects/centre-commercial-analakely.jpg",
     year: "2024",
   },
   {
@@ -34,7 +40,7 @@ const projects = [
   {
     title: "Bungalow Mahajanga",
     category: "Bungalow",
-    image: "/images/projects/bungalow-mahajanga.jpg",
+    image: "/images/projects/bungalow-majunga.jpg",
     year: "2024",
   },
   {
@@ -111,6 +117,7 @@ function ProjectsSection() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
