@@ -98,7 +98,7 @@ export default function DevisPage() {
               <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Devis gratuit</span>
             </motion.div>
             <motion.h1 variants={slideUp} transition={transitionSmooth} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] max-w-xl leading-tight">
-              Votre projet mérite<br /><span className="text-muted-foreground/40">une vraie réponse.</span>
+              Votre projet mérite<br /><span className="text-muted-foreground/75">une vraie réponse.</span>
             </motion.h1>
             <motion.p variants={slideUp} transition={transitionSmooth} className="mt-4 text-base text-muted-foreground max-w-md">
               Pas un formulaire automatique. On lit chaque demande, on appelle, on écoute.
@@ -118,7 +118,7 @@ export default function DevisPage() {
                 {steps.map((step, i) => (
                   <div key={i} className="flex items-center gap-3 flex-1">
                     <div className={`flex items-center justify-center size-9 rounded-full text-xs font-mono font-bold transition-colors duration-300 ${
-                      i <= currentStep ? "bg-primary text-white" : "bg-muted text-muted-foreground/40"
+                      i <= currentStep ? "bg-primary text-white" : "bg-muted text-muted-foreground/75"
                     }`}>
                       {i < currentStep ? "✓" : step.number}
                     </div>
@@ -211,7 +211,7 @@ export default function DevisPage() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
-                      <p className="text-[11px] text-muted-foreground/50 italic font-serif">
+                      <p className="text-[11px] text-muted-foreground/70 italic font-serif">
                         Promis, on lit chaque message ✍️
                       </p>
                     </motion.div>
@@ -301,7 +301,7 @@ export default function DevisPage() {
                         item.active ? "bg-primary border-primary" : "bg-background border-border/40"
                       }`} />
                       <p className={`text-sm transition-colors duration-300 ${
-                        item.active ? "text-foreground" : "text-muted-foreground/50"
+                        item.active ? "text-foreground" : "text-muted-foreground/70"
                       }`}>
                         {item.step}
                       </p>
@@ -331,7 +331,7 @@ export default function DevisPage() {
                       className="group flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                     >
                       <div className="flex size-8 items-center justify-center rounded-lg bg-foreground/[0.03] group-hover:bg-primary/10 transition-colors duration-200">
-                        <item.icon className="size-3.5 text-muted-foreground/50 group-hover:text-primary transition-colors duration-200" />
+                        <item.icon className="size-3.5 text-muted-foreground/70 group-hover:text-primary transition-colors duration-200" />
                       </div>
                       {item.label}
                     </a>

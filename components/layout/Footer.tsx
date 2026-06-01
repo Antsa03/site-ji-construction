@@ -68,14 +68,14 @@ function Footer() {
             {/* Left — expressive headline */}
             <motion.div variants={slideUp} transition={transitionSmooth}>
               {/* Section number — architect style */}
-              <p className="text-xs text-muted-foreground/70 uppercase tracking-[0.25em] mb-8 font-mono">
+              <p className="text-xs text-muted-foreground/80 uppercase tracking-[0.25em] mb-8 font-mono">
                 01 — Signature
               </p>
 
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-[family-name:var(--font-heading)] leading-[1.05] max-w-lg tracking-tight">
                 Bâtir, c&apos;est
                 <br />
-                <em className="not-italic text-muted-foreground/70">donner vie.</em>
+                <em className="not-italic text-muted-foreground/80">donner vie.</em>
               </h2>
 
               <p className="mt-8 text-sm text-muted-foreground leading-relaxed max-w-sm">
@@ -84,14 +84,14 @@ function Footer() {
               </p>
 
               {/* Handwritten annotation */}
-              <p className="mt-6 text-xs text-muted-foreground/60 italic font-serif tracking-wide">
+              <p className="mt-6 text-xs text-muted-foreground/75 italic font-serif tracking-wide">
                 — depuis 2009, Madagascar
               </p>
             </motion.div>
 
             {/* Right — contact as business card */}
             <motion.div variants={slideUp} transition={transitionSmooth} className="lg:pt-12">
-              <p className="text-xs text-muted-foreground/70 uppercase tracking-[0.25em] mb-6 font-mono">
+              <p className="text-xs text-muted-foreground/80 uppercase tracking-[0.25em] mb-6 font-mono">
                 02 — Contact
               </p>
 
@@ -123,7 +123,7 @@ function Footer() {
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
                     >
-                      <item.icon className="size-3.5 text-muted-foreground/70 group-hover:text-primary transition-colors duration-200 shrink-0" />
+                      <item.icon className="size-3.5 text-muted-foreground/80 group-hover:text-primary transition-colors duration-200 shrink-0" />
                       <span className="text-sm">{item.label}</span>
                     </a>
                   ))}
@@ -163,11 +163,11 @@ function Footer() {
                 className="text-xs text-muted-foreground/80 uppercase tracking-[0.25em]"
               >
                 Construction <span className="text-primary/20 mx-2">★</span> Rénovation{" "}
-                <span className="text-muted-foreground/30 mx-2">—</span> Bungalows{" "}
+                <span className="text-muted-foreground/50 mx-2">—</span> Bungalows{" "}
                 <span className="text-primary/20 mx-2">+</span> Études{" "}
-                <span className="text-muted-foreground/30 mx-2">—</span> Plans{" "}
+                <span className="text-muted-foreground/50 mx-2">—</span> Plans{" "}
                 <span className="text-primary/20 mx-2">★</span> Architecture{" "}
-                <span className="text-muted-foreground/30 mx-2">—</span>&nbsp;
+                <span className="text-muted-foreground/50 mx-2">—</span>&nbsp;
               </span>
             ))}
           </motion.div>
@@ -234,7 +234,7 @@ function Footer() {
                   <img
                     src={social.icon}
                     alt=""
-                    className="size-3 opacity-50 group-hover:opacity-80 group-hover:rotate-6 transition-all duration-300 dark:invert dark:opacity-70 dark:group-hover:opacity-100"
+                    className="size-3 opacity-50 group-hover:opacity-80 group-hover:rotate-6 transition-all duration-300 dark:invert-[0.85] dark:opacity-80 dark:group-hover:opacity-100"
                   />
                 </a>
               ))}
@@ -246,17 +246,17 @@ function Footer() {
         <div className="py-8 border-t border-foreground/[0.06]">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-              <p className="text-[11px] text-muted-foreground/70">
+              <p className="text-[11px] text-muted-foreground/80">
                 Pensé, dessiné et bâti à Antananarivo · MMXXVI
               </p>
               <span className="hidden sm:inline text-muted-foreground/80">·</span>
-              <p className="text-[10px] text-muted-foreground/60 italic font-serif">
+              <p className="text-[10px] text-muted-foreground/75 italic font-serif">
                 &ldquo;Ny asa tsara dia maharitra&rdquo;
               </p>
             </div>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="group flex items-center gap-2 text-[11px] text-muted-foreground/70 hover:text-foreground transition-colors duration-200"
+              className="group flex items-center gap-2 text-[11px] text-muted-foreground/80 hover:text-foreground transition-colors duration-200"
             >
               Retour en haut
               <motion.div

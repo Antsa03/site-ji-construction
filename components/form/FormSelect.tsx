@@ -64,7 +64,7 @@ function FormSelect({
             <SelectItem key={option.value} value={option.value} className="rounded-md">
               <span className="flex items-center gap-2.5">
                 {option.icon && (
-                  <span className="text-muted-foreground/60 shrink-0">{option.icon}</span>
+                  <span className="text-muted-foreground/70 shrink-0">{option.icon}</span>
                 )}
                 {option.label}
               </span>

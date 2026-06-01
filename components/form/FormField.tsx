@@ -66,7 +66,7 @@ function FormField({
       </AnimatePresence>
 
       {hint && !error && !success && (
-        <p className="text-[11px] text-muted-foreground/50">{hint}</p>
+        <p className="text-[11px] text-muted-foreground/70">{hint}</p>
       )}
     </div>
   )

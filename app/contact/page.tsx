@@ -53,7 +53,7 @@ export default function ContactPage() {
               <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Contact</span>
             </motion.div>
             <motion.h1 variants={slideUp} transition={transitionSmooth} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] max-w-xl leading-tight">
-              On préfère parler<br /><span className="text-muted-foreground/40">que remplir des formulaires.</span>
+              On préfère parler<br /><span className="text-muted-foreground/75">que remplir des formulaires.</span>
             </motion.h1>
             <motion.p variants={slideUp} transition={transitionSmooth} className="mt-4 text-base text-muted-foreground max-w-md">
               Appelez, écrivez, ou passez directement au bureau. Le café est offert.
@@ -186,10 +186,10 @@ export default function ContactPage() {
                       className="group flex items-start gap-4 rounded-xl border border-border/50 bg-card p-4 hover:border-primary/20 transition-all duration-200"
                     >
                       <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-foreground/[0.03] group-hover:bg-primary/10 transition-colors duration-200">
-                        <method.icon className="size-4 text-muted-foreground/50 group-hover:text-primary transition-colors duration-200" />
+                        <method.icon className="size-4 text-muted-foreground/70 group-hover:text-primary transition-colors duration-200" />
                       </div>
                       <div>
-                        <p className="text-xs text-muted-foreground/60 uppercase tracking-wide">{method.label}</p>
+                        <p className="text-xs text-muted-foreground/75 uppercase tracking-wide">{method.label}</p>
                         <p className="text-sm font-medium text-foreground mt-0.5">{method.value}</p>
                         <p className="text-xs text-muted-foreground mt-0.5">{method.description}</p>
                       </div>
@@ -204,8 +204,8 @@ export default function ContactPage() {
                 <div className="rounded-xl border border-border/50 overflow-hidden">
                   <div className="flex h-52 items-center justify-center bg-muted/30">
                     <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                      <MapPin className="size-6 text-muted-foreground/30" />
-                      <p className="text-xs text-muted-foreground/50">Carte Google Maps</p>
+                      <MapPin className="size-6 text-muted-foreground/50" />
+                      <p className="text-xs text-muted-foreground/70">Carte Google Maps</p>
                       <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">
                         Ouvrir dans Google Maps
                       </a>

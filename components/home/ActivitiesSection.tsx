@@ -147,7 +147,7 @@ function ActivitiesSection() {
                   <div className="relative p-6 sm:p-8 pb-0">
                     {/* Number + icon row */}
                     <div className="flex items-start justify-between mb-6">
-                      <span className="text-3xl sm:text-4xl font-bold font-mono text-muted-foreground/10 leading-none select-none">
+                      <span className="text-3xl sm:text-4xl font-bold font-mono text-muted-foreground/20 leading-none select-none">
                         {activity.number}
                       </span>
                       <motion.div
