@@ -86,8 +86,7 @@ function Footer() {
             backgroundImage:
               "linear-gradient(to right, rgba(0,0,0,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,.08) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
-            maskImage:
-              "linear-gradient(to bottom, transparent, black 12%, black 82%, transparent)",
+            maskImage: "linear-gradient(to bottom, transparent, black 12%, black 82%, transparent)",
           }}
         />
 
@@ -97,8 +96,7 @@ function Footer() {
             backgroundImage:
               "linear-gradient(to right, rgba(212,160,23,.28) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,160,23,.28) 1px, transparent 1px)",
             backgroundSize: "224px 224px",
-            maskImage:
-              "linear-gradient(to bottom, transparent, black 18%, black 76%, transparent)",
+            maskImage: "linear-gradient(to bottom, transparent, black 18%, black 76%, transparent)",
           }}
         />
 
@@ -142,8 +140,8 @@ function Footer() {
               </Link>
 
               <p className="mt-8 max-w-sm text-sm leading-6 text-muted-foreground">
-                Entreprise BTP à Madagascar, spécialisée en construction neuve,
-                rénovation, études techniques et conception de bungalows sur mesure.
+                Entreprise BTP à Madagascar, spécialisée en construction neuve, rénovation, études
+                techniques et conception de bungalows sur mesure.
               </p>
             </motion.div>
 
@@ -159,13 +157,14 @@ function Footer() {
                 </p>
 
                 <h2 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-[-0.04em] text-foreground sm:text-3xl">
-                  Des fondations aux finitions, construisons un projet fiable et adapté à votre terrain.
+                  Des fondations aux finitions, construisons un projet fiable et adapté à votre
+                  terrain.
                 </h2>
               </div>
 
               <Link
                 href="/devis"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 Devis gratuit
                 <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -219,9 +218,7 @@ function Footer() {
           {/* Navigation */}
           <div className="grid gap-8 border-b border-border py-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             <motion.div variants={itemVariants} transition={itemTransition}>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">
-                Réseaux
-              </p>
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">Réseaux</p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {socials.map((social) => {
