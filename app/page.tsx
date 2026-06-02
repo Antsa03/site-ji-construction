@@ -8,18 +8,23 @@ import { SectionDivider } from "@/components/home/SectionDivider"
 
 export default function Home() {
   return (
-    <>
+    <div className="premium-page">
       <HeroSection />
       <SectionDivider variant="copper" />
+
       <CraftServicesSection />
       <SectionDivider variant="dots" />
+
       <WhyUsSection />
       <SectionDivider variant="default" />
+
       <ProjectsSection />
       <SectionDivider variant="copper" />
+
       <TestimonialsSection />
       <SectionDivider variant="dots" />
+
       <CtaSection />
-    </>
+    </div>
   )
 }

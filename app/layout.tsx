@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Sora, DM_Sans } from "next/font/google"
+import { Instrument_Serif, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
 
 import { Navbar } from "@/components/layout/Navbar"
@@ -7,16 +7,26 @@ import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { JsonLd } from "@/components/layout/JsonLd"
 
-const sora = Sora({
-  variable: "--font-heading",
+const display = Instrument_Serif({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
 })
 
-const dmSans = DM_Sans({
-  variable: "--font-sans",
+const body = Plus_Jakarta_Sans({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+})
+
+const mono = JetBrains_Mono({
+  variable: "--font-code",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -33,15 +43,17 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${sora.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-[family-name:var(--font-sans)]">
+      <body className="min-h-full bg-background text-foreground font-sans selection:bg-primary/25 selection:text-foreground">
         <JsonLd />
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

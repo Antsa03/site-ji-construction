@@ -76,12 +76,12 @@ function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="relative overflow-hidden border-t border-black bg-white text-[#111827] dark:border-white/15 dark:bg-neutral-950 dark:text-neutral-200"
+      className="relative overflow-hidden border-t border-border bg-background text-foreground"
     >
       {/* Background motif conservé, mais très discret */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute inset-0 opacity-[0.42] dark:opacity-[0.18] dark:invert"
+          className="absolute inset-0 opacity-[0.42] dark:opacity-[0.16]"
           style={{
             backgroundImage:
               "linear-gradient(to right, rgba(0,0,0,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,.08) 1px, transparent 1px)",
@@ -102,8 +102,8 @@ function Footer() {
           }}
         />
 
-        <div className="absolute left-6 top-6 h-16 w-16 border-l border-t border-[#d4a017]/50 sm:left-10 sm:top-10" />
-        <div className="absolute bottom-6 right-6 h-16 w-16 border-b border-r border-[#d4a017]/50 sm:bottom-10 sm:right-10" />
+        <div className="absolute left-6 top-6 h-16 w-16 border-l border-t border-primary/50 sm:left-10 sm:top-10" />
+        <div className="absolute bottom-6 right-6 h-16 w-16 border-b border-r border-primary/50 sm:bottom-10 sm:right-10" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12 lg:py-16">
@@ -114,13 +114,13 @@ function Footer() {
           variants={containerVariants}
         >
           {/* Top row */}
-          <div className="grid gap-8 border-b border-black pb-8 dark:border-white/15 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
+          <div className="grid gap-8 border-b border-border pb-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             {/* Brand */}
             <motion.div variants={itemVariants} transition={itemTransition}>
               <Link
                 href="/"
                 aria-label="Retour à l’accueil"
-                className="inline-flex items-center gap-4 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:focus-visible:ring-offset-neutral-950"
+                className="inline-flex items-center gap-4 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 <Image
                   src="/ji-logo.png"
@@ -132,16 +132,16 @@ function Footer() {
                 />
 
                 <div>
-                  <p className="text-xl font-extrabold leading-none tracking-[-0.03em] text-black dark:text-white">
+                  <p className="text-xl font-extrabold leading-none tracking-[-0.03em] text-foreground">
                     JI Construction
                   </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.28em] text-[#d4a017]">
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.28em] text-primary">
                     BTP & Bungalows
                   </p>
                 </div>
               </Link>
 
-              <p className="mt-8 max-w-sm text-sm leading-6 text-[#111827] dark:text-neutral-300">
+              <p className="mt-8 max-w-sm text-sm leading-6 text-muted-foreground">
                 Entreprise BTP à Madagascar, spécialisée en construction neuve,
                 rénovation, études techniques et conception de bungalows sur mesure.
               </p>
@@ -154,18 +154,18 @@ function Footer() {
               className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end"
             >
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#d4a017]">
+                <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">
                   Expert BTP & Bungalows
                 </p>
 
-                <h2 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-[-0.04em] text-black dark:text-white sm:text-3xl">
+                <h2 className="mt-4 max-w-2xl text-2xl font-extrabold leading-tight tracking-[-0.04em] text-foreground sm:text-3xl">
                   Des fondations aux finitions, construisons un projet fiable et adapté à votre terrain.
                 </h2>
               </div>
 
               <Link
                 href="/devis"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#d4a017] px-6 py-4 text-sm font-bold text-white transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:text-black dark:hover:bg-white dark:focus-visible:ring-offset-neutral-950"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 Devis gratuit
                 <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -177,7 +177,7 @@ function Footer() {
           <motion.div
             variants={itemVariants}
             transition={itemTransition}
-            className="grid border-b border-black dark:border-white/15 lg:grid-cols-3"
+            className="grid border-b border-border lg:grid-cols-3"
           >
             {contactInfo.map((item, index) => {
               const Icon = item.icon
@@ -186,29 +186,29 @@ function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group grid min-h-[168px] grid-cols-[auto_1fr] gap-4 border-b border-black px-0 py-6 transition-colors duration-200 hover:border-[#d4a017] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:border-white/15 dark:hover:border-[#d4a017] dark:focus-visible:ring-offset-neutral-950 lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
+                  className="group grid min-h-[168px] grid-cols-[auto_1fr] gap-4 border-b border-border px-0 py-6 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
                 >
-                  <div className="flex size-10 items-center justify-center rounded-full border border-black text-black transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:border-[#d4a017] group-hover:text-[#d4a017] dark:border-white/20 dark:text-white dark:group-hover:border-[#d4a017] dark:group-hover:text-[#d4a017]">
+                  <div className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:border-primary group-hover:text-primary">
                     <Icon className="size-4" />
                   </div>
 
                   <div>
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#d4a017]">
+                        <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary">
                           0{index + 1} / {item.label}
                         </p>
 
-                        <p className="mt-4 text-base font-extrabold leading-snug tracking-[-0.02em] text-black dark:text-white">
+                        <p className="mt-4 text-base font-extrabold leading-snug tracking-[-0.02em] text-foreground">
                           {item.value}
                         </p>
 
-                        <p className="mt-2 text-sm leading-6 text-[#111827] dark:text-neutral-300">
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">
                           {item.helper}
                         </p>
                       </div>
 
-                      <ArrowUpRight className="mt-1 size-4 shrink-0 text-[#d4a017] opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+                      <ArrowUpRight className="mt-1 size-4 shrink-0 text-primary opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
                     </div>
                   </div>
                 </Link>
@@ -217,9 +217,9 @@ function Footer() {
           </motion.div>
 
           {/* Navigation */}
-          <div className="grid gap-8 border-b border-black py-8 dark:border-white/15 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
+          <div className="grid gap-8 border-b border-border py-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             <motion.div variants={itemVariants} transition={itemTransition}>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#d4a017]">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">
                 Réseaux
               </p>
 
@@ -234,14 +234,14 @@ function Footer() {
                       aria-label={social.name}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex size-10 items-center justify-center rounded-full border border-black bg-white transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#d4a017] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:border-white/20 dark:bg-white/10 dark:hover:border-[#d4a017] dark:focus-visible:ring-offset-neutral-950"
+                      className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background dark:bg-card/80"
                     >
                       <Image
                         src={Icon}
                         alt=""
                         width={16}
                         height={16}
-                        className="dark:brightness-0 dark:invert"
+                        className="opacity-90 dark:brightness-0 dark:invert"
                       />
                     </a>
                   )
@@ -264,7 +264,7 @@ function Footer() {
                   aria-label={title}
                   className="space-y-4"
                 >
-                  <h3 className="font-mono text-xs uppercase tracking-[0.24em] text-black dark:text-white">
+                  <h3 className="font-mono text-xs uppercase tracking-[0.24em] text-foreground">
                     {title}
                   </h3>
 
@@ -273,7 +273,7 @@ function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="inline-flex rounded-full text-sm font-medium text-[#111827] transition-colors duration-200 hover:text-[#d4a017] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:text-neutral-300 dark:hover:text-[#d4a017] dark:focus-visible:ring-offset-neutral-950"
+                          className="inline-flex rounded-full text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                         >
                           {item.name}
                         </Link>
@@ -289,40 +289,40 @@ function Footer() {
           <motion.div
             variants={itemVariants}
             transition={itemTransition}
-            className="flex flex-col justify-between gap-6 pt-8 text-sm text-[#111827] dark:text-neutral-300 lg:flex-row lg:items-center"
+            className="flex flex-col justify-between gap-6 pt-8 text-sm text-muted-foreground lg:flex-row lg:items-center"
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
               <div className="inline-flex items-center gap-2">
-                <Clock3 className="size-4 text-[#d4a017]" />
+                <Clock3 className="size-4 text-primary" />
                 <span>
-                  Lun — Ven : <strong className="font-bold text-black dark:text-white">8h — 17h</strong>
+                  Lun — Ven : <strong className="font-bold text-foreground">8h — 17h</strong>
                 </span>
               </div>
 
-              <span className="hidden h-1 w-1 rounded-full bg-[#d4a017] sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-primary sm:block" />
 
               <span>
-                Samedi : <strong className="font-bold text-black dark:text-white">8h — 12h</strong>
+                Samedi : <strong className="font-bold text-foreground">8h — 12h</strong>
               </span>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <p>
                 © {new Date().getFullYear()}{" "}
-                <span className="font-bold text-black dark:text-white">JI Construction</span>
+                <span className="font-bold text-foreground">JI Construction</span>
               </p>
 
               <div className="flex items-center gap-4">
                 <Link
                   href="/contact"
-                  className="rounded-full transition-colors hover:text-[#d4a017] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:focus-visible:ring-offset-neutral-950"
+                  className="rounded-full transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
                   Contact
                 </Link>
 
                 <Link
                   href="/devis"
-                  className="rounded-full transition-colors hover:text-[#d4a017] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a017] focus-visible:ring-offset-4 dark:focus-visible:ring-offset-neutral-950"
+                  className="rounded-full transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
                   Devis gratuit
                 </Link>

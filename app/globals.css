@@ -7,9 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
+  /* Premium typography tokens wired from next/font in app/layout.tsx */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-code);
+  --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -89,48 +90,48 @@
   --warm-gray: oklch(0.55 0.015 50);
   --copper: oklch(0.72 0.14 85);
   --warm-charcoal: oklch(0.13 0.015 50);
-  --warm-dark-bg: oklch(0.13 0.015 50);
+  --warm-dark-bg: oklch(0.18 0.035 255);
   --btp-zone: oklch(0.96 0.01 90); /* Very light grey */
   --bungalow-zone: oklch(0.94 0.03 50); /* Very light warm */
 }
 
 .dark {
-  /* JI Construction Dark Mode — Craft & Steel */
-  --background: oklch(0.13 0.015 50); /* noir acier */
-  --foreground: oklch(0.975 0.003 70); /* terre crème */
-  --card: oklch(0.16 0.012 50); /* graphite */
-  --card-foreground: oklch(0.975 0.003 70); /* terre crème */
-  --popover: oklch(0.16 0.012 50); /* graphite */
-  --popover-foreground: oklch(0.975 0.003 70); /* terre crème */
+  /* JI Construction Dark Mode — Navy & Copper */
+  --background: oklch(0.18 0.035 255); /* bleu marine profond */
+  --foreground: oklch(0.96 0.006 80); /* crème clair */
+  --card: oklch(0.22 0.035 255); /* navy légèrement plus clair */
+  --card-foreground: oklch(0.96 0.006 80); /* crème clair */
+  --popover: oklch(0.22 0.035 255); /* navy légèrement plus clair */
+  --popover-foreground: oklch(0.96 0.006 80); /* crème clair */
   --primary: oklch(0.72 0.14 85); /* cuivre */
-  --primary-foreground: oklch(0.13 0.015 50); /* noir acier */
-  --primary-text: oklch(0.72 0.14 85); /* cuivre sur fond sombre */
-  --secondary: oklch(0.2 0.012 50); /* stone-800 */
-  --secondary-foreground: oklch(0.975 0.003 70); /* terre crème */
-  --muted: oklch(0.2 0.012 50); /* stone-800 */
-  --muted-foreground: oklch(0.68 0.01 55); /* stone-400 */
-  --accent: oklch(0.2 0.012 50); /* stone-800 */
-  --accent-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --primary-foreground: oklch(0.13 0.015 50); /* texte foncé sur cuivre */
+  --primary-text: oklch(0.76 0.13 85); /* cuivre lisible sur navy */
+  --secondary: oklch(0.26 0.03 255); /* navy ardoise */
+  --secondary-foreground: oklch(0.96 0.006 80); /* crème clair */
+  --muted: oklch(0.26 0.03 255); /* navy ardoise */
+  --muted-foreground: oklch(0.74 0.015 250); /* gris bleuté clair */
+  --accent: oklch(0.34 0.045 250); /* bleu acier */
+  --accent-foreground: oklch(0.98 0.004 80); /* quasi blanc chaud */
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%); /* white/10% */
-  --input: oklch(1 0 0 / 12%); /* white/12% */
+  --border: oklch(1 0 0 / 12%); /* white/12% */
+  --input: oklch(1 0 0 / 14%); /* white/14% */
   --ring: oklch(0.72 0.14 85); /* cuivre */
   --chart-1: oklch(0.72 0.14 85); /* cuivre */
   --chart-2: oklch(0.6 0.12 80); /* cuivre foncé */
-  --chart-3: oklch(0.55 0.08 50); /* gris pierre */
-  --chart-4: oklch(0.45 0.012 50); /* stone-600 */
-  --chart-5: oklch(0.35 0.012 50); /* stone-700 */
-  --sidebar: oklch(0.16 0.012 50); /* graphite */
-  --sidebar-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --chart-3: oklch(0.48 0.06 250); /* bleu acier */
+  --chart-4: oklch(0.62 0.035 255); /* bleu ardoise clair */
+  --chart-5: oklch(0.78 0.02 245); /* bleu gris clair */
+  --sidebar: oklch(0.16 0.035 255); /* navy plus profond */
+  --sidebar-foreground: oklch(0.96 0.006 80); /* crème clair */
   --sidebar-primary: oklch(0.72 0.14 85); /* cuivre */
-  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* noir acier */
-  --sidebar-accent: oklch(0.2 0.012 50); /* stone-800 */
-  --sidebar-accent-foreground: oklch(0.975 0.003 70); /* terre crème */
-  --sidebar-border: oklch(1 0 0 / 10%); /* white/10% */
+  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* texte foncé sur cuivre */
+  --sidebar-accent: oklch(0.24 0.03 255); /* navy ardoise */
+  --sidebar-accent-foreground: oklch(0.96 0.006 80); /* crème clair */
+  --sidebar-border: oklch(1 0 0 / 12%); /* white/12% */
   --sidebar-ring: oklch(0.72 0.14 85); /* cuivre */
 
-  --btp-zone: oklch(0.16 0.012 50);
-  --bungalow-zone: oklch(0.45 0.08 40);
+  --btp-zone: oklch(0.22 0.035 255);
+  --bungalow-zone: oklch(0.32 0.045 245);
 }
 
 @layer base {
@@ -173,7 +174,7 @@
     -webkit-backdrop-filter: blur(12px) saturate(180%);
   }
   .dark .glass {
-    background: oklch(0.13 0.015 50 / 80%);
+    background: oklch(0.18 0.035 255 / 82%);
   }
   .text-shadow-hero {
     text-shadow: 0 2px 10px oklch(0 0 0 / 30%);
@@ -357,6 +358,121 @@
         transparent 100%
       ),
       radial-gradient(ellipse 14px 16px at 10% 80%, oklch(0.66 0.01 66 / 0.05) 0%, transparent 100%);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   Premium Typography System — JI Construction
+   Fonts:
+   - Display: Instrument Serif — editorial, premium, high-impact headings
+   - Body: Plus Jakarta Sans — geometric, modern, clean UI/body text
+   - Mono: JetBrains Mono — precise technical labels
+   ═══════════════════════════════════════════════════════ */
+
+@layer base {
+  html {
+    font-family: var(--font-body), system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    font-feature-settings:
+      "liga" 1,
+      "kern" 1;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .premium-page {
+    @apply bg-background text-foreground;
+  }
+
+  .premium-container {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .premium-section {
+    @apply relative overflow-hidden py-20 sm:py-28 lg:py-36;
+  }
+
+  .premium-section-xl {
+    @apply relative overflow-hidden py-24 sm:py-32 lg:py-44;
+  }
+
+  .premium-stack {
+    @apply space-y-5 sm:space-y-6;
+  }
+
+  .premium-eyebrow {
+    @apply font-mono text-[0.68rem] font-medium uppercase tracking-[0.28em] text-primary-text;
+  }
+
+  .premium-surtitre {
+    @apply inline-flex items-center gap-3 font-mono text-[0.68rem] font-medium uppercase tracking-[0.24em] text-muted-foreground;
+  }
+
+  .premium-surtitre::before {
+    content: "";
+    @apply h-px w-9 bg-primary/50;
+  }
+
+  .premium-hero-title {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    @apply max-w-5xl text-[clamp(4rem,11vw,10.5rem)] font-normal leading-[0.82] tracking-[-0.075em] text-foreground;
+  }
+
+  .premium-section-title {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    @apply max-w-3xl text-[clamp(3.2rem,6.8vw,6.8rem)] font-normal leading-[0.86] tracking-[-0.065em] text-foreground;
+  }
+
+  .premium-card-title {
+    @apply font-sans text-xl font-extrabold leading-[1.05] tracking-[-0.035em] text-foreground sm:text-2xl;
+  }
+
+  .premium-lead {
+    @apply max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg lg:text-xl;
+  }
+
+  .premium-body {
+    @apply text-sm leading-7 text-muted-foreground sm:text-base;
+  }
+
+  .premium-meta {
+    @apply font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted-foreground;
+  }
+
+  .premium-grid-gap {
+    @apply gap-5 sm:gap-6 lg:gap-8;
+  }
+
+  .premium-button {
+    @apply rounded-full px-7 py-4 text-sm font-bold tracking-[-0.01em];
   }
 }
 
