@@ -50,76 +50,87 @@
 }
 
 :root {
-  /* JI Construction Brand Palette */
-  --background: oklch(0.99 0.001 80);       /* stone-50 #fafaf9 */
-  --foreground: oklch(0.15 0.01 50);        /* stone-900 #1c1917 */
-  --card: oklch(1 0 0);                      /* white */
-  --card-foreground: oklch(0.15 0.01 50);   /* stone-900 */
-  --popover: oklch(1 0 0);                   /* white */
-  --popover-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --primary: oklch(0.84 0.16 70);           /* amber-500 #f59e0b */
-  --primary-foreground: oklch(1 0 0);       /* white */
-  --primary-text: oklch(0.65 0.13 60);     /* amber-700 ~4.8:1 on white */
-  --secondary: oklch(0.96 0.002 70);        /* stone-100 */
-  --secondary-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --muted: oklch(0.96 0.002 70);            /* stone-100 */
-  --muted-foreground: oklch(0.50 0.01 58);  /* stone-600 ~5.5:1 */
-  --accent: oklch(0.55 0.01 60);            /* stone-500 #78716c */
-  --accent-foreground: oklch(1 0 0);        /* white */
+  /* JI Construction Brand Palette — Craft & Steel */
+  --background: oklch(0.975 0.003 70); /* terre crème */
+  --foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --card: oklch(1 0 0); /* white */
+  --card-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --popover: oklch(1 0 0); /* white */
+  --popover-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --primary: oklch(0.72 0.14 85); /* cuivre/acier doré */
+  --primary-foreground: oklch(0.13 0.015 50); /* acier foncé (texte noir sur cuivre) */
+  --primary-text: oklch(0.55 0.13 80); /* cuivre foncé pour texte sur blanc */
+  --secondary: oklch(0.95 0.004 70); /* stone-100 crème */
+  --secondary-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --muted: oklch(0.95 0.004 70); /* stone-100 */
+  --muted-foreground: oklch(0.48 0.012 50); /* stone-600 */
+  --accent: oklch(0.55 0.08 50); /* gris pierre */
+  --accent-foreground: oklch(1 0 0); /* white */
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.003 70);           /* stone-200 */
-  --input: oklch(0.92 0.003 70);            /* stone-200 */
-  --ring: oklch(0.84 0.16 70);              /* amber-500 */
-  --chart-1: oklch(0.84 0.16 70);           /* amber-500 */
-  --chart-2: oklch(0.75 0.14 65);           /* amber-600 */
-  --chart-3: oklch(0.55 0.01 60);           /* stone-500 */
-  --chart-4: oklch(0.45 0.01 55);           /* stone-600 */
-  --chart-5: oklch(0.35 0.01 50);           /* stone-700 */
+  --border: oklch(0.91 0.005 70); /* stone-200 */
+  --input: oklch(0.91 0.005 70); /* stone-200 */
+  --ring: oklch(0.72 0.14 85); /* cuivre */
+  --chart-1: oklch(0.72 0.14 85); /* cuivre */
+  --chart-2: oklch(0.6 0.12 80); /* cuivre foncé */
+  --chart-3: oklch(0.55 0.08 50); /* gris pierre */
+  --chart-4: oklch(0.45 0.012 50); /* stone-600 */
+  --chart-5: oklch(0.35 0.012 50); /* stone-700 */
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.001 80);          /* stone-100 */
-  --sidebar-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --sidebar-primary: oklch(0.84 0.16 70);   /* amber-500 */
-  --sidebar-primary-foreground: oklch(1 0 0); /* white */
-  --sidebar-accent: oklch(0.96 0.002 70);   /* stone-100 */
-  --sidebar-accent-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --sidebar-border: oklch(0.92 0.003 70);   /* stone-200 */
-  --sidebar-ring: oklch(0.84 0.16 70);      /* amber-500 */
+  --sidebar: oklch(0.975 0.003 70); /* terre crème */
+  --sidebar-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --sidebar-primary: oklch(0.72 0.14 85); /* cuivre */
+  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --sidebar-accent: oklch(0.95 0.004 70); /* stone-100 */
+  --sidebar-accent-foreground: oklch(0.13 0.015 50); /* acier foncé */
+  --sidebar-border: oklch(0.91 0.005 70); /* stone-200 */
+  --sidebar-ring: oklch(0.72 0.14 85); /* cuivre */
+
+  /* Extended palette — Craft & Steel */
+  --warm-gray: oklch(0.55 0.015 50);
+  --copper: oklch(0.72 0.14 85);
+  --warm-charcoal: oklch(0.13 0.015 50);
+  --warm-dark-bg: oklch(0.13 0.015 50);
+  --btp-zone: oklch(0.96 0.01 90); /* Very light grey */
+  --bungalow-zone: oklch(0.94 0.03 50); /* Very light warm */
 }
 
 .dark {
-  /* JI Construction Dark Mode */
-  --background: oklch(0.12 0.01 50);        /* stone-950 */
-  --foreground: oklch(0.99 0.001 80);       /* stone-50 */
-  --card: oklch(0.15 0.01 50);              /* stone-900 */
-  --card-foreground: oklch(0.99 0.001 80);  /* stone-50 */
-  --popover: oklch(0.15 0.01 50);           /* stone-900 */
-  --popover-foreground: oklch(0.99 0.001 80); /* stone-50 */
-  --primary: oklch(0.84 0.16 70);           /* amber-500 */
-  --primary-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --primary-text: oklch(0.84 0.16 70);     /* amber-500 on dark bg */
-  --secondary: oklch(0.25 0.01 50);         /* stone-800 */
-  --secondary-foreground: oklch(0.99 0.001 80); /* stone-50 */
-  --muted: oklch(0.25 0.01 50);             /* stone-800 */
-  --muted-foreground: oklch(0.70 0.008 60); /* stone-400 */
-  --accent: oklch(0.25 0.01 50);            /* stone-800 */
-  --accent-foreground: oklch(0.99 0.001 80); /* stone-50 */
+  /* JI Construction Dark Mode — Craft & Steel */
+  --background: oklch(0.13 0.015 50); /* noir acier */
+  --foreground: oklch(0.975 0.003 70); /* terre crème */
+  --card: oklch(0.16 0.012 50); /* graphite */
+  --card-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --popover: oklch(0.16 0.012 50); /* graphite */
+  --popover-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --primary: oklch(0.72 0.14 85); /* cuivre */
+  --primary-foreground: oklch(0.13 0.015 50); /* noir acier */
+  --primary-text: oklch(0.72 0.14 85); /* cuivre sur fond sombre */
+  --secondary: oklch(0.2 0.012 50); /* stone-800 */
+  --secondary-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --muted: oklch(0.2 0.012 50); /* stone-800 */
+  --muted-foreground: oklch(0.68 0.01 55); /* stone-400 */
+  --accent: oklch(0.2 0.012 50); /* stone-800 */
+  --accent-foreground: oklch(0.975 0.003 70); /* terre crème */
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%);             /* white/12% */
-  --input: oklch(1 0 0 / 15%);              /* white/15% */
-  --ring: oklch(0.84 0.16 70);              /* amber-500 */
-  --chart-1: oklch(0.84 0.16 70);           /* amber-500 */
-  --chart-2: oklch(0.75 0.14 65);           /* amber-600 */
-  --chart-3: oklch(0.55 0.01 60);           /* stone-500 */
-  --chart-4: oklch(0.45 0.01 55);           /* stone-600 */
-  --chart-5: oklch(0.35 0.01 50);           /* stone-700 */
-  --sidebar: oklch(0.15 0.01 50);           /* stone-900 */
-  --sidebar-foreground: oklch(0.99 0.001 80); /* stone-50 */
-  --sidebar-primary: oklch(0.84 0.16 70);   /* amber-500 */
-  --sidebar-primary-foreground: oklch(0.15 0.01 50); /* stone-900 */
-  --sidebar-accent: oklch(0.25 0.01 50);    /* stone-800 */
-  --sidebar-accent-foreground: oklch(0.99 0.001 80); /* stone-50 */
-  --sidebar-border: oklch(1 0 0 / 12%);     /* white/12% */
-  --sidebar-ring: oklch(0.84 0.16 70);      /* amber-500 */
+  --border: oklch(1 0 0 / 10%); /* white/10% */
+  --input: oklch(1 0 0 / 12%); /* white/12% */
+  --ring: oklch(0.72 0.14 85); /* cuivre */
+  --chart-1: oklch(0.72 0.14 85); /* cuivre */
+  --chart-2: oklch(0.6 0.12 80); /* cuivre foncé */
+  --chart-3: oklch(0.55 0.08 50); /* gris pierre */
+  --chart-4: oklch(0.45 0.012 50); /* stone-600 */
+  --chart-5: oklch(0.35 0.012 50); /* stone-700 */
+  --sidebar: oklch(0.16 0.012 50); /* graphite */
+  --sidebar-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --sidebar-primary: oklch(0.72 0.14 85); /* cuivre */
+  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* noir acier */
+  --sidebar-accent: oklch(0.2 0.012 50); /* stone-800 */
+  --sidebar-accent-foreground: oklch(0.975 0.003 70); /* terre crème */
+  --sidebar-border: oklch(1 0 0 / 10%); /* white/10% */
+  --sidebar-ring: oklch(0.72 0.14 85); /* cuivre */
+
+  --btp-zone: oklch(0.16 0.012 50);
+  --bungalow-zone: oklch(0.45 0.08 40);
 }
 
 @layer base {
@@ -151,29 +162,201 @@
 
 @layer utilities {
   .text-gradient-amber {
-    background: linear-gradient(135deg, oklch(0.84 0.16 70), oklch(0.75 0.14 55));
+    background: linear-gradient(135deg, oklch(0.72 0.14 85), oklch(0.6 0.12 80));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .glass {
-    background: oklch(1 0 0 / 70%);
+    background: oklch(0.975 0.003 70 / 80%);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
   }
   .dark .glass {
-    background: oklch(0.12 0.01 50 / 70%);
+    background: oklch(0.13 0.015 50 / 80%);
   }
   .text-shadow-hero {
     text-shadow: 0 2px 10px oklch(0 0 0 / 30%);
   }
   .dot-pattern {
-    background-image: radial-gradient(oklch(0.15 0.01 50 / 8%) 1px, transparent 1px);
+    background-image: radial-gradient(oklch(0.13 0.015 50 / 8%) 1px, transparent 1px);
     background-size: 24px 24px;
   }
   .dark .dot-pattern {
     background-image: radial-gradient(oklch(1 0 0 / 8%) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Grain / noise texture overlay */
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  /* Architectural decorative line */
+  .architectural-line {
+    position: relative;
+  }
+  .architectural-line::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--primary) 20%,
+      var(--primary) 80%,
+      transparent
+    );
+    opacity: 0.15;
+  }
+
+  /* Architectural grid pattern */
+  .arch-grid-pattern {
+    background-image:
+      linear-gradient(oklch(1 0 0 / 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ═══ Craft Section Textures ═══ */
+
+  /* Polished concrete texture — very subtle noise + slight grain */
+  .concrete-texture {
+    position: relative;
+  }
+  .concrete-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+    background-size: 512px 512px;
+  }
+
+  /* Blueprint / technical drawing lines overlay */
+  .blueprint-overlay {
+    position: relative;
+  }
+  .blueprint-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image:
+      /* Major grid */
+      linear-gradient(oklch(0.55 0.08 250 / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.55 0.08 250 / 0.5) 1px, transparent 1px),
+      /* Minor grid */ linear-gradient(oklch(0.55 0.08 250 / 0.25) 0.5px, transparent 0.5px),
+      linear-gradient(90deg, oklch(0.55 0.08 250 / 0.25) 0.5px, transparent 0.5px);
+    background-size:
+      80px 80px,
+      80px 80px,
+      20px 20px,
+      20px 20px;
+  }
+
+  /* Architectural bevel for cards */
+  .card-bevel {
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 0.08),
+      inset 0 -1px 0 oklch(0 0 0 / 0.15),
+      inset 1px 0 0 oklch(1 0 0 / 0.04),
+      inset -1px 0 0 oklch(0 0 0 / 0.08),
+      0 8px 32px oklch(0 0 0 / 0.12),
+      0 2px 8px oklch(0 0 0 / 0.08);
+  }
+
+  /* Wood grain texture for hover */
+  .wood-texture-overlay {
+    background-image:
+      repeating-linear-gradient(
+        87deg,
+        oklch(0.55 0.06 50 / 0.06) 0px,
+        transparent 2px,
+        transparent 12px,
+        oklch(0.55 0.06 50 / 0.04) 14px,
+        transparent 16px,
+        transparent 28px
+      ),
+      repeating-linear-gradient(
+        93deg,
+        oklch(0.5 0.05 45 / 0.04) 0px,
+        transparent 1px,
+        transparent 18px,
+        oklch(0.5 0.05 45 / 0.03) 20px,
+        transparent 22px,
+        transparent 36px
+      );
+  }
+
+  /* Hero mesh gradient animation helper */
+  .hero-mesh-gradient {
+    will-change: background;
+  }
+
+  /* Floating shape gentle drift */
+  @keyframes gentle-drift {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(1deg); }
+    50% { transform: translateY(-3px) rotate(-0.5deg); }
+    75% { transform: translateY(-10px) rotate(0.5deg); }
+  }
+
+  .gentle-drift {
+    animation: gentle-drift 12s ease-in-out infinite;
+  }
+
+  /* Copper pulse glow */
+  @keyframes copper-pulse {
+    0%, 100% { opacity: 0.04; }
+    50% { opacity: 0.07; }
+  }
+
+  .copper-pulse {
+    animation: copper-pulse 6s ease-in-out infinite;
+  }
+
+  /* Blueprint line draw */
+  @keyframes draw-line {
+    from { stroke-dashoffset: 100%; }
+    to { stroke-dashoffset: 0%; }
+  }
+
+  /* Stone texture for renovation card */
+  .stone-texture-overlay {
+    background-image:
+      radial-gradient(ellipse 15px 12px at 20% 30%, oklch(0.7 0.01 70 / 0.05) 0%, transparent 100%),
+      radial-gradient(
+        ellipse 20px 14px at 60% 50%,
+        oklch(0.65 0.01 65 / 0.04) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 12px 18px at 80% 20%,
+        oklch(0.72 0.01 72 / 0.05) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 18px 10px at 40% 70%,
+        oklch(0.68 0.01 68 / 0.04) 0%,
+        transparent 100%
+      ),
+      radial-gradient(ellipse 14px 16px at 10% 80%, oklch(0.66 0.01 66 / 0.05) 0%, transparent 100%);
   }
 }
 

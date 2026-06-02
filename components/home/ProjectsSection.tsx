@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
@@ -16,36 +17,42 @@ const projects = [
   {
     title: "Villa Andoharanofotsy",
     category: "Résidentiel",
+    division: "btp" as const,
     image: "/images/projects/villa-andoharanofotsy.jpg",
     year: "2024",
   },
   {
     title: "Bungalow Nosy Be",
     category: "Bungalow",
+    division: "bungalow" as const,
     image: "/images/projects/bungalow-nosy-be.jpg",
     year: "2023",
   },
   {
     title: "Centre commercial Analakely",
     category: "Commercial",
+    division: "btp" as const,
     image: "/images/projects/centre-commercial-analakely.jpg",
     year: "2024",
   },
   {
     title: "Résidence Ivandry",
     category: "Résidentiel",
+    division: "btp" as const,
     image: "/images/projects/residence-ivandry.jpg",
     year: "2023",
   },
   {
     title: "Bungalow Mahajanga",
     category: "Bungalow",
+    division: "bungalow" as const,
     image: "/images/projects/bungalow-majunga.jpg",
     year: "2024",
   },
   {
     title: "Entrepôt Tamatave",
     category: "Industriel",
+    division: "btp" as const,
     image: "/images/projects/entrepot-tamatave.jpg",
     year: "2023",
   },
@@ -53,31 +60,36 @@ const projects = [
 
 function ProjectsSection() {
   return (
-    <section className="py-20 sm:py-28 relative">
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      {/* Subtle background accent */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 60% 40% at 80% 20%, oklch(0.72 0.14 85 / 0.02), transparent 60%)",
+        }}
+      />
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        {/* Header - left aligned */}
+        {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
           variants={staggerContainer(0.1)}
-          className="mb-14"
+          className="mb-16 sm:mb-20"
         >
-          <motion.div
+          <motion.span
             variants={slideUp}
             transition={transitionSmooth}
-            className="flex items-center gap-3 mb-4"
+            className="text-xs text-muted-foreground/60 uppercase tracking-[0.3em] font-mono block mb-3"
           >
-            <div className="w-8 h-px bg-primary" />
-            <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">
-              Portfolio
-            </span>
-          </motion.div>
+            04 — Portfolio
+          </motion.span>
           <div className="flex items-end justify-between gap-8">
             <motion.h2
               variants={slideUp}
               transition={transitionSmooth}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] leading-[1.05]"
             >
               Nos réalisations.
             </motion.h2>
@@ -124,11 +136,22 @@ function ProjectsSection() {
                   {/* Dark overlay that eases on hover */}
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
 
+                  {/* Top-left corner decoration */}
+                  <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M0 0 L20 0 L20 4 L4 4 L4 20 L0 20 Z" fill="oklch(0.72 0.14 85 / 0.3)" />
+                    </svg>
+                  </div>
+
                   {/* Bottom info bar */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                     <div className="flex items-end justify-between gap-2">
                       <div>
                         <p className="text-[10px] text-white/50 uppercase tracking-wider mb-1">
+                          <span className={project.division === "btp" ? "text-primary/80" : "text-white/60"}>
+                            {project.division === "btp" ? "BTP" : "Bungalow"}
+                          </span>
+                          {" "}&middot;{" "}
                           {project.category} — {project.year}
                         </p>
                         <h3 className="text-base sm:text-lg font-semibold text-white font-[family-name:var(--font-heading)] leading-tight">
@@ -144,6 +167,26 @@ function ProjectsSection() {
               </motion.div>
             )
           })}
+        </motion.div>
+
+        {/* See all projects link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={transitionSmooth}
+          className="mt-12 flex justify-center"
+        >
+          <Link
+            href="/prestations"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            <span className="relative">
+              Voir tous les projets
+              <span className="absolute bottom-0 left-0 w-0 group-hover:w-full h-[1px] bg-foreground/30 transition-all duration-300" />
+            </span>
+            <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+          </Link>
         </motion.div>
       </div>
     </section>

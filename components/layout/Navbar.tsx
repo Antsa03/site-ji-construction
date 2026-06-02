@@ -52,21 +52,11 @@ function Navbar() {
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="group" transitionTypes={["nav-back"]}>
-          <Logo
-            animate
-            size="sm"
-            className={cn(
-              "transition-opacity duration-300",
-              isTransparent && "[&_span]:text-white [&_.text-primary]:text-white"
-            )}
-          />
+          <Logo animate size="lg" className="transition-opacity duration-300" />
         </Link>
 
         {/* Desktop nav */}
-        <div
-          className="hidden items-center md:flex"
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
+        <div className="hidden items-center md:flex" onMouseLeave={() => setHoveredIndex(null)}>
           {navLinks.map((link, index) => {
             const isActive = pathname === link.href
 
@@ -78,15 +68,10 @@ function Navbar() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={cn(
                   "relative px-4 py-2 text-[13px] font-medium transition-colors duration-200 rounded-md",
-                  isTransparent
-                    ? cn(
-                        "text-white/70 hover:text-white",
-                        isActive && "text-white"
-                      )
-                    : cn(
-                        "hover:text-foreground",
-                        isActive ? "text-foreground" : "text-muted-foreground"
-                      )
+                  cn(
+                    "hover:text-foreground",
+                    isActive ? "text-foreground" : "text-muted-foreground"
+                  )
                 )}
               >
                 {/* Hover pill background */}
@@ -94,10 +79,7 @@ function Navbar() {
                   {hoveredIndex === index && (
                     <motion.span
                       layoutId="nav-hover"
-                      className={cn(
-                        "absolute inset-0 rounded-md",
-                        isTransparent ? "bg-white/10" : "bg-muted"
-                      )}
+                      className="absolute inset-0 rounded-md bg-muted"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -116,7 +98,7 @@ function Navbar() {
                     layoutId="nav-active"
                     className={cn(
                       "absolute bottom-0.5 left-4 right-4 h-[2px] rounded-full",
-                      isTransparent ? "bg-white" : "bg-primary"
+                      "bg-primary"
                     )}
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
@@ -133,17 +115,25 @@ function Navbar() {
           <button
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             className={cn(
-              "flex size-8 items-center justify-center rounded-full transition-colors duration-200",
-              isTransparent
-                ? "text-white/60 hover:text-white hover:bg-white/10"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              "flex size-8 items-center justify-center rounded-full transition-colors duration-200"
+              // isTransparent
+              //   ? "text-white/60 hover:text-white hover:bg-white/10"
+              //   : "text-muted-foreground hover:text-foreground hover:bg-muted"
             )}
             aria-label="Changer le thème"
           >
             {resolvedTheme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
           </button>
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Button size="sm" className="rounded-full px-5 text-[13px]" asChild>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="cursor-pointer"
+          >
+            <Button
+              size="sm"
+              className="rounded-full px-5 text-[13px] shadow-sm shadow-primary/10 text-white"
+              asChild
+            >
               <Link href="/devis">Devis gratuit</Link>
             </Button>
           </motion.div>

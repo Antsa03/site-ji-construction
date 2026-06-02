@@ -100,3 +100,26 @@ export const sectionEntrance: Variants = {
     },
   },
 }
+
+// --- Horizontal reveal for connecting lines ---
+
+export const horizontalReveal: Variants = {
+  hidden: { scaleX: 0 },
+  visible: { scaleX: 1 },
+}
+
+// --- Scale up for decorative numbers ---
+
+export const numberReveal: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+}
+
+// --- Transition presets ---
+
+export const transitionElastic: Transition = {
+  type: "spring",
+  stiffness: 80,
+  damping: 12,
+  mass: 0.8,
+}
