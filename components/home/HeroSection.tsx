@@ -884,7 +884,7 @@ function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100svh] overflow-hidden pt-24 pb-28 sm:flex sm:min-h-[92svh] sm:items-center sm:pt-20 sm:pb-0"
+      className="relative min-h-[100svh] overflow-hidden pt-28 pb-28 sm:flex sm:min-h-[92svh] sm:items-center sm:pt-20 sm:pb-0"
     >
       {/* Layer 1 : base */}
       <div className="absolute inset-0 bg-background" />
