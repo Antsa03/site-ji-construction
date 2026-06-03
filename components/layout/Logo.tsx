@@ -45,17 +45,36 @@ function Logo({ className, size = "md", animate = false }: LogoProps) {
 
   return (
     <div className={cn("flex items-center gap-0", className)}>
-      <Image
-        src="/ji-logo.png"
-        alt="JI Construction Logo"
-        width={s.width}
-        height={s.height}
+      <div
         className={cn(
-          "shrink-0 object-contain",
+          "relative shrink-0",
           animate && "transition-transform duration-300 hover:scale-105"
         )}
-        priority
-      />
+        style={{
+          width: s.width,
+          height: s.height,
+        }}
+      >
+        {/* Logo light mode */}
+        <Image
+          src="/ji-logo-light.png"
+          alt="JI Construction Logo"
+          width={s.width}
+          height={s.height}
+          className="block h-full w-full object-contain dark:hidden"
+          priority
+        />
+
+        {/* Logo dark mode */}
+        <Image
+          src="/ji-logo-dark.png"
+          alt="JI Construction Logo"
+          width={s.width}
+          height={s.height}
+          className="hidden h-full w-full object-contain dark:block"
+          priority
+        />
+      </div>
 
       <div className={cn("flex flex-col justify-center", s.offset)}>
         <span
@@ -73,7 +92,7 @@ function Logo({ className, size = "md", animate = false }: LogoProps) {
             s.label
           )}
         >
-          BTP & Bungalows
+          BTP &amp; Bungalows
         </span>
       </div>
     </div>

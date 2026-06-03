@@ -33,6 +33,12 @@ function Navbar() {
   const { resolvedTheme, setTheme } = useTheme()
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
 
+  const isDark = resolvedTheme === "dark"
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark")
+  }
+
   return (
     <header
       style={{ viewTransitionName: "site-header" }}
@@ -100,13 +106,11 @@ function Navbar() {
         <div className="hidden items-center gap-2 md:flex">
           <button
             type="button"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="flex size-11 items-center justify-center cursor-pointer rounded-full text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
-            aria-label={
-              resolvedTheme === "dark" ? "Activer le thème clair" : "Activer le thème sombre"
-            }
+            onClick={toggleTheme}
+            className="flex size-11 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors duration-200 hover:bg-muted hover:text-foreground"
+            aria-label={isDark ? "Activer le thème clair" : "Activer le thème sombre"}
           >
-            {resolvedTheme === "dark" ? <Sun className="size-6" /> : <Moon className="size-6" />}
+            {isDark ? <Sun className="size-6" /> : <Moon className="size-6" />}
           </button>
 
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -130,7 +134,10 @@ function Navbar() {
             </Button>
           </SheetTrigger>
 
-          <SheetContent side="right" className="w-[min(92vw,24rem)] border-l border-border bg-background/[0.98] px-0">
+          <SheetContent
+            side="right"
+            className="w-[min(92vw,24rem)] border-l border-border bg-background/[0.98] px-0"
+          >
             <SheetHeader>
               <SheetTitle className="text-left">
                 <Logo size="sm" />
@@ -161,10 +168,46 @@ function Navbar() {
                 </SheetClose>
               ))}
 
+              {/* Mobile theme toggle */}
               <motion.div
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3, duration: 0.25 }}
+                transition={{ delay: 0.27, duration: 0.25 }}
+                className="mt-3"
+              >
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="flex min-h-12 w-full items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 text-left text-sm font-semibold text-foreground transition-colors duration-200 hover:bg-muted"
+                  aria-label={isDark ? "Activer le thème clair" : "Activer le thème sombre"}
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="flex size-9 items-center justify-center rounded-full border border-border bg-background text-primary-text">
+                      {isDark ? (
+                        <Sun className="size-4" aria-hidden="true" />
+                      ) : (
+                        <Moon className="size-4" aria-hidden="true" />
+                      )}
+                    </span>
+
+                    <span className="flex flex-col">
+                      <span>{isDark ? "Mode clair" : "Mode sombre"}</span>
+                      <span className="mt-0.5 text-xs font-medium text-muted-foreground">
+                        Changer l’apparence du site
+                      </span>
+                    </span>
+                  </span>
+
+                  <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    {isDark ? "Light" : "Dark"}
+                  </span>
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.32, duration: 0.25 }}
                 className="mt-6 px-0"
               >
                 <SheetClose asChild>
@@ -177,7 +220,7 @@ function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.35, duration: 0.25 }}
+                transition={{ delay: 0.37, duration: 0.25 }}
                 className="mt-6 border-t border-border px-0 pt-5"
               >
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
