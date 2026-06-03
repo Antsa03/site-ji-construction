@@ -43,6 +43,8 @@ function FormPhone({
           inputMode="tel"
           required={required}
           aria-invalid={!!error}
+          aria-describedby={[error ? `${name}-error` : undefined, hint ? `${name}-hint` : undefined].filter(Boolean).join(" ") || undefined}
+          name={name}
           className={cn(
             "h-14 w-full rounded-lg border border-border bg-white dark:bg-[#1e1e1e] pl-[76px] pr-4 text-sm text-foreground",
             "outline-none transition-all duration-200",

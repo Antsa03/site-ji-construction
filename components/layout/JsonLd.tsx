@@ -1,3 +1,5 @@
+import Script from "next/script"
+
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
@@ -86,9 +88,13 @@ function JsonLd() {
   }
 
   return (
-    <script
+    <Script
+      id="ji-construction-jsonld"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      strategy="beforeInteractive"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema),
+      }}
     />
   )
 }

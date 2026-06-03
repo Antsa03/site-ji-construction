@@ -35,8 +35,9 @@ function FormInput({
       <input
         id={name}
         required={required}
+        name={name}
         aria-invalid={!!error}
-        aria-describedby={error ? `${name}-error` : undefined}
+        aria-describedby={[error ? `${name}-error` : undefined, hint ? `${name}-hint` : undefined].filter(Boolean).join(" ") || undefined}
         className={cn(
           "h-14 w-full rounded-lg border border-border bg-white dark:bg-[#1e1e1e] px-4 text-sm text-foreground",
           "outline-none transition-all duration-200",

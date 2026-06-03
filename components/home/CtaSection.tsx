@@ -448,7 +448,7 @@ function CtaSection() {
                   className="rounded-full px-7 py-3 text-sm font-semibold shadow-lg shadow-primary/20"
                   asChild
                 >
-                  <Link href="/devis" className="inline-flex items-center gap-2 text-white">
+                  <Link href="/devis" className="inline-flex items-center gap-2">
                     Lancer votre projet BTP
                     <ArrowRight className="size-4" />
                   </Link>

@@ -26,6 +26,8 @@ interface FormSelectProps {
   success?: boolean
   required?: boolean
   hint?: string
+  value?: string
+  onValueChange?: (value: string) => void
 }
 
 function FormSelect({
@@ -37,6 +39,8 @@ function FormSelect({
   success,
   required,
   hint,
+  value,
+  onValueChange,
 }: FormSelectProps) {
   return (
     <FormField
@@ -47,13 +51,18 @@ function FormSelect({
       required={required}
       hint={hint}
     >
-      <Select required={required}>
+      <Select required={required} value={value} onValueChange={onValueChange} name={name}>
         <SelectTrigger
+          id={name}
+          aria-invalid={!!error}
+          aria-describedby={[error ? `${name}-error` : undefined, hint ? `${name}-hint` : undefined]
+            .filter(Boolean)
+            .join(" ") || undefined}
           className={cn(
-            "h-14 rounded-lg border border-border bg-white dark:bg-[#1e1e1e] px-4 text-sm",
+            "min-h-14 rounded-lg border border-border bg-white dark:bg-[#1e1e1e] px-4 text-sm",
             "hover:border-foreground/20 focus:border-[#D4A24C] focus:ring-2 focus:ring-[#D4A24C]/15",
-            error && "border-[#C2553D]",
-            success && "border-[#7A9B7E]/30",
+            error && "border-[#A23E2F] focus:border-[#A23E2F] focus:ring-[#A23E2F]/10",
+            success && "border-[#4F7A54]/40",
             "dark:bg-input/30 dark:hover:bg-input/50"
           )}
         >
@@ -61,10 +70,12 @@ function FormSelect({
         </SelectTrigger>
         <SelectContent className="rounded-lg">
           {options.map((option) => (
-            <SelectItem key={option.value} value={option.value} className="rounded-md">
+            <SelectItem key={option.value} value={option.value} className="min-h-11 rounded-md">
               <span className="flex items-center gap-2.5">
                 {option.icon && (
-                  <span className="text-muted-foreground/70 shrink-0">{option.icon}</span>
+                  <span className="text-muted-foreground/70 shrink-0" aria-hidden="true">
+                    {option.icon}
+                  </span>
                 )}
                 {option.label}
               </span>

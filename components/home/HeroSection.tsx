@@ -878,7 +878,7 @@ function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-end pb-20 sm:items-center sm:pb-0 overflow-hidden"
+      className="relative min-h-[92svh] flex items-end pt-20 pb-20 sm:items-center sm:pb-0 overflow-hidden"
     >
       {/* ─── Layer 1 : base ─── */}
       <div className="absolute inset-0 bg-background" />
@@ -950,7 +950,7 @@ function HeroSection() {
         className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
         style={{ opacity: contentOpacity, y: contentY }}
       >
-        <div className="max-w-3xl">
+        <div>
           <motion.div
             initial="hidden"
             animate="visible"
@@ -995,7 +995,7 @@ function HeroSection() {
               }}
               className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-extrabold leading-[0.92] tracking-tight text-foreground"
             >
-              <span className="block">Bâtit pour</span>
+              <span className="block">Construire juste.</span>
               <motion.span
                 className="block bg-gradient-to-r text-primary dark:from-amber-400 dark:via-amber-300 dark:to-amber-500 bg-clip-text"
                 initial={{ opacity: 0, x: -20 }}
@@ -1006,7 +1006,7 @@ function HeroSection() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                durer.
+                Bâtir durable.
               </motion.span>
             </motion.h1>
 
@@ -1017,8 +1017,8 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 1 }}
               className="text-base sm:text-lg max-w-xl leading-relaxed text-muted-foreground"
             >
-              Chantiers d&apos;envergure. Bungalows sur mesure. Un seul partenaire&nbsp;: JI
-              Construction, Madagascar.
+              Construction, rénovation et bungalows sur mesure à Madagascar. Des projets bien
+              conçus, bien chiffrés, bien réalisés.
             </motion.p>
 
             {/* CTAs */}
@@ -1034,8 +1034,8 @@ function HeroSection() {
                   className="rounded-full px-7 text-sm font-semibold shadow-lg shadow-primary/25"
                   asChild
                 >
-                  <Link href="/devis" className="inline-flex items-center gap-2 text-white">
-                    Demander une étude de chantier
+                  <Link href="/devis" className="inline-flex items-center gap-2">
+                    Demander un devis gratuit
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -1048,7 +1048,7 @@ function HeroSection() {
                   asChild
                 >
                   <Link href="/bungalows" className="inline-flex items-center gap-2">
-                    Voir nos bungalows
+                    Comparer les bungalows
                     <ChevronRight className="size-4" />
                   </Link>
                 </Button>
@@ -1094,7 +1094,7 @@ function HeroSection() {
               {[
                 { value: "15+", label: "ans" },
                 { value: "100+", label: "projets" },
-                { value: "98%", label: "délais tenus" },
+                { value: "24h", label: "réponse devis" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}

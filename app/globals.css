@@ -7,10 +7,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* Premium typography tokens wired from next/font in app/layout.tsx */
+
+  /* JI Construction typography tokens */
   --font-sans: var(--font-body);
   --font-mono: var(--font-code);
   --font-heading: var(--font-display);
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -41,6 +43,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -52,83 +55,104 @@
 
 :root {
   /* JI Construction Brand Palette — Craft & Steel */
-  --background: oklch(0.975 0.003 70); /* terre crème */
-  --foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --card: oklch(1 0 0); /* white */
-  --card-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --popover: oklch(1 0 0); /* white */
-  --popover-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --primary: oklch(0.72 0.14 85); /* cuivre/acier doré */
-  --primary-foreground: oklch(0.13 0.015 50); /* acier foncé (texte noir sur cuivre) */
-  --primary-text: oklch(0.55 0.13 80); /* cuivre foncé pour texte sur blanc */
-  --secondary: oklch(0.95 0.004 70); /* stone-100 crème */
-  --secondary-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --muted: oklch(0.95 0.004 70); /* stone-100 */
-  --muted-foreground: oklch(0.48 0.012 50); /* stone-600 */
-  --accent: oklch(0.55 0.08 50); /* gris pierre */
-  --accent-foreground: oklch(1 0 0); /* white */
+  --background: oklch(0.975 0.003 70);
+  --foreground: oklch(0.13 0.015 50);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0.015 50);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0.015 50);
+
+  --primary: oklch(0.72 0.14 85);
+  --primary-foreground: oklch(0.985 0.01 95);
+  --primary-text: oklch(0.55 0.13 80);
+
+  --secondary: oklch(0.95 0.004 70);
+  --secondary-foreground: oklch(0.13 0.015 50);
+
+  --muted: oklch(0.95 0.004 70);
+  --muted-foreground: oklch(0.48 0.012 50);
+
+  --accent: oklch(0.55 0.08 50);
+  --accent-foreground: oklch(1 0 0);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.005 70); /* stone-200 */
-  --input: oklch(0.91 0.005 70); /* stone-200 */
-  --ring: oklch(0.72 0.14 85); /* cuivre */
-  --chart-1: oklch(0.72 0.14 85); /* cuivre */
-  --chart-2: oklch(0.6 0.12 80); /* cuivre foncé */
-  --chart-3: oklch(0.55 0.08 50); /* gris pierre */
-  --chart-4: oklch(0.45 0.012 50); /* stone-600 */
-  --chart-5: oklch(0.35 0.012 50); /* stone-700 */
+
+  --border: oklch(0.91 0.005 70);
+  --input: oklch(0.91 0.005 70);
+  --ring: oklch(0.72 0.14 85);
+
+  --chart-1: oklch(0.72 0.14 85);
+  --chart-2: oklch(0.6 0.12 80);
+  --chart-3: oklch(0.55 0.08 50);
+  --chart-4: oklch(0.45 0.012 50);
+  --chart-5: oklch(0.35 0.012 50);
+
   --radius: 0.625rem;
-  --sidebar: oklch(0.975 0.003 70); /* terre crème */
-  --sidebar-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --sidebar-primary: oklch(0.72 0.14 85); /* cuivre */
-  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --sidebar-accent: oklch(0.95 0.004 70); /* stone-100 */
-  --sidebar-accent-foreground: oklch(0.13 0.015 50); /* acier foncé */
-  --sidebar-border: oklch(0.91 0.005 70); /* stone-200 */
-  --sidebar-ring: oklch(0.72 0.14 85); /* cuivre */
+
+  --sidebar: oklch(0.975 0.003 70);
+  --sidebar-foreground: oklch(0.13 0.015 50);
+  --sidebar-primary: oklch(0.72 0.14 85);
+  --sidebar-primary-foreground: oklch(0.13 0.015 50);
+  --sidebar-accent: oklch(0.95 0.004 70);
+  --sidebar-accent-foreground: oklch(0.13 0.015 50);
+  --sidebar-border: oklch(0.91 0.005 70);
+  --sidebar-ring: oklch(0.72 0.14 85);
 
   /* Extended palette — Craft & Steel */
   --warm-gray: oklch(0.55 0.015 50);
   --copper: oklch(0.72 0.14 85);
   --warm-charcoal: oklch(0.13 0.015 50);
   --warm-dark-bg: oklch(0.18 0.035 255);
-  --btp-zone: oklch(0.96 0.01 90); /* Very light grey */
-  --bungalow-zone: oklch(0.94 0.03 50); /* Very light warm */
+  --btp-zone: oklch(0.96 0.01 90);
+  --bungalow-zone: oklch(0.94 0.03 50);
 }
 
 .dark {
   /* JI Construction Dark Mode — Navy & Copper */
-  --background: oklch(0.18 0.035 255); /* bleu marine profond */
-  --foreground: oklch(0.96 0.006 80); /* crème clair */
-  --card: oklch(0.22 0.035 255); /* navy légèrement plus clair */
-  --card-foreground: oklch(0.96 0.006 80); /* crème clair */
-  --popover: oklch(0.22 0.035 255); /* navy légèrement plus clair */
-  --popover-foreground: oklch(0.96 0.006 80); /* crème clair */
-  --primary: oklch(0.72 0.14 85); /* cuivre */
-  --primary-foreground: oklch(0.13 0.015 50); /* texte foncé sur cuivre */
-  --primary-text: oklch(0.76 0.13 85); /* cuivre lisible sur navy */
-  --secondary: oklch(0.26 0.03 255); /* navy ardoise */
-  --secondary-foreground: oklch(0.96 0.006 80); /* crème clair */
-  --muted: oklch(0.26 0.03 255); /* navy ardoise */
-  --muted-foreground: oklch(0.74 0.015 250); /* gris bleuté clair */
-  --accent: oklch(0.34 0.045 250); /* bleu acier */
-  --accent-foreground: oklch(0.98 0.004 80); /* quasi blanc chaud */
+  --background: oklch(0.18 0.035 255);
+  --foreground: oklch(0.96 0.006 80);
+
+  --card: oklch(0.22 0.035 255);
+  --card-foreground: oklch(0.96 0.006 80);
+
+  --popover: oklch(0.22 0.035 255);
+  --popover-foreground: oklch(0.96 0.006 80);
+
+  --primary: oklch(0.72 0.14 85);
+  --primary-foreground: oklch(0.985 0.01 95);
+  --primary-text: oklch(0.76 0.13 85);
+
+  --secondary: oklch(0.26 0.03 255);
+  --secondary-foreground: oklch(0.96 0.006 80);
+
+  --muted: oklch(0.26 0.03 255);
+  --muted-foreground: oklch(0.74 0.015 250);
+
+  --accent: oklch(0.34 0.045 250);
+  --accent-foreground: oklch(0.98 0.004 80);
+
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%); /* white/12% */
-  --input: oklch(1 0 0 / 14%); /* white/14% */
-  --ring: oklch(0.72 0.14 85); /* cuivre */
-  --chart-1: oklch(0.72 0.14 85); /* cuivre */
-  --chart-2: oklch(0.6 0.12 80); /* cuivre foncé */
-  --chart-3: oklch(0.48 0.06 250); /* bleu acier */
-  --chart-4: oklch(0.62 0.035 255); /* bleu ardoise clair */
-  --chart-5: oklch(0.78 0.02 245); /* bleu gris clair */
-  --sidebar: oklch(0.16 0.035 255); /* navy plus profond */
-  --sidebar-foreground: oklch(0.96 0.006 80); /* crème clair */
-  --sidebar-primary: oklch(0.72 0.14 85); /* cuivre */
-  --sidebar-primary-foreground: oklch(0.13 0.015 50); /* texte foncé sur cuivre */
-  --sidebar-accent: oklch(0.24 0.03 255); /* navy ardoise */
-  --sidebar-accent-foreground: oklch(0.96 0.006 80); /* crème clair */
-  --sidebar-border: oklch(1 0 0 / 12%); /* white/12% */
-  --sidebar-ring: oklch(0.72 0.14 85); /* cuivre */
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.14 85);
+
+  --chart-1: oklch(0.72 0.14 85);
+  --chart-2: oklch(0.6 0.12 80);
+  --chart-3: oklch(0.48 0.06 250);
+  --chart-4: oklch(0.62 0.035 255);
+  --chart-5: oklch(0.78 0.02 245);
+
+  --sidebar: oklch(0.16 0.035 255);
+  --sidebar-foreground: oklch(0.96 0.006 80);
+  --sidebar-primary: oklch(0.72 0.14 85);
+  --sidebar-primary-foreground: oklch(0.13 0.015 50);
+  --sidebar-accent: oklch(0.24 0.03 255);
+  --sidebar-accent-foreground: oklch(0.96 0.006 80);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.72 0.14 85);
 
   --btp-zone: oklch(0.22 0.035 255);
   --bungalow-zone: oklch(0.32 0.045 245);
@@ -138,17 +162,79 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
+    font-family: var(--font-body), system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
     @apply font-sans;
   }
-  /* Focus visible for keyboard navigation (a11y) */
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    font-feature-settings:
+      "liga" 1,
+      "kern" 1;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   :focus-visible {
     @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
-  /* Reduced motion preference */
+
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  [role="menuitem"],
+  [role="option"],
+  [data-slot="button"] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -168,30 +254,35 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
   .glass {
     background: oklch(0.975 0.003 70 / 80%);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
   }
+
   .dark .glass {
     background: oklch(0.18 0.035 255 / 82%);
   }
+
   .text-shadow-hero {
     text-shadow: 0 2px 10px oklch(0 0 0 / 30%);
   }
+
   .dot-pattern {
     background-image: radial-gradient(oklch(0.13 0.015 50 / 8%) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+
   .dark .dot-pattern {
     background-image: radial-gradient(oklch(1 0 0 / 8%) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
-  /* Grain / noise texture overlay */
   .grain-overlay {
     position: relative;
   }
+
   .grain-overlay::after {
     content: "";
     position: absolute;
@@ -202,10 +293,10 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 
-  /* Architectural decorative line */
   .architectural-line {
     position: relative;
   }
+
   .architectural-line::before {
     content: "";
     position: absolute;
@@ -223,7 +314,6 @@
     opacity: 0.15;
   }
 
-  /* Architectural grid pattern */
   .arch-grid-pattern {
     background-image:
       linear-gradient(oklch(1 0 0 / 0.02) 1px, transparent 1px),
@@ -231,12 +321,10 @@
     background-size: 60px 60px;
   }
 
-  /* ═══ Craft Section Textures ═══ */
-
-  /* Polished concrete texture — very subtle noise + slight grain */
   .concrete-texture {
     position: relative;
   }
+
   .concrete-texture::before {
     content: "";
     position: absolute;
@@ -244,14 +332,14 @@
     opacity: 0.035;
     mix-blend-mode: multiply;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
     background-size: 512px 512px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
   }
 
-  /* Blueprint / technical drawing lines overlay */
   .blueprint-overlay {
     position: relative;
   }
+
   .blueprint-overlay::after {
     content: "";
     position: absolute;
@@ -259,10 +347,9 @@
     pointer-events: none;
     opacity: 0.04;
     background-image:
-      /* Major grid */
       linear-gradient(oklch(0.55 0.08 250 / 0.5) 1px, transparent 1px),
       linear-gradient(90deg, oklch(0.55 0.08 250 / 0.5) 1px, transparent 1px),
-      /* Minor grid */ linear-gradient(oklch(0.55 0.08 250 / 0.25) 0.5px, transparent 0.5px),
+      linear-gradient(oklch(0.55 0.08 250 / 0.25) 0.5px, transparent 0.5px),
       linear-gradient(90deg, oklch(0.55 0.08 250 / 0.25) 0.5px, transparent 0.5px);
     background-size:
       80px 80px,
@@ -271,7 +358,6 @@
       20px 20px;
   }
 
-  /* Architectural bevel for cards */
   .card-bevel {
     box-shadow:
       inset 0 1px 0 oklch(1 0 0 / 0.08),
@@ -282,7 +368,6 @@
       0 2px 8px oklch(0 0 0 / 0.08);
   }
 
-  /* Wood grain texture for hover */
   .wood-texture-overlay {
     background-image:
       repeating-linear-gradient(
@@ -305,40 +390,53 @@
       );
   }
 
-  /* Hero mesh gradient animation helper */
   .hero-mesh-gradient {
     will-change: background;
   }
 
-  /* Floating shape gentle drift */
   @keyframes gentle-drift {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-8px) rotate(1deg); }
-    50% { transform: translateY(-3px) rotate(-0.5deg); }
-    75% { transform: translateY(-10px) rotate(0.5deg); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-8px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-3px) rotate(-0.5deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(0.5deg);
+    }
   }
 
   .gentle-drift {
     animation: gentle-drift 12s ease-in-out infinite;
   }
 
-  /* Copper pulse glow */
   @keyframes copper-pulse {
-    0%, 100% { opacity: 0.04; }
-    50% { opacity: 0.07; }
+    0%,
+    100% {
+      opacity: 0.04;
+    }
+    50% {
+      opacity: 0.07;
+    }
   }
 
   .copper-pulse {
     animation: copper-pulse 6s ease-in-out infinite;
   }
 
-  /* Blueprint line draw */
   @keyframes draw-line {
-    from { stroke-dashoffset: 100%; }
-    to { stroke-dashoffset: 0%; }
+    from {
+      stroke-dashoffset: 100%;
+    }
+    to {
+      stroke-dashoffset: 0%;
+    }
   }
 
-  /* Stone texture for renovation card */
   .stone-texture-overlay {
     background-image:
       radial-gradient(ellipse 15px 12px at 20% 30%, oklch(0.7 0.01 70 / 0.05) 0%, transparent 100%),
@@ -361,51 +459,13 @@
   }
 }
 
-
 /* ═══════════════════════════════════════════════════════
-   Premium Typography System — JI Construction
+   Modern BTP Typography System — JI Construction
    Fonts:
-   - Display: Instrument Serif — editorial, premium, high-impact headings
-   - Body: Plus Jakarta Sans — geometric, modern, clean UI/body text
-   - Mono: JetBrains Mono — precise technical labels
+   - Display: Space Grotesk — moderne, technique, pro BTP
+   - Body: Plus Jakarta Sans — lisible, moderne, propre
+   - Mono: JetBrains Mono — précis, technique, métrés / repères
    ═══════════════════════════════════════════════════════ */
-
-@layer base {
-  html {
-    font-family: var(--font-body), system-ui, sans-serif;
-    text-rendering: optimizeLegibility;
-  }
-
-  body {
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
-  }
-
-  h1,
-  h2,
-  h3,
-  .font-heading {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.055em;
-    font-feature-settings:
-      "liga" 1,
-      "kern" 1;
-  }
-
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-body), system-ui, sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-
-  p {
-    text-wrap: pretty;
-  }
-}
 
 @layer utilities {
   .premium-page {
@@ -429,11 +489,11 @@
   }
 
   .premium-eyebrow {
-    @apply font-mono text-[0.68rem] font-medium uppercase tracking-[0.28em] text-primary-text;
+    @apply font-mono text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary-text;
   }
 
   .premium-surtitre {
-    @apply inline-flex items-center gap-3 font-mono text-[0.68rem] font-medium uppercase tracking-[0.24em] text-muted-foreground;
+    @apply inline-flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground;
   }
 
   .premium-surtitre::before {
@@ -442,17 +502,18 @@
   }
 
   .premium-hero-title {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    @apply max-w-5xl text-[clamp(4rem,11vw,10.5rem)] font-normal leading-[0.82] tracking-[-0.075em] text-foreground;
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    @apply max-w-5xl text-[clamp(3.5rem,9vw,8.5rem)] font-bold leading-[0.88] tracking-[-0.075em] text-foreground;
   }
 
   .premium-section-title {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    @apply max-w-3xl text-[clamp(3.2rem,6.8vw,6.8rem)] font-normal leading-[0.86] tracking-[-0.065em] text-foreground;
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    @apply max-w-3xl text-[clamp(2.8rem,5.8vw,5.8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-foreground;
   }
 
   .premium-card-title {
-    @apply font-sans text-xl font-extrabold leading-[1.05] tracking-[-0.035em] text-foreground sm:text-2xl;
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+    @apply text-xl font-bold leading-[1.05] tracking-[-0.04em] text-foreground sm:text-2xl;
   }
 
   .premium-lead {
@@ -474,6 +535,10 @@
   .premium-button {
     @apply rounded-full px-7 py-4 text-sm font-bold tracking-[-0.01em];
   }
+
+  .no-horizontal-scroll {
+    overflow-x: clip;
+  }
 }
 
 /* View Transitions API */
@@ -482,13 +547,13 @@
   --duration-enter: 250ms;
 }
 
-/* Directional slide for forward navigation */
 ::view-transition-old(.nav-forward) {
   --slide-offset: -40px;
   animation:
     var(--duration-exit) ease-in both fade-vt reverse,
     400ms ease-in-out both slide-vt reverse;
 }
+
 ::view-transition-new(.nav-forward) {
   --slide-offset: 40px;
   animation:
@@ -496,13 +561,13 @@
     400ms ease-in-out both slide-vt;
 }
 
-/* Directional slide for back navigation */
 ::view-transition-old(.nav-back) {
   --slide-offset: 40px;
   animation:
     var(--duration-exit) ease-in both fade-vt reverse,
     400ms ease-in-out both slide-vt reverse;
 }
+
 ::view-transition-new(.nav-back) {
   --slide-offset: -40px;
   animation:
@@ -510,10 +575,10 @@
     400ms ease-in-out both slide-vt;
 }
 
-/* Crossfade for default transitions */
 ::view-transition-old(.crossfade) {
   animation: var(--duration-exit) ease-in both fade-vt reverse;
 }
+
 ::view-transition-new(.crossfade) {
   animation: var(--duration-enter) ease-out var(--duration-exit) both fade-vt;
 }
@@ -538,24 +603,42 @@
   }
 }
 
-/* Anchor the navbar during transitions */
 ::view-transition-group(site-header) {
   animation: none;
   z-index: 100;
 }
+
 ::view-transition-old(site-header) {
   display: none;
 }
+
 ::view-transition-new(site-header) {
   animation: none;
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
   ::view-transition-new(*),
   ::view-transition-group(*) {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply fixed left-4 top-3 z-[100] -translate-y-16 rounded-full bg-foreground px-4 py-3 text-sm font-semibold text-background shadow-lg transition-transform duration-200;
+  }
+
+  .skip-link:focus-visible {
+    @apply translate-y-0;
+  }
+
+  .trust-chip {
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-border/70 bg-card px-4 py-2 text-xs font-medium text-muted-foreground shadow-sm;
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground;
   }
 }

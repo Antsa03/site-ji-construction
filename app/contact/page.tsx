@@ -2,27 +2,36 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
-import { MapPin, Phone, Mail, MessageCircle, CheckCircle2 } from "lucide-react"
+import { MapPin, Phone, Mail, MessageCircle, CheckCircle2, Clock3, ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { FormInput } from "@/components/form/FormInput"
 import { FormTextarea } from "@/components/form/FormTextarea"
+import { PageHero } from "@/components/layout/PageHero"
 import { slideUp, slideLeft, staggerContainer, transitionSmooth } from "@/lib/animations"
+import { PremiumSection } from "@/components/layout/PremiumSection"
 
 const contactMethods = [
   {
     icon: Phone,
-    label: "Téléphone",
+    label: "Appel direct",
     value: "+261 34 12 345 67",
     href: "tel:+261341234567",
     description: "Lun - Ven, 8h - 17h",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "Envoyer un message",
+    href: "https://wa.me/261341234567",
+    description: "Idéal pour envoyer photos, plans ou localisation",
   },
   {
     icon: Mail,
     label: "Email",
     value: "contact@jiconstruction.mg",
     href: "mailto:contact@jiconstruction.mg",
-    description: "Réponse sous 24h",
+    description: "Réponse sous 24h ouvrées",
   },
   {
     icon: MapPin,
@@ -35,7 +44,12 @@ const contactMethods = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
-  const [formData, setFormData] = useState({ nom: "", email: "", sujet: "", message: "" })
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    sujet: "",
+    message: "",
+  })
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -44,196 +58,327 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-card pt-20 pb-14 sm:pt-28 sm:pb-18">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer(0.1)}>
-            <motion.div variants={slideUp} transition={transitionSmooth} className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-primary" />
-              <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Contact</span>
-            </motion.div>
-            <motion.h1 variants={slideUp} transition={transitionSmooth} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] max-w-xl leading-tight">
-              On préfère parler<br /><span className="text-muted-foreground/75">que remplir des formulaires.</span>
-            </motion.h1>
-            <motion.p variants={slideUp} transition={transitionSmooth} className="mt-4 text-base text-muted-foreground max-w-md">
-              Appelez, écrivez, ou passez directement au bureau. Le café est offert.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact"
+        title="Parlons de votre projet, simplement."
+        description="Appelez, envoyez un WhatsApp, écrivez-nous ou passez au bureau. Nous répondons sous 24h ouvrées et proposons un devis gratuit, sans engagement."
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button asChild size="lg" className="min-h-12 rounded-full">
+            <a href="tel:+261341234567" className="inline-flex items-center gap-2">
+              Appeler maintenant
+              <Phone className="size-4" aria-hidden="true" />
+            </a>
+          </Button>
 
-      {/* Main content */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid gap-16 lg:grid-cols-[1.4fr_1fr]">
-            {/* Left — form */}
-            <div>
-              <AnimatePresence mode="wait">
-                {submitted ? (
+          <Button asChild size="lg" variant="outline" className="min-h-12 rounded-full">
+            <a
+              href="https://wa.me/261341234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
+              WhatsApp
+              <MessageCircle className="size-4" aria-hidden="true" />
+            </a>
+          </Button>
+        </div>
+      </PageHero>
+
+      <PremiumSection>
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.95fr] lg:gap-12">
+          {/* Form panel */}
+          <div className="rounded-[2rem] border border-border/70 bg-card/90 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.06)] backdrop-blur sm:p-8">
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex min-h-[520px] flex-col items-center justify-center text-center"
+                >
+                  <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.08]">
+                    <CheckCircle2
+                      className="size-8 text-primary-text dark:text-primary"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h2 className="mb-3 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-foreground">
+                    Message envoyé
+                  </h2>
+
+                  <p className="max-w-sm text-sm leading-7 text-muted-foreground">
+                    Merci {formData.nom.split(" ")[0] || ""}. Nous vous répondons sous 24h ouvrées.
+                    Pour une urgence, appelez-nous directement.
+                  </p>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Button asChild variant="outline" className="min-h-11 rounded-full">
+                      <a href="tel:+261341234567">Appeler JI Construction</a>
+                    </Button>
+
+                    <Button asChild className="min-h-11 rounded-full">
+                      <a
+                        href="https://wa.me/261341234567"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        WhatsApp
+                      </a>
+                    </Button>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="form"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  variants={staggerContainer(0.06, 0.1)}
+                >
                   <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex flex-col items-center justify-center py-16 text-center"
+                    variants={slideUp}
+                    transition={transitionSmooth}
+                    className="mb-8 border-b border-border/60 pb-6"
                   >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                      className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-[#7A9B7E]/10"
-                    >
-                      <CheckCircle2 className="size-8 text-[#7A9B7E]" />
-                    </motion.div>
-                    <h2 className="text-2xl font-bold text-foreground font-[family-name:var(--font-heading)] mb-3">
-                      Message envoyé !
+                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Formulaire
+                    </span>
+
+                    <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-semibold tracking-tight text-foreground">
+                      Écrivez-nous
                     </h2>
-                    <p className="text-sm text-muted-foreground max-w-sm">
-                      Merci {formData.nom.split(" ")[0] || ""}. On vous répond vite, promis ✍️
+
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Ajoutez le maximum de contexte utile : lieu, type de travaux, surface, délai
+                      souhaité.
                     </p>
                   </motion.div>
-                ) : (
-                  <motion.div
-                    key="form"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.15 }}
-                    variants={staggerContainer(0.06, 0.1)}
-                  >
-                    <motion.div variants={slideUp} transition={transitionSmooth} className="mb-8">
-                      <h2 className="text-lg font-semibold text-foreground font-[family-name:var(--font-heading)]">
-                        Ou écrivez-nous
-                      </h2>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        On lit tout, on répond à tout.
-                      </p>
-                    </motion.div>
 
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                      <div className="grid gap-5 sm:grid-cols-2">
-                        <motion.div variants={slideUp} transition={transitionSmooth}>
-                          <FormInput
-                            label="Nom complet"
-                            placeholder="Votre nom"
-                            required
-                            value={formData.nom}
-                            onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
-                          />
-                        </motion.div>
-                        <motion.div variants={slideUp} transition={transitionSmooth}>
-                          <FormInput
-                            label="Email"
-                            type="email"
-                            placeholder="votre@email.com"
-                            required
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          />
-                        </motion.div>
-                      </div>
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <div className="grid gap-5 sm:grid-cols-2">
                       <motion.div variants={slideUp} transition={transitionSmooth}>
                         <FormInput
-                          label="Sujet"
-                          placeholder="De quoi s'agit-il ?"
+                          label="Nom complet"
+                          placeholder="Votre nom"
                           required
-                          value={formData.sujet}
-                          onChange={(e) => setFormData({ ...formData, sujet: e.target.value })}
+                          autoComplete="name"
+                          value={formData.nom}
+                          onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
                         />
                       </motion.div>
+
                       <motion.div variants={slideUp} transition={transitionSmooth}>
-                        <FormTextarea
-                          label="Message"
-                          placeholder="Votre message..."
-                          rows={6}
-                          maxLength={2000}
+                        <FormInput
+                          label="Email"
+                          type="email"
+                          placeholder="votre@email.com"
                           required
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          autoComplete="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
                       </motion.div>
-                      <motion.div variants={slideUp} transition={transitionSmooth}>
-                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                          <Button type="submit" size="lg" className="rounded-full px-8 text-sm font-semibold h-12">
-                            Envoyer le message
-                          </Button>
-                        </motion.div>
-                      </motion.div>
-                    </form>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Right — contact methods */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.15 }}
-              variants={staggerContainer(0.08, 0.15)}
-              className="space-y-10"
-            >
-              <motion.div variants={slideLeft} transition={transitionSmooth}>
-                <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-5">
-                  Nos coordonnées
-                </h3>
-                <div className="space-y-3">
-                  {contactMethods.map((method) => (
-                    <a
-                      key={method.label}
-                      href={method.href}
-                      target={method.href.startsWith("http") ? "_blank" : undefined}
-                      rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="group flex items-start gap-4 rounded-xl border border-border/50 bg-card p-4 hover:border-primary/20 transition-all duration-200"
-                    >
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-foreground/[0.03] group-hover:bg-primary/10 transition-colors duration-200">
-                        <method.icon className="size-4 text-muted-foreground/70 group-hover:text-primary transition-colors duration-200" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-muted-foreground/75 uppercase tracking-wide">{method.label}</p>
-                        <p className="text-sm font-medium text-foreground mt-0.5">{method.value}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{method.description}</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </motion.div>
-
-              <div className="h-px bg-border/30" />
-
-              <motion.div variants={slideLeft} transition={transitionSmooth}>
-                <div className="rounded-xl border border-border/50 overflow-hidden">
-                  <div className="flex h-52 items-center justify-center bg-muted/30">
-                    <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                      <MapPin className="size-6 text-muted-foreground/50" />
-                      <p className="text-xs text-muted-foreground/70">Carte Google Maps</p>
-                      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">
-                        Ouvrir dans Google Maps
-                      </a>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
 
-              <div className="h-px bg-border/30" />
+                    <motion.div variants={slideUp} transition={transitionSmooth}>
+                      <FormInput
+                        label="Sujet"
+                        placeholder="Ex. devis rénovation toiture"
+                        required
+                        value={formData.sujet}
+                        onChange={(e) => setFormData({ ...formData, sujet: e.target.value })}
+                      />
+                    </motion.div>
 
-              <motion.div variants={slideLeft} transition={transitionSmooth}>
-                <div className="flex items-start gap-3 rounded-xl bg-primary/5 p-4">
-                  <MessageCircle className="size-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Besoin d&apos;une réponse rapide ?</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Appelez-nous au{" "}
-                      <a href="tel:+261341234567" className="text-primary hover:underline font-medium">
-                        +261 34 12 345 67
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
+                    <motion.div variants={slideUp} transition={transitionSmooth}>
+                      <FormTextarea
+                        label="Message"
+                        placeholder="Décrivez votre besoin, votre localisation et vos délais..."
+                        rows={6}
+                        maxLength={2000}
+                        required
+                        value={formData.message}
+                        hint="Nous ne partageons pas vos coordonnées. Elles servent uniquement à vous répondre."
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      variants={slideUp}
+                      transition={transitionSmooth}
+                      className="border-t border-border/60 pt-6"
+                    >
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="min-h-12 rounded-full px-8 text-sm font-semibold"
+                      >
+                        Envoyer le message
+                        <ArrowRight className="ml-2 size-4" aria-hidden="true" />
+                      </Button>
+                    </motion.div>
+                  </form>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
+
+          {/* Sidebar */}
+          <motion.aside
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer(0.08, 0.15)}
+            className="space-y-6 lg:sticky lg:top-24 lg:self-start"
+          >
+            <motion.div
+              variants={slideLeft}
+              transition={transitionSmooth}
+              className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/90 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.05)]"
+            >
+              <div className="pointer-events-none absolute -right-20 -top-20 size-44 rounded-full bg-primary/[0.08] blur-3xl" />
+
+              <h3 className="relative mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-foreground">
+                Coordonnées et horaires
+              </h3>
+
+              <div className="relative grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                {contactMethods.map((method) => (
+                  <a
+                    key={method.label}
+                    href={method.href}
+                    target={method.href.startsWith("http") ? "_blank" : undefined}
+                    rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group flex min-h-16 items-start gap-4 rounded-2xl border border-border/70 bg-background/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:bg-background hover:shadow-sm"
+                  >
+                    <div className="flex size-11 shrink-0 items-center justify-center text-muted-foreground transition-colors duration-200">
+                      <method.icon
+                        className="size-8 transition-colors duration-200"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                        {method.label}
+                      </p>
+
+                      <p className="mt-1 text-sm font-semibold text-foreground">{method.value}</p>
+
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                        {method.description}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={slideLeft}
+              transition={transitionSmooth}
+              className="rounded-[2rem] border border-border/70 bg-card/90 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.05)]"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex size-11 shrink-0 items-center justify-center text-muted-foreground">
+                  <Clock3 className="size-8" aria-hidden="true" />
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground">Horaires</h3>
+
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Lundi à vendredi : 8h — 17h
+                  </p>
+
+                  <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                    Visite de chantier possible sur rendez-vous.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={slideLeft}
+              transition={transitionSmooth}
+              className="overflow-hidden rounded-[2rem] border border-border/70 bg-card/90 shadow-[0_16px_50px_rgba(0,0,0,0.05)]"
+            >
+              <div className="relative flex h-56 items-center justify-center overflow-hidden bg-muted/40">
+                <div
+                  className="absolute inset-0 text-foreground opacity-[0.035] dark:opacity-[0.06]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)",
+                    backgroundSize: "28px 28px",
+                  }}
+                />
+
+                <div className="relative flex flex-col items-center gap-3 text-center">
+                  <div className="flex size-12 items-center justify-center rounded-full border border-border bg-background shadow-sm">
+                    <MapPin className="size-5 text-muted-foreground" aria-hidden="true" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Lot II A 45 Analakely</p>
+                    <p className="mt-1 text-xs text-muted-foreground">Antananarivo, Madagascar</p>
+                  </div>
+
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-11 rounded-full px-4 py-3 text-xs font-semibold text-foreground transition-colors hover:bg-background"
+                  >
+                    Ouvrir dans Google Maps
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={slideLeft}
+              transition={transitionSmooth}
+              className="rounded-[2rem] border border-primary/20 bg-primary/[0.06] p-6"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-foreground">
+                Conseil
+              </p>
+
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Pour une réponse plus précise, ajoutez la localisation, la surface approximative,
+                l’état actuel du terrain ou du bâtiment, ainsi que votre délai souhaité.
+              </p>
+            </motion.div>
+          </motion.aside>
         </div>
-      </section>
+      </PremiumSection>
+
+      {/* Mobile sticky CTA */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 shadow-lg backdrop-blur md:hidden">
+        <div className="mx-auto grid max-w-md grid-cols-2 gap-2">
+          <Button asChild variant="outline" className="min-h-11 rounded-full">
+            <a href="tel:+261341234567" className="inline-flex items-center gap-2">
+              <Phone className="size-4" aria-hidden="true" />
+              Appeler
+            </a>
+          </Button>
+
+          <Button asChild className="min-h-11 rounded-full">
+            <a
+              href="https://wa.me/261341234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
+              <MessageCircle className="size-4" aria-hidden="true" />
+              WhatsApp
+            </a>
+          </Button>
+        </div>
+      </div>
     </>
   )
 }

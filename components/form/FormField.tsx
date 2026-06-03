@@ -26,14 +26,21 @@ function FormField({
   children,
   className,
 }: FormFieldProps) {
+  const hintId = hint ? `${name}-hint` : undefined
+  const errorId = error ? `${name}-error` : undefined
+
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       <label
         htmlFor={name}
-        className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.15em]"
+        className="text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.15em]"
       >
         {label}
-        {required && <span className="text-primary ml-0.5">*</span>}
+        {required && (
+          <span className="text-primary ml-0.5" aria-label="obligatoire">
+            *
+          </span>
+        )}
       </label>
 
       {children}
@@ -41,14 +48,16 @@ function FormField({
       <AnimatePresence mode="wait">
         {error && (
           <motion.div
+            id={errorId}
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.2 }}
             className="flex items-center gap-1.5"
+            role="alert"
           >
-            <AlertCircle className="size-3 text-[#C2553D] shrink-0" />
-            <p className="text-[11px] text-[#C2553D]">{error}</p>
+            <AlertCircle className="size-3 text-[#A23E2F] shrink-0" aria-hidden="true" />
+            <p className="text-[11px] font-medium text-[#A23E2F]">{error}</p>
           </motion.div>
         )}
         {success && !error && (
@@ -59,14 +68,16 @@ function FormField({
             transition={{ duration: 0.2 }}
             className="flex items-center gap-1.5"
           >
-            <CheckCircle2 className="size-3 text-[#7A9B7E] shrink-0" />
-            <p className="text-[11px] text-[#7A9B7E]">Parfait</p>
+            <CheckCircle2 className="size-3 text-[#4F7A54] shrink-0" aria-hidden="true" />
+            <p className="text-[11px] font-medium text-[#4F7A54]">Parfait</p>
           </motion.div>
         )}
       </AnimatePresence>
 
       {hint && !error && !success && (
-        <p className="text-[11px] text-muted-foreground/70">{hint}</p>
+        <p id={hintId} className="text-[11px] text-muted-foreground/80">
+          {hint}
+        </p>
       )}
     </div>
   )

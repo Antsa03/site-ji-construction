@@ -13,6 +13,9 @@ import {
   staggerContainer,
   transitionSmooth,
 } from "@/lib/animations"
+import { PageHero } from "@/components/layout/PageHero"
+import { PremiumSection } from "@/components/layout/PremiumSection"
+import { PremiumCTA } from "@/components/layout/PremiumCTA"
 
 const bungalows = [
   {
@@ -20,7 +23,7 @@ const bungalows = [
     surface: "65 m²",
     bedrooms: 2,
     bathrooms: 1,
-    price: "45 000 €",
+    price: "À partir de 150M Ar",
     image: "/images/projects/bungalow-ravinala.jpg",
     features: ["Terrasse panoramique", "Toit végétalisé", "Matériaux locaux"],
   },
@@ -29,7 +32,7 @@ const bungalows = [
     surface: "85 m²",
     bedrooms: 3,
     bathrooms: 2,
-    price: "65 000 €",
+    price: "À partir de 220M Ar",
     image: "/images/projects/bungalow-baobab.jpg",
     features: ["Piscine privée", "Cuisine ouverte", "Jardin tropical"],
   },
@@ -38,7 +41,7 @@ const bungalows = [
     surface: "50 m²",
     bedrooms: 1,
     bathrooms: 1,
-    price: "35 000 €",
+    price: "À partir de 115M Ar",
     image: "/images/projects/bungalow-orchidee.jpg",
     features: ["Compact et fonctionnel", "Idéal couple", "Faible empreinte"],
   },
@@ -47,7 +50,7 @@ const bungalows = [
     surface: "120 m²",
     bedrooms: 4,
     bathrooms: 3,
-    price: "95 000 €",
+    price: "À partir de 320M Ar",
     image: "/images/projects/bungalow-palissandre.jpg",
     features: ["Grande terrasse", "Suite parentale", "Garage intégré"],
   },
@@ -56,7 +59,7 @@ const bungalows = [
     surface: "75 m²",
     bedrooms: 2,
     bathrooms: 2,
-    price: "55 000 €",
+    price: "À partir de 185M Ar",
     image: "/images/projects/bungalow-vacoa.jpg",
     features: ["Design contemporain", "Baies vitrées", "Terrasse sur pilotis"],
   },
@@ -65,7 +68,7 @@ const bungalows = [
     surface: "95 m²",
     bedrooms: 3,
     bathrooms: 2,
-    price: "75 000 €",
+    price: "À partir de 255M Ar",
     image: "/images/projects/bungalow-noyer.jpg",
     features: ["Double salon", "Buanderie", "Espace bureau"],
   },
@@ -77,173 +80,179 @@ export default function BungalowsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-card pt-20 pb-14 sm:pt-28 sm:pb-18">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer(0.1)}>
-            <motion.div
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="flex items-center gap-3 mb-4"
-            >
-              <div className="w-8 h-px bg-primary" />
-              <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">
-                Nos modèles
-              </span>
-            </motion.div>
-            <motion.h1
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] max-w-lg"
-            >
-              Nos bungalows.
-            </motion.h1>
-            <motion.p
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="mt-4 text-base text-muted-foreground max-w-md"
-            >
-              Conçus pour s&apos;intégrer dans le paysage malgache. Du compact au spacieux, chacun a
-              son charme.
-            </motion.p>
-          </motion.div>
+      <PageHero
+        eyebrow="Nos modèles"
+        title="Bungalows sur mesure à budget maîtrisé."
+        description="Des modèles de départ pour comparer les surfaces, les pièces et les options. Les prix sont indicatifs : le terrain, les matériaux, l’accès au chantier et les finitions ajustent le devis final."
+      >
+        <div className="max-w-3xl rounded-2xl border border-primary/20 bg-primary/[0.06] p-4 text-sm leading-7 text-muted-foreground">
+          <strong className="text-foreground">Prix indicatifs.</strong> Les montants ci-dessous
+          servent de repère pour le marché local. Un devis précis nécessite la localisation, l’état
+          du terrain, les choix de matériaux et le niveau de finition.
         </div>
-      </section>
+      </PageHero>
 
       {/* Bungalows grid */}
-      <section className="py-20 sm:py-28 relative">
-        <div className="absolute top-0 left-0 w-1/4 h-full bg-gradient-to-r from-primary/[0.02] to-transparent pointer-events-none" />
-
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.15 }}
-            variants={staggerContainer(0.08, 0.1)}
-            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {bungalows.map((bungalow, index) => (
-              <motion.div
-                key={bungalow.name}
-                variants={entranceVariants[index % 3]}
-                transition={transitionSmooth}
-                className="group"
+      <PremiumSection>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.15 }}
+          variants={staggerContainer(0.08, 0.1)}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
+        >
+          {bungalows.map((bungalow, index) => (
+            <motion.div
+              key={bungalow.name}
+              variants={entranceVariants[index % 3]}
+              transition={transitionSmooth}
+              className="group h-full"
+            >
+              <Link
+                href="/devis"
+                aria-label={`Demander un devis pour le bungalow ${bungalow.name}`}
+                className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/60 bg-card shadow-[0_14px_40px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_24px_70px_rgba(0,0,0,0.08)]"
               >
-                <div className="rounded-xl overflow-hidden border border-border/60 bg-card hover:border-primary/20 transition-all duration-300">
-                  {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={bungalow.image}
-                      alt={bungalow.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <Image
+                    src={bungalow.image}
+                    alt={`Vue extérieure indicative du bungalow ${bungalow.name}`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
+                  />
 
-                    {/* Price badge */}
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur-sm text-xs font-bold text-foreground">
-                      {bungalow.price}
-                    </div>
+                  {/* Overlay lisibilité */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
 
-                    {/* Arrow on hover */}
-                    <div className="absolute bottom-3 right-3 size-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <ArrowUpRight className="size-3.5 text-white" />
-                    </div>
+                  {/* Badge catégorie */}
+                  <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/25 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-white backdrop-blur-md">
+                    Bungalow
                   </div>
 
-                  {/* Content */}
-                  <div className="p-5">
-                    <h3 className="text-base font-semibold text-foreground font-[family-name:var(--font-heading)] mb-2">
-                      Bungalow {bungalow.name}
-                    </h3>
+                  {/* Price badge */}
+                  <div className="absolute right-4 top-4 rounded-full border border-white/20 bg-white/90 px-3.5 py-1.5 text-xs font-bold text-neutral-950 shadow-sm backdrop-blur-md dark:bg-background/90 dark:text-foreground">
+                    {bungalow.price}
+                    <span className="sr-only">, prix indicatif</span>
+                  </div>
 
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                      <span className="flex items-center gap-1">
-                        <Maximize className="size-3.5" />
+                  {/* Titre sur image */}
+                  <div className="absolute inset-x-4 bottom-4">
+                    <h3 className="font-[family-name:var(--font-heading)] text-2xl font-semibold leading-none tracking-[-0.04em] text-white">
+                      {bungalow.name}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  {/* Specs principales */}
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="rounded-2xl border border-border/60 bg-muted/60 p-3">
+                      <Maximize
+                        className="mb-2 size-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
+                        aria-hidden="true"
+                      />
+                      <span className="block text-[11px] text-muted-foreground">Surface</span>
+                      <span className="block text-sm font-semibold text-foreground">
                         {bungalow.surface}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <BedDouble className="size-3.5" />
+                    </div>
+
+                    <div className="rounded-2xl border border-border/60 bg-muted/60 p-3">
+                      <BedDouble
+                        className="mb-2 size-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
+                        aria-hidden="true"
+                      />
+                      <span className="block text-[11px] text-muted-foreground">Chambres</span>
+                      <span className="block text-sm font-semibold text-foreground">
                         {bungalow.bedrooms} ch.
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Bath className="size-3.5" />
+                    </div>
+
+                    <div className="rounded-2xl border border-border/60 bg-muted/60 p-3">
+                      <Bath
+                        className="mb-2 size-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
+                        aria-hidden="true"
+                      />
+                      <span className="block text-[11px] text-muted-foreground">Salle d’eau</span>
+                      <span className="block text-sm font-semibold text-foreground">
                         {bungalow.bathrooms} SdB
                       </span>
                     </div>
+                  </div>
 
-                    <div className="flex flex-wrap gap-1.5">
-                      {bungalow.features.map((feature) => (
-                        <span
-                          key={feature}
-                          className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                  {/* Features */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {bungalow.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors duration-300 group-hover:border-primary/25 group-hover:bg-primary/[0.06] group-hover:text-foreground"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer CTA */}
+                  <div className="mt-auto pt-6">
+                    <div className="mb-4 h-px w-full bg-border/60" />
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-muted-foreground transition-colors duration-300 group-hover:text-primary">
+                        Voir l’estimation
+                      </span>
+
+                      <span className="flex size-9 items-center justify-center rounded-full border border-border bg-background text-foreground transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary group-hover:text-primary-foreground">
+                        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+      </PremiumSection>
+
+      <PremiumSection variant="soft" withGrid={false} className="py-14 sm:py-20">
+        <div className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              title: "1. Choisir une base",
+              text: "Sélectionnez le modèle le plus proche de votre besoin : compact, familial ou premium.",
+            },
+            {
+              title: "2. Adapter au terrain",
+              text: "Nous ajustons orientation, fondations, accès, terrasse et matériaux selon le site.",
+            },
+            {
+              title: "3. Chiffrer précisément",
+              text: "Le prix final est détaillé poste par poste avant validation du chantier.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[1.5rem] border border-border/70 bg-background/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-md"
+            >
+              <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold tracking-tight text-foreground">
+                {item.title}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.text}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </PremiumSection>
 
       {/* CTA */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] via-[#252525] to-[#202020]" />
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(-45deg, transparent, transparent 20px, white 20px, white 21px)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 sm:py-28">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={staggerContainer(0.12)}
-            className="max-w-2xl"
-          >
-            <motion.div
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="w-8 h-px bg-primary" />
-              <span className="text-xs text-white/30 uppercase tracking-[0.2em]">Sur mesure</span>
-            </motion.div>
-            <motion.h2
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="text-3xl sm:text-4xl font-bold text-white font-[family-name:var(--font-heading)] leading-tight mb-4"
-            >
-              Envie d&apos;un bungalow sur mesure ?
-            </motion.h2>
-            <motion.p
-              variants={slideUp}
-              transition={transitionSmooth}
-              className="text-sm text-white/40 mb-8 max-w-md"
-            >
-              Chaque bungalow est unique. Discutons ensemble de votre projet pour créer
-              l&apos;espace de vos rêves.
-            </motion.p>
-            <motion.div variants={slideUp} transition={transitionSmooth}>
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button size="lg" className="rounded-full px-7 text-sm font-semibold" asChild>
-                  <Link href="/devis" className="inline-flex items-center gap-2">
-                    Demander un devis
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <PremiumCTA
+        eyebrow="Sur mesure"
+        title="Envie d’un bungalow sur mesure ?"
+        description="Chaque projet dépend du terrain, de l’accès, des matériaux et des finitions. Demandez une estimation gratuite pour comparer les options adaptées à votre budget."
+      />
     </>
   )
 }

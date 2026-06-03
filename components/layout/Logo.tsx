@@ -11,11 +11,36 @@ interface LogoProps {
 
 function Logo({ className, size = "md", animate = false }: LogoProps) {
   const sizes = {
-    sm: { width: 80, height: 80, text: "text-base", offset: "-ml-1" },
-    md: { width: 80, height: 80, text: "text-lg", offset: "-ml-3" },
-    lg: { width: 120, height: 120, text: "text-xl", offset: "-ml-5" },
-    xl: { width: 200, height: 200, text: "text-2xl", offset: "-ml-7" },
+    sm: {
+      width: 78,
+      height: 78,
+      text: "text-sm",
+      label: "text-[9px]",
+      offset: "-ml-3",
+    },
+    md: {
+      width: 92,
+      height: 92,
+      text: "text-base",
+      label: "text-[10px]",
+      offset: "-ml-4",
+    },
+    lg: {
+      width: 132,
+      height: 132,
+      text: "text-xl",
+      label: "text-[11px]",
+      offset: "-ml-6",
+    },
+    xl: {
+      width: 220,
+      height: 220,
+      text: "text-2xl",
+      label: "text-xs",
+      offset: "-ml-10",
+    },
   }
+
   const s = sizes[size]
 
   return (
@@ -26,23 +51,28 @@ function Logo({ className, size = "md", animate = false }: LogoProps) {
         width={s.width}
         height={s.height}
         className={cn(
-          "shrink-0",
-          animate ? "transition-transform duration-300 hover:scale-105" : undefined
+          "shrink-0 object-contain",
+          animate && "transition-transform duration-300 hover:scale-105"
         )}
         priority
       />
 
-      {/* L'offset négatif dynamique vient "grignoter" le vide transparent de l'image */}
-      <div className={cn("flex flex-col", s.offset)}>
+      <div className={cn("flex flex-col justify-center", s.offset)}>
         <span
           className={cn(
-            "font-bold leading-tight tracking-tight font-[family-name:var(--font-heading)]",
+            "font-bold leading-none tracking-tight font-[family-name:var(--font-heading)]",
             s.text
           )}
         >
           <span className="text-foreground">Construction</span>
         </span>
-        <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground leading-none">
+
+        <span
+          className={cn(
+            "mt-1 uppercase leading-none tracking-[0.16em] text-muted-foreground",
+            s.label
+          )}
+        >
           BTP & Bungalows
         </span>
       </div>

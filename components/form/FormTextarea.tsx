@@ -23,8 +23,10 @@ function FormTextarea({
   id,
   ...props
 }: FormTextareaProps) {
-  const name = id || props.name || label.toLowerCase().replace(/\s+/g, "-")
-  const [value, setValue] = React.useState("")
+  const { onChange, value: controlledValue, ...textareaProps } = props
+  const name = id || textareaProps.name || label.toLowerCase().replace(/\s+/g, "-")
+  const [internalValue, setInternalValue] = React.useState("")
+  const value = typeof controlledValue === "string" ? controlledValue : internalValue
   const showCounter = maxLength && value.length > maxLength * 0.8
 
   return (
@@ -42,7 +44,12 @@ function FormTextarea({
           required={required}
           maxLength={maxLength}
           aria-invalid={!!error}
-          onChange={(e) => setValue(e.target.value)}
+          aria-describedby={[error ? `${name}-error` : undefined, hint ? `${name}-hint` : undefined].filter(Boolean).join(" ") || undefined}
+          name={name}
+          onChange={(e) => {
+            setInternalValue(e.target.value)
+            onChange?.(e)
+          }}
           className={cn(
             "min-h-[120px] max-h-[300px] w-full rounded-lg border border-border bg-white dark:bg-[#1e1e1e] px-4 py-3.5 text-sm text-foreground",
             "outline-none transition-all duration-200 resize-none",
@@ -53,7 +60,8 @@ function FormTextarea({
             success && "border-[#7A9B7E]/30",
             className
           )}
-          {...props}
+          value={controlledValue}
+          {...textareaProps}
         />
         {showCounter && (
           <span className="absolute bottom-3 right-3 text-[10px] text-muted-foreground/60 tabular-nums">

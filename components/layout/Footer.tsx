@@ -10,6 +10,7 @@ import Instagram from "../../public/images/icons/instagram.svg"
 import Linkedin from "../../public/images/icons/linkedin.svg"
 
 import { slideUp, staggerContainer, transitionSmooth } from "@/lib/animations"
+import { Logo } from "./Logo"
 
 /* ─── Data ────────────────────────────────────────────── */
 
@@ -115,31 +116,16 @@ function Footer() {
           <div className="grid gap-8 border-b border-border pb-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             {/* Brand */}
             <motion.div variants={itemVariants} transition={itemTransition}>
+              {/* Logo */}
               <Link
                 href="/"
-                aria-label="Retour à l’accueil"
-                className="inline-flex items-center gap-4 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                aria-label="JI Construction — retour à l’accueil"
+                className="group inline-flex rounded-md"
               >
-                <Image
-                  src="/ji-logo.png"
-                  alt="JI Construction"
-                  width={88}
-                  height={88}
-                  className="size-20 object-contain sm:size-22 lg:size-24"
-                  priority
-                />
-
-                <div>
-                  <p className="text-xl font-extrabold leading-none tracking-[-0.03em] text-foreground">
-                    JI Construction
-                  </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.28em] text-primary">
-                    BTP & Bungalows
-                  </p>
-                </div>
+                <Logo animate size="lg" className="transition-opacity duration-300" />
               </Link>
 
-              <p className="mt-8 max-w-sm text-sm leading-6 text-muted-foreground">
+              <p className="-mt-2 max-w-sm text-sm leading-6 text-muted-foreground">
                 Entreprise BTP à Madagascar, spécialisée en construction neuve, rénovation, études
                 techniques et conception de bungalows sur mesure.
               </p>
@@ -152,7 +138,7 @@ function Footer() {
               className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end"
             >
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">
+                <p className="font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground">
                   Expert BTP & Bungalows
                 </p>
 
@@ -164,7 +150,7 @@ function Footer() {
 
               <Link
                 href="/devis"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 Devis gratuit
                 <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -185,16 +171,16 @@ function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group grid min-h-[168px] grid-cols-[auto_1fr] gap-4 border-b border-border px-0 py-6 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
+                  className="group grid min-h-[168px] grid-cols-[auto_1fr] gap-4 border-b border-border px-0 py-6 transition-colors duration-200 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
                 >
-                  <div className="flex size-10 items-center justify-center rounded-full border border-border text-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:border-primary group-hover:text-primary">
+                  <div className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:border-foreground/30 group-hover:text-foreground">
                     <Icon className="size-4" />
                   </div>
 
                   <div>
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary">
+                        <p className="font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
                           0{index + 1} / {item.label}
                         </p>
 
@@ -207,7 +193,7 @@ function Footer() {
                         </p>
                       </div>
 
-                      <ArrowUpRight className="mt-1 size-4 shrink-0 text-primary opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+                      <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:text-foreground group-hover:opacity-100" />
                     </div>
                   </div>
                 </Link>
@@ -218,7 +204,9 @@ function Footer() {
           {/* Navigation */}
           <div className="grid gap-8 border-b border-border py-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             <motion.div variants={itemVariants} transition={itemTransition}>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary">Réseaux</p>
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground">
+                Réseaux
+              </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {socials.map((social) => {
@@ -270,7 +258,7 @@ function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="inline-flex rounded-full text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                          className="inline-flex rounded-full text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                         >
                           {item.name}
                         </Link>
@@ -290,13 +278,13 @@ function Footer() {
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
               <div className="inline-flex items-center gap-2">
-                <Clock3 className="size-4 text-primary" />
+                <Clock3 className="size-4 text-muted-foreground" />
                 <span>
                   Lun — Ven : <strong className="font-bold text-foreground">8h — 17h</strong>
                 </span>
               </div>
 
-              <span className="hidden h-1 w-1 rounded-full bg-primary sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-muted-foreground sm:block" />
 
               <span>
                 Samedi : <strong className="font-bold text-foreground">8h — 12h</strong>

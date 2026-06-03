@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Instrument_Serif, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google"
+import { JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
 import { Navbar } from "@/components/layout/Navbar"
@@ -7,11 +7,10 @@ import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { JsonLd } from "@/components/layout/JsonLd"
 
-const display = Instrument_Serif({
+const display = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 })
 
@@ -46,12 +45,21 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background text-foreground font-sans selection:bg-primary/25 selection:text-foreground">
+      <body className="min-h-full bg-background font-sans text-foreground selection:bg-primary/25 selection:text-foreground">
         <JsonLd />
+
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
+            <a href="#main-content" className="skip-link">
+              Aller au contenu principal
+            </a>
+
             <Navbar />
-            <main className="flex-1">{children}</main>
+
+            <main id="main-content" className="flex-1" tabIndex={-1}>
+              {children}
+            </main>
+
             <Footer />
           </div>
         </ThemeProvider>
