@@ -1,17 +1,22 @@
 "use client"
 
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, type Transition, type Variants } from "framer-motion"
 import { useRef } from "react"
 import { ChevronRight, ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
 /* ═══════════════════════════════════════════════════════
-   STAGGER CONTAINER VARIANTS
+   ANIMATION VARIANTS
    ═══════════════════════════════════════════════════════ */
+
+const smoothEase: Transition["ease"] = [0.22, 1, 0.36, 1]
+
 const staggerContainer = (staggerChildren = 0.1, delayChildren = 0) => ({
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+  },
   visible: {
     opacity: 1,
     transition: {
@@ -21,12 +26,119 @@ const staggerContainer = (staggerChildren = 0.1, delayChildren = 0) => ({
   },
 })
 
+const replayViewport = {
+  once: false,
+  amount: 0.35,
+  margin: "0px 0px -10% 0px",
+}
+
+const fadeInLeft = {
+  hidden: {
+    opacity: 0,
+    x: -30,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: smoothEase,
+    },
+  },
+}
+
+const fadeInUp = {
+  hidden: {
+    opacity: 0,
+    y: 32,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.75,
+      ease: smoothEase,
+    },
+  },
+}
+
+const titleVariant: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 42,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const titleAccentVariant: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -24,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const scaleLineVariant: Variants = {
+  hidden: {
+    scaleX: 0,
+  },
+  visible: {
+    scaleX: 1,
+    transition: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const diamondVariant: Variants = {
+  hidden: {
+    scale: 0,
+    rotate: 0,
+  },
+  visible: {
+    scale: 1,
+    rotate: 45,
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const statVariant: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
 /* ═══════════════════════════════════════════════════════
    PROFESSIONAL BTP BLUEPRINT PATTERN
    ═══════════════════════════════════════════════════════ */
 function BtpBlueprintPattern() {
-  // Augmentez cette valeur pour descendre encore plus les motifs.
-  // Exemple : 70 ou 80.
   const motifOffsetY = 140
 
   return (
@@ -60,7 +172,7 @@ function BtpBlueprintPattern() {
         </radialGradient>
       </defs>
 
-      {/* Grille technique visible — elle reste fixe */}
+      {/* Grille technique visible — fixe */}
       <g>
         {Array.from({ length: 10 }).map((_, i) => (
           <line
@@ -93,18 +205,18 @@ function BtpBlueprintPattern() {
         <line x1="900" y1="0" x2="900" y2="900" stroke="url(#ji-gold-soft)" strokeWidth="1.6" />
       </g>
 
-      {/* Tous les motifs BTP sont déplacés vers le bas ici */}
+      {/* Motifs BTP — rejoués au retour dans le viewport */}
       <g transform={`translate(0 ${motifOffsetY})`}>
-        {/* Glow principal centre-droite */}
         <circle cx="1010" cy="420" r="430" fill="url(#ji-focus-glow)" />
 
         {/* Cadre technique centre-droite */}
         <motion.g
           initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={replayViewport}
           transition={{
             duration: 1.2,
-            delay: 0.4,
+            delay: 0.05,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
@@ -174,10 +286,11 @@ function BtpBlueprintPattern() {
         {/* Bungalow / élévation */}
         <motion.g
           initial={{ opacity: 0, x: 28 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={replayViewport}
           transition={{
             duration: 1.3,
-            delay: 0.75,
+            delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
@@ -383,10 +496,11 @@ function BtpBlueprintPattern() {
         {/* Plan intérieur */}
         <motion.g
           initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={replayViewport}
           transition={{
             duration: 1.2,
-            delay: 1,
+            delay: 0.2,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
@@ -520,10 +634,11 @@ function BtpBlueprintPattern() {
         {/* Grue de chantier */}
         <motion.g
           initial={{ opacity: 0, x: 25 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={replayViewport}
           transition={{
             duration: 1.2,
-            delay: 1.25,
+            delay: 0.28,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
@@ -639,8 +754,13 @@ function BtpBlueprintPattern() {
         {/* Ligne de cote principale */}
         <motion.g
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.35 }}
+          whileInView={{ opacity: 1 }}
+          viewport={replayViewport}
+          transition={{
+            duration: 1,
+            delay: 0.35,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <line
             x1="180"
@@ -769,7 +889,7 @@ function HeroSection() {
       {/* Layer 1 : base */}
       <div className="absolute inset-0 bg-background" />
 
-      {/* Layer 2 : image réelle subtile pour humaniser le rendu */}
+      {/* Layer 2 : image réelle subtile */}
       <div
         className="absolute inset-0 opacity-[0.10] dark:opacity-[0.14] sm:opacity-[0.08]"
         style={{
@@ -826,9 +946,7 @@ function HeroSection() {
         />
       </div>
 
-      {/* Layer 5 : masque de lisibilité allégé
-          Le masque protège seulement la colonne texte. Le motif BTP reste au-dessus
-          pour ne plus être étouffé par une grande nappe de couleur. */}
+      {/* Layer 5 : masque de lisibilité */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
@@ -837,7 +955,7 @@ function HeroSection() {
         }}
       />
 
-      {/* Layer 6 : motif BTP prioritaire, volontairement au-dessus du masque */}
+      {/* Layer 6 : motif BTP prioritaire */}
       <div
         className="absolute inset-0 z-[3] opacity-100"
         style={{
@@ -865,30 +983,16 @@ function HeroSection() {
       >
         <motion.div
           initial="hidden"
-          animate="visible"
-          variants={staggerContainer(0.1, 0.5)}
-          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80  p-5 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
+          whileInView="visible"
+          viewport={replayViewport}
+          variants={staggerContainer(0.11, 0.15)}
+          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80 p-5 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
         >
           {/* Label */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.3,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="flex items-center gap-3"
-          >
+          <motion.div variants={fadeInLeft} className="flex items-center gap-3">
             <motion.div
-              className="h-px bg-primary origin-left"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{
-                duration: 1,
-                delay: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              className="h-px origin-left bg-primary"
+              variants={scaleLineVariant}
               style={{ width: 32 }}
             />
 
@@ -899,39 +1003,19 @@ function HeroSection() {
 
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.9,
-              delay: 0.5,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            variants={titleVariant}
             className="text-[clamp(3.4rem,17vw,5.2rem)] font-extrabold leading-[0.9] tracking-[-0.065em] text-foreground sm:text-7xl sm:leading-[0.92] lg:text-8xl xl:text-9xl"
           >
             <span className="block">Construire juste.</span>
 
-            <motion.span
-              className="block text-primary"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <motion.span variants={titleAccentVariant} className="block text-primary">
               Bâtir durable.
             </motion.span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: 1,
-            }}
+            variants={fadeInUp}
             className="max-w-xl text-[0.98rem] leading-7 text-muted-foreground sm:text-lg sm:leading-relaxed"
           >
             Construction, rénovation et bungalows sur mesure à Madagascar. Des projets bien conçus,
@@ -939,15 +1023,7 @@ function HeroSection() {
           </motion.p>
 
           {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: 1.2,
-            }}
-            className="grid gap-3 pt-2 sm:flex sm:flex-wrap"
-          >
+          <motion.div variants={fadeInUp} className="grid gap-3 pt-2 sm:flex sm:flex-wrap">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 size="lg"
@@ -977,34 +1053,18 @@ function HeroSection() {
           </motion.div>
 
           {/* Decorative divider */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.6,
-              delay: 1.5,
-            }}
-            className="flex items-center gap-3 pt-4 max-w-2xl"
-          >
+          <motion.div variants={fadeInUp} className="flex max-w-2xl items-center gap-3 pt-4">
             <motion.div
               className="h-px flex-1 origin-left"
               style={{
                 background: "linear-gradient(to right, rgba(184,134,11,0.38), transparent)",
               }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{
-                duration: 1.2,
-                delay: 1.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              variants={scaleLineVariant}
             />
 
             <motion.div
-              className="w-1.5 h-1.5 rotate-45 border border-primary/30"
-              initial={{ scale: 0, rotate: 0 }}
-              animate={{ scale: 1, rotate: 45 }}
-              transition={{ duration: 0.5, delay: 2 }}
+              className="h-1.5 w-1.5 rotate-45 border border-primary/30"
+              variants={diamondVariant}
             />
 
             <div className="h-px w-12 bg-primary/20" />
@@ -1012,12 +1072,7 @@ function HeroSection() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: 1.7,
-            }}
+            variants={staggerContainer(0.08, 0)}
             className="grid grid-cols-3 gap-3 pt-3 sm:flex sm:flex-wrap sm:items-center sm:gap-8 sm:pt-4"
           >
             {[
@@ -1027,12 +1082,7 @@ function HeroSection() {
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 1.9 + i * 0.12,
-                }}
+                variants={statVariant}
                 className="flex min-w-0 flex-col gap-0.5 rounded-2xl border border-border/70 bg-card/70 px-3 py-2 sm:flex-row sm:items-baseline sm:gap-2 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0"
               >
                 <span className="text-xl font-bold text-foreground sm:text-3xl">{stat.value}</span>
@@ -1051,9 +1101,9 @@ function HeroSection() {
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={replayViewport}
         transition={{
-          delay: 2.5,
           duration: 0.8,
         }}
         className="absolute bottom-8 right-8 z-20 hidden sm:flex flex-col items-center gap-2"
