@@ -33,7 +33,7 @@ function FormPhone({
       hint={hint}
     >
       <div className="relative flex items-center">
-        <div className="absolute left-4 flex items-center gap-2 text-sm text-muted-foreground/70 select-none pointer-events-none">
+        <div className="absolute left-4 flex items-center gap-2 text-sm text-muted-foreground select-none pointer-events-none">
           <span className="text-base leading-none">🇲🇬</span>
           <span className="text-xs font-medium">+261</span>
         </div>
@@ -48,7 +48,7 @@ function FormPhone({
           className={cn(
             "h-14 w-full rounded-lg border border-border bg-white dark:bg-[#1e1e1e] pl-[76px] pr-4 text-sm text-foreground",
             "outline-none transition-all duration-200",
-            "placeholder:text-muted-foreground/60",
+            "placeholder:text-muted-foreground",
             "hover:border-foreground/20 focus:border-[#D4A24C] focus:ring-2 focus:ring-[#D4A24C]/15",
             "disabled:cursor-not-allowed disabled:opacity-50",
             error && "border-[#C2553D] focus:border-[#C2553D] focus:ring-[#C2553D]/10",

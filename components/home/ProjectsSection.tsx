@@ -65,7 +65,8 @@ function ProjectsSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 40% at 80% 20%, oklch(0.72 0.14 85 / 0.02), transparent 60%)",
+          background:
+            "radial-gradient(ellipse 60% 40% at 80% 20%, oklch(0.72 0.14 85 / 0.02), transparent 60%)",
         }}
       />
 
@@ -81,7 +82,7 @@ function ProjectsSection() {
           <motion.span
             variants={slideUp}
             transition={transitionSmooth}
-            className="text-xs text-muted-foreground/60 uppercase tracking-[0.3em] font-mono block mb-3"
+            className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
           >
             04 — Portfolio
           </motion.span>
@@ -139,7 +140,10 @@ function ProjectsSection() {
                   {/* Top-left corner decoration */}
                   <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M0 0 L20 0 L20 4 L4 4 L4 20 L0 20 Z" fill="oklch(0.72 0.14 85 / 0.3)" />
+                      <path
+                        d="M0 0 L20 0 L20 4 L4 4 L4 20 L0 20 Z"
+                        fill="oklch(0.72 0.14 85 / 0.3)"
+                      />
                     </svg>
                   </div>
 
@@ -147,12 +151,11 @@ function ProjectsSection() {
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                     <div className="flex items-end justify-between gap-2">
                       <div>
-                        <p className="text-[10px] text-white/50 uppercase tracking-wider mb-1">
-                          <span className={project.division === "btp" ? "text-primary/80" : "text-white/60"}>
+                        <p className="text-[10px] text-white/95 uppercase tracking-wider mb-1">
+                          <span className="font-medium">
                             {project.division === "btp" ? "BTP" : "Bungalow"}
-                          </span>
-                          {" "}&middot;{" "}
-                          {project.category} — {project.year}
+                          </span>{" "}
+                          &middot; {project.category} — {project.year}
                         </p>
                         <h3 className="text-base sm:text-lg font-semibold text-white font-[family-name:var(--font-heading)] leading-tight">
                           {project.title}

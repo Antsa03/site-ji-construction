@@ -11,6 +11,7 @@ import Linkedin from "../../public/images/icons/linkedin.svg"
 
 import { slideUp, staggerContainer, transitionSmooth } from "@/lib/animations"
 import { Logo } from "./Logo"
+import { siteConfig } from "@/lib/site-config"
 
 /* ─── Data ────────────────────────────────────────────── */
 
@@ -44,23 +45,23 @@ const socials = [
 const contactInfo = [
   {
     label: "Adresse",
-    value: "Lot II A 45 Analakely",
-    helper: "Antananarivo, Madagascar",
-    href: "https://maps.google.com",
+    value: siteConfig.address,
+    helper: `${siteConfig.city}, ${siteConfig.country}`,
+    href: siteConfig.mapsHref,
     icon: MapPin,
   },
   {
     label: "Téléphone",
-    value: "+261 34 12 345 67",
-    helper: "Lun — Ven : 8h — 17h",
-    href: "tel:+261341234567",
+    value: siteConfig.phoneDisplay,
+    helper: siteConfig.hoursWeek,
+    href: siteConfig.phoneHref,
     icon: Phone,
   },
   {
     label: "Email",
-    value: "contact@jiconstruction.mg",
+    value: siteConfig.email,
     helper: "Réponse sous 24h",
-    href: "mailto:contact@jiconstruction.mg",
+    href: siteConfig.emailHref,
     icon: Mail,
   },
 ]
@@ -77,7 +78,7 @@ function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="relative overflow-hidden border-t border-border bg-background text-foreground"
+      className="relative overflow-hidden border-t border-border/80 bg-background text-foreground"
     >
       {/* Background motif conservé, mais très discret */}
       <div className="pointer-events-none absolute inset-0">
@@ -113,7 +114,7 @@ function Footer() {
           variants={containerVariants}
         >
           {/* Top row */}
-          <div className="grid gap-8 border-b border-border pb-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
+          <div className="grid gap-8 border-b border-border/80 pb-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             {/* Brand */}
             <motion.div variants={itemVariants} transition={itemTransition}>
               {/* Logo */}
@@ -162,7 +163,7 @@ function Footer() {
           <motion.div
             variants={itemVariants}
             transition={itemTransition}
-            className="grid border-b border-border lg:grid-cols-3"
+            className="grid border-b border-border/80 lg:grid-cols-3"
           >
             {contactInfo.map((item, index) => {
               const Icon = item.icon
@@ -202,7 +203,7 @@ function Footer() {
           </motion.div>
 
           {/* Navigation */}
-          <div className="grid gap-8 border-b border-border py-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
+          <div className="grid gap-8 border-b border-border/80 py-8 lg:grid-cols-[1.1fr_1.9fr] lg:gap-12">
             <motion.div variants={itemVariants} transition={itemTransition}>
               <p className="font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground">
                 Réseaux

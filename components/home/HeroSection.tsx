@@ -70,7 +70,7 @@ function BtpBlueprintPattern() {
             x2={160 * (i + 1)}
             y2="900"
             stroke="#b8860b"
-            strokeOpacity="0.12"
+            strokeOpacity="0.16"
             strokeWidth="1"
           />
         ))}
@@ -83,7 +83,7 @@ function BtpBlueprintPattern() {
             x2="1600"
             y2={140 * (i + 1)}
             stroke="#b8860b"
-            strokeOpacity="0.12"
+            strokeOpacity="0.16"
             strokeWidth="1"
           />
         ))}
@@ -124,7 +124,7 @@ function BtpBlueprintPattern() {
             width="370"
             height="250"
             stroke="#b8860b"
-            strokeOpacity="0.24"
+            strokeOpacity="0.32"
             strokeWidth="1.2"
             fill="url(#ji-fill-soft)"
           />
@@ -134,7 +134,7 @@ function BtpBlueprintPattern() {
             cy="290"
             r="130"
             stroke="#b8860b"
-            strokeOpacity="0.18"
+            strokeOpacity="0.32"
             strokeWidth="1.2"
             fill="none"
           />
@@ -188,7 +188,7 @@ function BtpBlueprintPattern() {
               x2="380"
               y2="250"
               stroke="#b8860b"
-              strokeOpacity="0.3"
+              strokeOpacity="0.46"
               strokeWidth="1.4"
             />
 
@@ -199,7 +199,7 @@ function BtpBlueprintPattern() {
               height="130"
               rx="1"
               stroke="#b8860b"
-              strokeOpacity="0.38"
+              strokeOpacity="0.46"
               strokeWidth="1.9"
               fill="url(#ji-fill-soft)"
             />
@@ -207,7 +207,7 @@ function BtpBlueprintPattern() {
             <path
               d="M-5 110 L150 18 L305 110"
               stroke="#b8860b"
-              strokeOpacity="0.45"
+              strokeOpacity="0.54"
               strokeWidth="2.2"
               fill="none"
             />
@@ -215,7 +215,7 @@ function BtpBlueprintPattern() {
             <path
               d="M25 104 L150 34 L275 104"
               stroke="#b8860b"
-              strokeOpacity="0.24"
+              strokeOpacity="0.32"
               strokeWidth="1.2"
               fill="none"
             />
@@ -246,7 +246,7 @@ function BtpBlueprintPattern() {
               width="46"
               height="80"
               stroke="#b8860b"
-              strokeOpacity="0.42"
+              strokeOpacity="0.5"
               strokeWidth="1.4"
               fill="none"
             />
@@ -257,7 +257,7 @@ function BtpBlueprintPattern() {
               width="48"
               height="36"
               stroke="#b8860b"
-              strokeOpacity="0.34"
+              strokeOpacity="0.5"
               strokeWidth="1.2"
               fill="none"
             />
@@ -288,7 +288,7 @@ function BtpBlueprintPattern() {
               width="48"
               height="36"
               stroke="#b8860b"
-              strokeOpacity="0.34"
+              strokeOpacity="0.5"
               strokeWidth="1.2"
               fill="none"
             />
@@ -319,7 +319,7 @@ function BtpBlueprintPattern() {
               width="110"
               height="10"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1"
               fill="none"
             />
@@ -370,7 +370,7 @@ function BtpBlueprintPattern() {
               y="-5"
               textAnchor="middle"
               fill="#b8860b"
-              fillOpacity="0.36"
+              fillOpacity="0.46"
               fontSize="10"
               fontFamily="monospace"
               letterSpacing="0.1em"
@@ -408,7 +408,7 @@ function BtpBlueprintPattern() {
               width="229"
               height="194"
               stroke="#b8860b"
-              strokeOpacity="0.24"
+              strokeOpacity="0.32"
               strokeWidth="1.2"
               fill="url(#ji-fill-soft)"
             />
@@ -419,7 +419,7 @@ function BtpBlueprintPattern() {
               x2="110"
               y2="212"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.2"
             />
 
@@ -429,7 +429,7 @@ function BtpBlueprintPattern() {
               x2="247"
               y2="100"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.2"
             />
 
@@ -439,14 +439,14 @@ function BtpBlueprintPattern() {
               x2="170"
               y2="212"
               stroke="#b8860b"
-              strokeOpacity="0.24"
+              strokeOpacity="0.32"
               strokeWidth="1.1"
             />
 
             <path
               d="M100 100 A20 20 0 0 1 120 80"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.1"
               fill="none"
             />
@@ -454,7 +454,7 @@ function BtpBlueprintPattern() {
             <path
               d="M170 112 A20 20 0 0 1 190 132"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.1"
               fill="none"
             />
@@ -462,7 +462,7 @@ function BtpBlueprintPattern() {
             <path
               d="M110 155 A20 20 0 0 1 90 175"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.1"
               fill="none"
             />
@@ -472,7 +472,7 @@ function BtpBlueprintPattern() {
               y="60"
               textAnchor="middle"
               fill="#b8860b"
-              fillOpacity="0.34"
+              fillOpacity="0.42"
               fontSize="10"
               fontFamily="monospace"
             >
@@ -484,7 +484,7 @@ function BtpBlueprintPattern() {
               y="60"
               textAnchor="middle"
               fill="#b8860b"
-              fillOpacity="0.34"
+              fillOpacity="0.42"
               fontSize="10"
               fontFamily="monospace"
             >
@@ -496,7 +496,7 @@ function BtpBlueprintPattern() {
               y="155"
               textAnchor="middle"
               fill="#b8860b"
-              fillOpacity="0.34"
+              fillOpacity="0.42"
               fontSize="10"
               fontFamily="monospace"
             >
@@ -508,7 +508,7 @@ function BtpBlueprintPattern() {
               y="160"
               textAnchor="middle"
               fill="#b8860b"
-              fillOpacity="0.34"
+              fillOpacity="0.42"
               fontSize="10"
               fontFamily="monospace"
             >
@@ -534,7 +534,7 @@ function BtpBlueprintPattern() {
               x2="0"
               y2="380"
               stroke="#b8860b"
-              strokeOpacity="0.34"
+              strokeOpacity="0.5"
               strokeWidth="1.8"
             />
 
@@ -544,7 +544,7 @@ function BtpBlueprintPattern() {
               x2="22"
               y2="380"
               stroke="#b8860b"
-              strokeOpacity="0.34"
+              strokeOpacity="0.5"
               strokeWidth="1.8"
             />
 
@@ -569,7 +569,7 @@ function BtpBlueprintPattern() {
                     x2="22"
                     y2={y}
                     stroke="#b8860b"
-                    strokeOpacity="0.24"
+                    strokeOpacity="0.32"
                     strokeWidth="1"
                   />
 
@@ -579,7 +579,7 @@ function BtpBlueprintPattern() {
                     x2="0"
                     y2={y}
                     stroke="#b8860b"
-                    strokeOpacity="0.24"
+                    strokeOpacity="0.32"
                     strokeWidth="1"
                   />
                 </g>
@@ -592,7 +592,7 @@ function BtpBlueprintPattern() {
               x2="-210"
               y2="40"
               stroke="#b8860b"
-              strokeOpacity="0.36"
+              strokeOpacity="0.44"
               strokeWidth="1.8"
             />
 
@@ -602,7 +602,7 @@ function BtpBlueprintPattern() {
               x2="130"
               y2="52"
               stroke="#b8860b"
-              strokeOpacity="0.28"
+              strokeOpacity="0.44"
               strokeWidth="1.4"
             />
 
@@ -612,7 +612,7 @@ function BtpBlueprintPattern() {
               x2="11"
               y2="10"
               stroke="#b8860b"
-              strokeOpacity="0.24"
+              strokeOpacity="0.32"
               strokeWidth="1.1"
             />
 
@@ -622,14 +622,14 @@ function BtpBlueprintPattern() {
               x2="-105"
               y2="112"
               stroke="#b8860b"
-              strokeOpacity="0.3"
+              strokeOpacity="0.46"
               strokeWidth="1.2"
             />
 
             <path
               d="M-105 112 Q-105 126 -94 126 Q-82 126 -82 114"
               stroke="#b8860b"
-              strokeOpacity="0.3"
+              strokeOpacity="0.46"
               strokeWidth="1.2"
               fill="none"
             />
@@ -648,7 +648,7 @@ function BtpBlueprintPattern() {
             x2="1240"
             y2="785"
             stroke="#b8860b"
-            strokeOpacity="0.28"
+            strokeOpacity="0.44"
             strokeWidth="1.4"
           />
 
@@ -658,7 +658,7 @@ function BtpBlueprintPattern() {
             x2="180"
             y2="798"
             stroke="#b8860b"
-            strokeOpacity="0.28"
+            strokeOpacity="0.44"
             strokeWidth="1.4"
           />
 
@@ -668,7 +668,7 @@ function BtpBlueprintPattern() {
             x2="1240"
             y2="798"
             stroke="#b8860b"
-            strokeOpacity="0.28"
+            strokeOpacity="0.44"
             strokeWidth="1.4"
           />
 
@@ -697,7 +697,7 @@ function BtpBlueprintPattern() {
             y="776"
             textAnchor="middle"
             fill="#b8860b"
-            fillOpacity="0.42"
+            fillOpacity="0.5"
             fontSize="11"
             fontFamily="monospace"
             letterSpacing="0.08em"
@@ -764,12 +764,23 @@ function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[92svh] flex items-end pt-20 pb-20 sm:items-center sm:pb-0 overflow-hidden"
+      className="relative min-h-[100svh] overflow-hidden pt-24 pb-28 sm:flex sm:min-h-[92svh] sm:items-center sm:pt-20 sm:pb-0"
     >
       {/* Layer 1 : base */}
       <div className="absolute inset-0 bg-background" />
 
-      {/* Layer 2 : gradients premium */}
+      {/* Layer 2 : image réelle subtile pour humaniser le rendu */}
+      <div
+        className="absolute inset-0 opacity-[0.10] dark:opacity-[0.14] sm:opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklch, var(--background) 72%, transparent) 42%, color-mix(in oklch, var(--background) 8%, transparent) 100%), url('/images/hero/construction.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "68% center",
+        }}
+      />
+
+      {/* Layer 3 : gradients premium */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <div
           className="absolute -top-1/4 -left-1/4 w-[140%] h-[140%]"
@@ -796,7 +807,7 @@ function HeroSection() {
         />
       </motion.div>
 
-      {/* Layer 3 : dark mode overlay */}
+      {/* Layer 4 : dark mode overlay */}
       <div className="absolute inset-0 hidden dark:block">
         <div
           className="absolute inset-0"
@@ -815,23 +826,33 @@ function HeroSection() {
         />
       </div>
 
-      {/* Layer 4 : motif BTP visible */}
-      <div className="absolute inset-0 opacity-100">
-        <BtpBlueprintPattern />
-      </div>
-
-      {/* Layer 5 : masque de lisibilité */}
+      {/* Layer 5 : masque de lisibilité allégé
+          Le masque protège seulement la colonne texte. Le motif BTP reste au-dessus
+          pour ne plus être étouffé par une grande nappe de couleur. */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background) / 0.84) 24%, hsl(var(--background) / 0.38) 48%, hsl(var(--background) / 0.08) 70%, hsl(var(--background) / 0) 100%)",
+            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklch, var(--background) 72%, transparent) 22%, color-mix(in oklch, var(--background) 28%, transparent) 45%, color-mix(in oklch, var(--background) 6%, transparent) 64%, transparent 100%)",
         }}
       />
 
-      {/* Layer 6 : grain subtil */}
+      {/* Layer 6 : motif BTP prioritaire, volontairement au-dessus du masque */}
       <div
-        className="absolute inset-0 z-[2] opacity-[0.026] dark:opacity-[0.045] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 z-[3] opacity-100"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 26%, black 42%, black 100%)",
+          maskImage:
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 26%, black 42%, black 100%)",
+        }}
+      >
+        <BtpBlueprintPattern />
+      </div>
+
+      {/* Layer 7 : grain subtil */}
+      <div
+        className="absolute inset-0 z-[4] opacity-[0.026] dark:opacity-[0.045] mix-blend-overlay pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         }}
@@ -839,14 +860,14 @@ function HeroSection() {
 
       {/* CONTENT */}
       <motion.div
-        className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
+        className="relative z-20 mx-auto flex min-h-[calc(100svh-10rem)] w-full max-w-7xl items-end px-5 sm:min-h-0 sm:px-8 lg:px-12"
         style={{ opacity: contentOpacity, y: contentY }}
       >
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer(0.1, 0.5)}
-          className="flex flex-col gap-6"
+          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80  p-5 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
         >
           {/* Label */}
           <motion.div
@@ -871,7 +892,7 @@ function HeroSection() {
               style={{ width: 32 }}
             />
 
-            <span className="text-xs sm:text-sm uppercase tracking-[0.25em] font-medium text-muted-foreground">
+            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-sm sm:tracking-[0.25em]">
               JI Construction — BTP &amp; Bungalows
             </span>
           </motion.div>
@@ -885,7 +906,7 @@ function HeroSection() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-extrabold leading-[0.92] tracking-tight text-foreground"
+            className="text-[clamp(3.4rem,17vw,5.2rem)] font-extrabold leading-[0.9] tracking-[-0.065em] text-foreground sm:text-7xl sm:leading-[0.92] lg:text-8xl xl:text-9xl"
           >
             <span className="block">Construire juste.</span>
 
@@ -911,7 +932,7 @@ function HeroSection() {
               duration: 0.6,
               delay: 1,
             }}
-            className="text-base sm:text-lg max-w-xl leading-relaxed text-muted-foreground"
+            className="max-w-xl text-[0.98rem] leading-7 text-muted-foreground sm:text-lg sm:leading-relaxed"
           >
             Construction, rénovation et bungalows sur mesure à Madagascar. Des projets bien conçus,
             bien chiffrés, bien réalisés.
@@ -925,12 +946,12 @@ function HeroSection() {
               duration: 0.6,
               delay: 1.2,
             }}
-            className="flex flex-wrap gap-3 pt-2"
+            className="grid gap-3 pt-2 sm:flex sm:flex-wrap"
           >
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 size="lg"
-                className="rounded-full px-7 text-sm font-semibold shadow-lg shadow-primary/25"
+                className="min-h-12 w-full rounded-full px-7 text-sm font-bold sm:w-auto"
                 asChild
               >
                 <Link href="/devis" className="inline-flex items-center gap-2">
@@ -944,7 +965,7 @@ function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full border-border px-7 text-sm font-semibold shadow-sm backdrop-blur-sm bg-background/70"
+                className="min-h-12 w-full rounded-full border-border/80 bg-background/[0.88] px-7 text-sm font-bold shadow-sm backdrop-blur-sm sm:w-auto"
                 asChild
               >
                 <Link href="/bungalows" className="inline-flex items-center gap-2">
@@ -997,7 +1018,7 @@ function HeroSection() {
               duration: 0.8,
               delay: 1.7,
             }}
-            className="flex flex-wrap items-center gap-5 sm:gap-8 pt-4"
+            className="grid grid-cols-3 gap-3 pt-3 sm:flex sm:flex-wrap sm:items-center sm:gap-8 sm:pt-4"
           >
             {[
               { value: "15+", label: "ans" },
@@ -1012,15 +1033,15 @@ function HeroSection() {
                   duration: 0.5,
                   delay: 1.9 + i * 0.12,
                 }}
-                className="flex items-baseline gap-2"
+                className="flex min-w-0 flex-col gap-0.5 rounded-2xl border border-border/70 bg-card/70 px-3 py-2 sm:flex-row sm:items-baseline sm:gap-2 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0"
               >
-                <span className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</span>
+                <span className="text-xl font-bold text-foreground sm:text-3xl">{stat.value}</span>
 
-                <span className="text-xs uppercase tracking-wider text-muted-foreground">
+                <span className="text-[0.64rem] uppercase leading-tight tracking-wider text-muted-foreground sm:text-xs">
                   {stat.label}
                 </span>
 
-                {i < 2 && <span className="ml-2 sm:ml-4 text-lg text-border">/</span>}
+                {i < 2 && <span className="hidden text-lg text-border sm:ml-4 sm:inline">/</span>}
               </motion.div>
             ))}
           </motion.div>

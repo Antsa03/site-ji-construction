@@ -1,6 +1,8 @@
 import { HeroSection } from "@/components/home/HeroSection"
 import { CraftServicesSection } from "@/components/home/CraftServicesSection"
 import { WhyUsSection } from "@/components/home/WhyUsSection"
+import { ProcessSection } from "@/components/home/ProcessSection"
+import { GuaranteesSection } from "@/components/home/GuaranteesSection"
 import { ProjectsSection } from "@/components/home/ProjectsSection"
 import { TestimonialsSection } from "@/components/home/TestimonialsSection"
 import { CtaSection } from "@/components/home/CtaSection"
@@ -15,6 +17,9 @@ export default function Home() {
       <CraftServicesSection />
       <SectionDivider variant="dots" />
 
+      <ProcessSection />
+      <SectionDivider variant="default" />
+
       <WhyUsSection />
       <SectionDivider variant="default" />
 
@@ -23,6 +28,9 @@ export default function Home() {
 
       <TestimonialsSection />
       <SectionDivider variant="dots" />
+
+      <GuaranteesSection />
+      <SectionDivider variant="copper" />
 
       <CtaSection />
     </div>

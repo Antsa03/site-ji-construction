@@ -10,6 +10,7 @@ import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/layout/Logo"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site-config"
 import {
   Sheet,
   SheetContent,
@@ -35,7 +36,7 @@ function Navbar() {
   return (
     <header
       style={{ viewTransitionName: "site-header" }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-border/60 bg-background/85 shadow-sm backdrop-blur-xl transition-all duration-300"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border/80 bg-background/[0.92] shadow-sm backdrop-blur-xl transition-all duration-300 supports-[backdrop-filter]:bg-background/[0.84]"
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
@@ -122,21 +123,21 @@ function Navbar() {
               variant="ghost"
               size="icon"
               aria-label="Ouvrir le menu de navigation"
-              className="text-muted-foreground hover:bg-muted hover:text-foreground md:hidden"
+              className="tap-target rounded-full text-foreground hover:bg-muted hover:text-foreground md:hidden"
             >
               <Menu className="size-5" />
               <span className="sr-only">Ouvrir le menu</span>
             </Button>
           </SheetTrigger>
 
-          <SheetContent side="right" className="w-72">
+          <SheetContent side="right" className="w-[min(92vw,24rem)] border-l border-border bg-background/[0.98] px-0">
             <SheetHeader>
               <SheetTitle className="text-left">
                 <Logo size="sm" />
               </SheetTitle>
             </SheetHeader>
 
-            <nav className="mt-8 flex flex-col gap-1 px-2">
+            <nav className="mt-7 flex flex-col gap-2 px-4">
               {navLinks.map((link, i) => (
                 <SheetClose asChild key={link.href}>
                   <motion.div
@@ -148,7 +149,7 @@ function Navbar() {
                       href={link.href}
                       transitionTypes={link.href === "/" ? ["nav-back"] : ["nav-forward"]}
                       className={cn(
-                        "block min-h-11 rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-200",
+                        "block min-h-12 rounded-2xl px-4 py-3.5 text-base font-semibold transition-colors duration-200",
                         pathname === link.href
                           ? "bg-muted text-foreground"
                           : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -164,10 +165,10 @@ function Navbar() {
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.25 }}
-                className="mt-6 px-3"
+                className="mt-6 px-0"
               >
                 <SheetClose asChild>
-                  <Button asChild className="min-h-11 w-full rounded-full">
+                  <Button asChild className="min-h-12 w-full rounded-full text-base font-bold">
                     <Link href="/devis">Demander un devis gratuit</Link>
                   </Button>
                 </SheetClose>
@@ -177,7 +178,7 @@ function Navbar() {
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.35, duration: 0.25 }}
-                className="mt-6 border-t border-border px-3 pt-5"
+                className="mt-6 border-t border-border px-0 pt-5"
               >
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   Contact direct
@@ -186,22 +187,22 @@ function Navbar() {
                 <div className="mt-3 grid gap-2">
                   <SheetClose asChild>
                     <a
-                      href="tel:+261341234567"
-                      className="flex min-h-11 items-center gap-3 rounded-xl bg-muted px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted/80"
+                      href={siteConfig.phoneHref}
+                      className="flex min-h-12 items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
                     >
-                      <Phone className="size-4 text-muted-foreground" aria-hidden="true" />
-                      +261 34 12 345 67
+                      <Phone className="size-4 text-primary-text" aria-hidden="true" />
+                      {siteConfig.phoneDisplay}
                     </a>
                   </SheetClose>
 
                   <SheetClose asChild>
                     <a
-                      href="https://wa.me/261341234567"
+                      href={siteConfig.whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex min-h-11 items-center gap-3 rounded-xl bg-muted px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted/80"
+                      className="flex min-h-12 items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
                     >
-                      <MessageCircle className="size-4 text-muted-foreground" aria-hidden="true" />
+                      <MessageCircle className="size-4 text-primary-text" aria-hidden="true" />
                       WhatsApp
                     </a>
                   </SheetClose>

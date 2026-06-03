@@ -73,7 +73,7 @@ function FormSelect({
             <SelectItem key={option.value} value={option.value} className="min-h-11 rounded-md">
               <span className="flex items-center gap-2.5">
                 {option.icon && (
-                  <span className="text-muted-foreground/70 shrink-0" aria-hidden="true">
+                  <span className="text-muted-foreground shrink-0" aria-hidden="true">
                     {option.icon}
                   </span>
                 )}

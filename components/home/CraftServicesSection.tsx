@@ -829,50 +829,62 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
 
       {/* ── Card inner ── */}
       <div className="relative z-10 flex flex-col flex-1 p-6 sm:p-8">
-        {/* Top: number + illustration */}
-        <div className="flex items-start justify-between mb-6">
+        {/* Top: editorial service index, not a generic icon badge */}
+        <div className="mb-6 flex items-start justify-between gap-6">
           <motion.span
             initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-            className="text-6xl sm:text-7xl font-bold leading-none select-none"
+            className="select-none text-6xl font-black leading-none tracking-[-0.09em] sm:text-7xl"
             style={{
               color: service.isAccent ? "var(--primary)" : "var(--warm-gray)",
-              opacity: 0.12,
+              opacity: 0.14,
               fontFamily: "var(--font-heading)",
             }}
           >
             {service.num}
           </motion.span>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, rotate: -3 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, delay: 0.2 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="w-28 h-24 sm:w-32 sm:h-28 flex-shrink-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-            style={{ color: service.isAccent ? "var(--primary)" : "var(--warm-gray)" }}
-          >
-            <Illustration />
-          </motion.div>
+          <span className="rounded-full border border-border bg-background/70 px-3 py-1 font-mono text-[0.65rem] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+            Domaine BTP
+          </span>
         </div>
 
         {/* Title */}
         <h3
-          className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-1"
+          className="mb-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {service.title}
-          {service.subtitle && (
-            <span className="text-muted-foreground font-normal ml-1.5">{service.subtitle}</span>
-          )}
+          {service.subtitle && <span className="ml-1.5 font-normal text-muted-foreground">{service.subtitle}</span>}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
           {service.description}
         </p>
+
+        {/* Technical visual plate — treated like a project drawing instead of an AI icon */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.7, delay: 0.2 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-5 overflow-hidden rounded-2xl border border-border bg-muted/45 p-4"
+          style={{ color: service.isAccent ? "var(--primary)" : "var(--warm-gray)" }}
+        >
+          <div className="mb-3 flex items-center justify-between border-b border-border pb-3">
+            <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              Croquis technique
+            </span>
+            <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-primary-text/70">
+              JI-{service.num}
+            </span>
+          </div>
+          <div className="h-28 opacity-75 transition-opacity duration-500 group-hover:opacity-95 sm:h-32">
+            <Illustration />
+          </div>
+        </motion.div>
 
         {/* Feature tags */}
         <div className="flex flex-wrap gap-2 mb-6">
@@ -984,7 +996,7 @@ function CraftServicesSection() {
           <motion.span
             variants={slideUp}
             transition={transitionSmooth}
-            className="text-xs text-muted-foreground/60 uppercase tracking-[0.3em] font-mono block mb-3"
+            className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
           >
             02 — Prestations
           </motion.span>

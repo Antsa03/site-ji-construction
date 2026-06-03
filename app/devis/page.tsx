@@ -36,6 +36,7 @@ import { PageHero } from "@/components/layout/PageHero"
 
 import { slideUp, slideLeft, staggerContainer, transitionSmooth } from "@/lib/animations"
 import { PremiumSection } from "@/components/layout/PremiumSection"
+import { siteConfig } from "@/lib/site-config"
 
 const projectTypes: FormSelectOption[] = [
   { value: "maison", label: "Maison individuelle", icon: <IconMaison className="size-4" /> },
@@ -162,9 +163,26 @@ export default function DevisPage() {
     if (Object.keys(nextErrors).length > 0) return
 
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 650))
-    setIsSubmitting(false)
-    setSubmitted(true)
+    try {
+      const response = await fetch("/api/devis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Demande non envoyée")
+      }
+
+      setSubmitted(true)
+    } catch {
+      setErrors({
+        message:
+          "Impossible d’envoyer la demande pour le moment. Réessayez ou contactez-nous directement par téléphone.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -231,11 +249,11 @@ export default function DevisPage() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Button asChild variant="outline" className="min-h-11 rounded-full">
-                <a href="tel:+261341234567">Appeler directement</a>
+                <a href={siteConfig.phoneHref}>Appeler directement</a>
               </Button>
 
               <Button asChild className="min-h-11 rounded-full">
-                <a href="https://wa.me/261341234567" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.whatsappHref} target="_blank" rel="noopener noreferrer">
                   WhatsApp
                 </a>
               </Button>
@@ -570,26 +588,26 @@ export default function DevisPage() {
                 {[
                   {
                     icon: Phone,
-                    label: "+261 34 12 345 67",
-                    href: "tel:+261341234567",
+                    label: siteConfig.phoneDisplay,
+                    href: siteConfig.phoneHref,
                     helper: "Appel direct",
                   },
                   {
                     icon: MessageCircle,
                     label: "WhatsApp",
-                    href: "https://wa.me/261341234567",
+                    href: siteConfig.whatsappHref,
                     helper: "Pratique pour photos et plans",
                   },
                   {
                     icon: Mail,
-                    label: "contact@jiconstruction.mg",
-                    href: "mailto:contact@jiconstruction.mg",
+                    label: siteConfig.email,
+                    href: siteConfig.emailHref,
                     helper: "Réponse sous 24h",
                   },
                   {
                     icon: MapPin,
-                    label: "Lot II A 45 Analakely",
-                    href: "https://maps.google.com",
+                    label: siteConfig.address,
+                    href: siteConfig.mapsHref,
                     helper: "Antananarivo",
                   },
                 ].map((item) => (

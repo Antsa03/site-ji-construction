@@ -75,7 +75,7 @@ function FormField({
       </AnimatePresence>
 
       {hint && !error && !success && (
-        <p id={hintId} className="text-[11px] text-muted-foreground/80">
+        <p id={hintId} className="text-[11px] text-muted-foreground">
           {hint}
         </p>
       )}

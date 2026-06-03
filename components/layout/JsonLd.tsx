@@ -1,19 +1,20 @@
 import Script from "next/script"
+import { siteConfig } from "@/lib/site-config"
 
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "JI Construction",
+    name: siteConfig.name,
     description:
       "Expert BTP et concepteur de bungalows sur mesure à Madagascar. Construction, rénovation, études et plans.",
     url: "https://jiconstruction.mg",
-    telephone: "+261341234567",
-    email: "contact@jiconstruction.mg",
+    telephone: siteConfig.phoneHref.replace("tel:", ""),
+    email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Lot II A 45 Analakely",
-      addressLocality: "Antananarivo",
+      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.city,
       postalCode: "101",
       addressCountry: "MG",
     },
@@ -45,7 +46,7 @@ function JsonLd() {
     priceRange: "$$",
     areaServed: {
       "@type": "Country",
-      name: "Madagascar",
+      name: siteConfig.country,
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/layout/ThemeProvider"
 import { JsonLd } from "@/components/layout/JsonLd"
+import { MobileQuickActions } from "@/components/layout/MobileQuickActions"
 
 const display = Space_Grotesk({
   variable: "--font-display",
@@ -45,7 +46,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background font-sans text-foreground selection:bg-primary/25 selection:text-foreground">
+      <body className="min-h-full bg-background pb-28 font-sans text-foreground selection:bg-primary/25 selection:text-foreground md:pb-0">
         <JsonLd />
 
         <ThemeProvider>
@@ -61,6 +62,7 @@ export default function RootLayout({
             </main>
 
             <Footer />
+            <MobileQuickActions />
           </div>
         </ThemeProvider>
       </body>

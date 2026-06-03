@@ -214,9 +214,9 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const isInView = useInView(ref, { once: true, amount: 0.5 })
   const shouldReduceMotion = useReducedMotion()
 
-  const motionValue = useMotionValue(0)
+  const motionValue = useMotionValue(value)
   const rounded = useTransform(motionValue, (latest) => Math.round(latest))
-  const [display, setDisplay] = useState(0)
+  const [display, setDisplay] = useState(value)
 
   useEffect(() => {
     const unsubscribe = rounded.on("change", (latest) => setDisplay(latest))
@@ -224,22 +224,29 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   }, [rounded])
 
   useEffect(() => {
-    if (shouldReduceMotion) {
+    if (shouldReduceMotion || !isInView) {
       setDisplay(value)
       return
     }
-    if (!isInView) return
+
+    motionValue.set(Math.max(0, Math.floor(value * 0.72)))
     const controls = animate(motionValue, value, {
-      duration: 2.2,
+      duration: 1.25,
       ease: [0.16, 1, 0.3, 1],
     })
     return () => controls.stop()
   }, [isInView, value, motionValue, shouldReduceMotion])
 
   return (
-    <span ref={ref} className="inline-block">
-      {display.toLocaleString("fr-FR")}
-      <span className="text-primary/50">{suffix}</span>
+    <span
+      ref={ref}
+      className="inline-block"
+      aria-label={`${value.toLocaleString("fr-FR")}${suffix}`}
+    >
+      <span aria-hidden="true">
+        {display.toLocaleString("fr-FR")}
+        <span className="text-primary-text">{suffix}</span>
+      </span>
     </span>
   )
 }
@@ -248,9 +255,9 @@ function WhyUsSection() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="relative isolate overflow-hidden py-24 sm:py-32 lg:py-40">
+    <section className="relative isolate overflow-hidden py-16 sm:py-28 lg:py-36">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-background to-muted/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/55 via-background to-muted/30" />
 
       {/* Grid */}
       <div
@@ -331,7 +338,7 @@ function WhyUsSection() {
             >
               On ne promet pas.
               <br />
-              <span className="text-muted-foreground/70">On construit.</span>
+              <span className="text-muted-foreground">On construit.</span>
             </motion.h2>
 
             <motion.p
@@ -364,7 +371,7 @@ function WhyUsSection() {
             <motion.div
               variants={slideUp}
               transition={transitionSmooth}
-              className="mt-12 flex items-center gap-3 text-xs text-muted-foreground/60"
+              className="mt-12 flex items-center gap-3 text-xs text-muted-foreground"
             >
               <div className="h-px w-8 bg-primary/30" />
               <span className="font-mono tracking-wider">Depuis 2009 — Antananarivo</span>
@@ -407,7 +414,7 @@ function WhyUsSection() {
                 <div className="relative p-7 sm:p-8">
                   {/* Index */}
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/30 transition-colors duration-500 group-hover:text-muted-foreground/50">
+                    <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/55 transition-colors duration-500 group-hover:text-muted-foreground">
                       0{index + 1}
                     </span>
                     {/* Small decorative dot */}
@@ -429,7 +436,7 @@ function WhyUsSection() {
                   <h3 className="text-[13px] font-semibold uppercase tracking-[0.15em] text-foreground/85">
                     {stat.label}
                   </h3>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground/70">
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">
                     {stat.detail}
                   </p>
                 </div>

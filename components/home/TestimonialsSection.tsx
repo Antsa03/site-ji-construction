@@ -43,7 +43,7 @@ function TestimonialsSection() {
   return (
     <section className="py-24 sm:py-36 relative overflow-hidden">
       {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-muted/30 to-transparent" />
 
       {/* Architectural grid pattern */}
       <div className="absolute inset-0 arch-grid-pattern opacity-30" />
@@ -64,7 +64,7 @@ function TestimonialsSection() {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-16 right-8 sm:right-16 pointer-events-none select-none"
       >
-        <span className="text-[12rem] sm:text-[18rem] leading-none font-[family-name:var(--font-heading)] text-primary/65">
+        <span className="text-[12rem] sm:text-[18rem] leading-none font-heading text-primary/80">
           &ldquo;
         </span>
       </motion.div>
@@ -81,7 +81,7 @@ function TestimonialsSection() {
           <motion.span
             variants={slideUp}
             transition={transitionSmooth}
-            className="text-xs text-muted-foreground/60 uppercase tracking-[0.3em] font-mono block mb-3"
+            className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
           >
             05 — Témoignages
           </motion.span>

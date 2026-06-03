@@ -10,40 +10,43 @@ import { FormTextarea } from "@/components/form/FormTextarea"
 import { PageHero } from "@/components/layout/PageHero"
 import { slideUp, slideLeft, staggerContainer, transitionSmooth } from "@/lib/animations"
 import { PremiumSection } from "@/components/layout/PremiumSection"
+import { siteConfig } from "@/lib/site-config"
 
 const contactMethods = [
   {
     icon: Phone,
     label: "Appel direct",
-    value: "+261 34 12 345 67",
-    href: "tel:+261341234567",
-    description: "Lun - Ven, 8h - 17h",
+    value: siteConfig.phoneDisplay,
+    href: siteConfig.phoneHref,
+    description: siteConfig.hoursWeek,
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
     value: "Envoyer un message",
-    href: "https://wa.me/261341234567",
+    href: siteConfig.whatsappHref,
     description: "Idéal pour envoyer photos, plans ou localisation",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contact@jiconstruction.mg",
-    href: "mailto:contact@jiconstruction.mg",
+    value: siteConfig.email,
+    href: siteConfig.emailHref,
     description: "Réponse sous 24h ouvrées",
   },
   {
     icon: MapPin,
     label: "Bureau",
-    value: "Lot II A 45 Analakely",
-    href: "https://maps.google.com",
-    description: "Antananarivo, Madagascar",
+    value: siteConfig.address,
+    href: siteConfig.mapsHref,
+    description: `${siteConfig.city}, ${siteConfig.country}`,
   },
 ]
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState("")
   const [formData, setFormData] = useState({
     nom: "",
     email: "",
@@ -51,9 +54,28 @@ export default function ContactPage() {
     message: "",
   })
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitError("")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Votre message n’a pas pu être envoyé.")
+      }
+
+      setSubmitted(true)
+    } catch {
+      setSubmitError("Impossible d’envoyer le message pour le moment. Réessayez ou contactez-nous par téléphone.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -65,7 +87,7 @@ export default function ContactPage() {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button asChild size="lg" className="min-h-12 rounded-full">
-            <a href="tel:+261341234567" className="inline-flex items-center gap-2">
+            <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2">
               Appeler maintenant
               <Phone className="size-4" aria-hidden="true" />
             </a>
@@ -73,7 +95,7 @@ export default function ContactPage() {
 
           <Button asChild size="lg" variant="outline" className="min-h-12 rounded-full">
             <a
-              href="https://wa.me/261341234567"
+              href={siteConfig.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"
@@ -116,12 +138,12 @@ export default function ContactPage() {
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Button asChild variant="outline" className="min-h-11 rounded-full">
-                      <a href="tel:+261341234567">Appeler JI Construction</a>
+                      <a href={siteConfig.phoneHref}>Appeler JI Construction</a>
                     </Button>
 
                     <Button asChild className="min-h-11 rounded-full">
                       <a
-                        href="https://wa.me/261341234567"
+                        href={siteConfig.whatsappHref}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -206,17 +228,23 @@ export default function ContactPage() {
                       />
                     </motion.div>
 
+                    {submitError ? (
+                      <p className="rounded-2xl border border-destructive/25 bg-destructive/10 px-4 py-3 text-sm font-medium text-foreground">
+                        {submitError}
+                      </p>
+                    ) : null}
+
                     <motion.div
                       variants={slideUp}
                       transition={transitionSmooth}
                       className="border-t border-border/60 pt-6"
                     >
                       <Button
-                        type="submit"
+                        type="submit" disabled={isSubmitting}
                         size="lg"
                         className="min-h-12 rounded-full px-8 text-sm font-semibold"
                       >
-                        Envoyer le message
+                        {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                         <ArrowRight className="ml-2 size-4" aria-hidden="true" />
                       </Button>
                     </motion.div>
@@ -322,12 +350,12 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-foreground">Lot II A 45 Analakely</p>
-                    <p className="mt-1 text-xs text-muted-foreground">Antananarivo, Madagascar</p>
+                    <p className="text-sm font-semibold text-foreground">{siteConfig.address}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{`${siteConfig.city}, ${siteConfig.country}`}</p>
                   </div>
 
                   <a
-                    href="https://maps.google.com"
+                    href={siteConfig.mapsHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="min-h-11 rounded-full px-4 py-3 text-xs font-semibold text-foreground transition-colors hover:bg-background"
@@ -356,29 +384,7 @@ export default function ContactPage() {
         </div>
       </PremiumSection>
 
-      {/* Mobile sticky CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 shadow-lg backdrop-blur md:hidden">
-        <div className="mx-auto grid max-w-md grid-cols-2 gap-2">
-          <Button asChild variant="outline" className="min-h-11 rounded-full">
-            <a href="tel:+261341234567" className="inline-flex items-center gap-2">
-              <Phone className="size-4" aria-hidden="true" />
-              Appeler
-            </a>
-          </Button>
 
-          <Button asChild className="min-h-11 rounded-full">
-            <a
-              href="https://wa.me/261341234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2"
-            >
-              <MessageCircle className="size-4" aria-hidden="true" />
-              WhatsApp
-            </a>
-          </Button>
-        </div>
-      </div>
     </>
   )
 }

@@ -6,6 +6,7 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { slideUp, staggerContainer, transitionSmooth } from "@/lib/animations"
+import { siteConfig } from "@/lib/site-config"
 
 /* ═══════════════════════════════════════════════════════
    ANIMATED BLUEPRINT SVG
@@ -463,7 +464,7 @@ function CtaSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 dark:border-white/25 dark:bg-white/8 dark:text-white dark:hover:border-white/35 dark:hover:bg-white/14"
+                className="rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 dark:border-white/25 dark:bg-white/[0.08] dark:text-white dark:hover:border-white/35 dark:hover:bg-white/[0.14]"
                 asChild
               >
                 <Link href="/bungalows" className="inline-flex items-center gap-2">
@@ -480,13 +481,13 @@ function CtaSection() {
             className="mt-8 flex items-center gap-4"
           >
             <div className="h-px flex-1 bg-linear-to-r from-border/60 to-transparent max-w-24" />
-            <p className="text-lg text-muted-foreground/60">
+            <p className="text-lg text-muted-foreground">
               ou appelez le{" "}
               <a
-                href="tel:+261341234567"
+                href={siteConfig.phoneHref}
                 className="text-primary-text/70 hover:text-primary-text transition-colors duration-200"
               >
-                +261 34 12 345 67
+                {siteConfig.phoneDisplay}
               </a>
             </p>
           </motion.div>
