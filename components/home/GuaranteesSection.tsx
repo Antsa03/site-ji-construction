@@ -44,7 +44,9 @@ function ProofStamp({ code, index }: { code: string; index: number }) {
           <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.22em] text-primary-text/70">
             Engagement
           </p>
-          <p className="mt-1 text-sm font-extrabold uppercase tracking-[0.14em] text-foreground">{code}</p>
+          <p className="mt-1 text-sm font-extrabold uppercase tracking-[0.14em] text-foreground">
+            {code}
+          </p>
         </div>
         <span className="font-mono text-3xl font-black leading-none tracking-[-0.08em] text-primary/45">
           {String(index + 1).padStart(2, "0")}
@@ -80,7 +82,11 @@ function GuaranteesSection() {
           variants={containerVariants}
           className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
         >
-          <motion.div variants={itemVariants} transition={transitionSmooth} className="surface-contrast rounded-[2rem] p-6 sm:p-8 lg:p-10">
+          <motion.div
+            variants={itemVariants}
+            transition={transitionSmooth}
+            className="surface-contrast rounded-[2rem] p-6 sm:p-8 lg:p-10"
+          >
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/25 bg-primary/[0.08] px-4 py-2">
               <span className="h-2 w-2 rounded-full bg-primary" />
               <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.24em] text-primary-text">
@@ -92,8 +98,8 @@ function GuaranteesSection() {
               Des preuves concrètes, pas seulement des promesses.
             </h2>
             <p className="mt-5 text-base leading-8 text-muted-foreground">
-              Cette section abandonne les icônes décoratives au profit d’un langage plus professionnel : codes,
-              jalons, détails de contrôle et preuves opérationnelles.
+              Chaque projet est encadré par des repères clairs : devis détaillé, planning réaliste,
+              suivi régulier et contrôle des finitions avant réception.
             </p>
             <Button asChild className="mt-7 min-h-12 rounded-full px-7 font-bold">
               <Link href="/devis" className="inline-flex items-center gap-2">
@@ -112,7 +118,9 @@ function GuaranteesSection() {
                 className="surface-contrast rounded-3xl p-5 sm:p-6"
               >
                 <ProofStamp code={item.code} index={index} />
-                <h3 className="text-xl font-extrabold tracking-[-0.035em] text-foreground">{item.title}</h3>
+                <h3 className="text-xl font-extrabold tracking-[-0.035em] text-foreground">
+                  {item.title}
+                </h3>
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.text}</p>
                 <div className="mt-5 border-t border-border pt-4">
                   <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-primary-text/75">
