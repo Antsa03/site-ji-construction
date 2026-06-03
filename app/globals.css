@@ -107,6 +107,13 @@
   --warm-dark-bg: oklch(0.18 0.035 255);
   --btp-zone: oklch(0.96 0.01 90);
   --bungalow-zone: oklch(0.94 0.03 50);
+
+  /* Technical drawings / croquis */
+  --technical-ink: oklch(0.42 0.105 76);
+  --technical-ink-strong: oklch(0.36 0.11 76);
+  --technical-ink-soft: oklch(0.48 0.08 76);
+  --technical-surface: oklch(0.965 0.006 80);
+  --technical-border: oklch(0.78 0.018 76);
 }
 
 .dark {
@@ -156,6 +163,18 @@
 
   --btp-zone: oklch(0.22 0.035 255);
   --bungalow-zone: oklch(0.32 0.045 245);
+
+  /* Technical drawings / croquis — dark mode balanced */
+  --technical-ink: oklch(0.84 0.15 85);
+  --technical-ink-strong: oklch(0.92 0.13 88);
+  --technical-ink-soft: oklch(0.78 0.11 85);
+
+  --technical-surface: oklch(0.205 0.04 255);
+  --technical-border: oklch(0.82 0.13 85 / 0.34);
+
+  /* Grille volontairement plus discrète pour ne pas concurrencer le croquis */
+  --technical-grid: oklch(0.84 0.08 85 / 0.075);
+  --technical-fill: oklch(0.82 0.1 85 / 0.07);
 }
 
 @layer base {
@@ -642,7 +661,6 @@
     @apply text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground;
   }
 }
-
 
 @layer utilities {
   .surface-contrast {

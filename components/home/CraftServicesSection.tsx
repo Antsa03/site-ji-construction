@@ -856,35 +856,29 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {service.title}
-          {service.subtitle && <span className="ml-1.5 font-normal text-muted-foreground">{service.subtitle}</span>}
+          {service.subtitle && (
+            <span className="ml-1.5 font-normal text-muted-foreground">{service.subtitle}</span>
+          )}
         </h3>
 
         {/* Description */}
-        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-          {service.description}
-        </p>
+        <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
 
         {/* Technical visual plate — treated like a project drawing instead of an AI icon */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.7, delay: 0.2 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-5 overflow-hidden rounded-2xl border border-border bg-muted/45 p-4"
-          style={{ color: service.isAccent ? "var(--primary)" : "var(--warm-gray)" }}
+        <div
+          className="relative h-28 overflow-hidden rounded-xl sm:h-32"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, var(--technical-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--technical-grid) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
         >
-          <div className="mb-3 flex items-center justify-between border-b border-border pb-3">
-            <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              Croquis technique
-            </span>
-            <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-primary-text/70">
-              JI-{service.num}
-            </span>
-          </div>
-          <div className="h-28 opacity-75 transition-opacity duration-500 group-hover:opacity-95 sm:h-32">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,var(--technical-fill),transparent_62%)]" />
+
+          <div className="relative h-full opacity-100 contrast-125 brightness-110 dark:contrast-150 dark:brightness-125 transition-opacity duration-500 group-hover:brightness-125">
             <Illustration />
           </div>
-        </motion.div>
+        </div>
 
         {/* Feature tags */}
         <div className="flex flex-wrap gap-2 mb-6">
