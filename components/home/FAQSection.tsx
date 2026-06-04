@@ -58,7 +58,7 @@ function FAQSection() {
   const containerVariants = shouldReduceMotion ? {} : staggerContainer(0.08, 0.08)
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-28 lg:py-36">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -78,14 +78,29 @@ function FAQSection() {
             variants={containerVariants}
             className="lg:sticky lg:top-28 lg:self-start"
           >
-            <motion.p variants={slideUp} transition={transitionSmooth} className="premium-surtitre">
-              Questions fréquentes
-            </motion.p>
+            <motion.span
+              variants={slideUp}
+              transition={transitionSmooth}
+              className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
+            >
+              07 — Questions fréquentes
+            </motion.span>
+
+            <motion.div
+              variants={slideUp}
+              transition={transitionSmooth}
+              className="flex items-center gap-3 mb-5"
+            >
+              <div className="h-px w-10 bg-primary/40" />
+              <span className="text-[11px] uppercase tracking-[0.25em] font-semibold text-primary-text">
+                On répond
+              </span>
+            </motion.div>
 
             <motion.h2
               variants={slideUp}
               transition={transitionSmooth}
-              className="mt-5 max-w-xl text-4xl font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl"
+              className="max-w-xl text-4xl font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl"
             >
               Les réponses avant de lancer votre chantier.
             </motion.h2>

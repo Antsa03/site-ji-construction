@@ -8,17 +8,20 @@ const steps = [
   {
     code: "ÉCHANGE",
     title: "Premier échange",
-    description: "Nous cadrons le besoin, le terrain, le budget et les délais avant toute estimation.",
+    description:
+      "Nous cadrons le besoin, le terrain, le budget et les délais avant toute estimation.",
   },
   {
     code: "ÉTUDE",
     title: "Étude & devis",
-    description: "Les postes importants, les options et les contraintes techniques sont posés clairement.",
+    description:
+      "Les postes importants, les options et les contraintes techniques sont posés clairement.",
   },
   {
     code: "CADRAGE",
     title: "Préparation",
-    description: "Planning, matériaux, accès chantier et équipe sont validés pour limiter les imprévus.",
+    description:
+      "Planning, matériaux, accès chantier et équipe sont validés pour limiter les imprévus.",
   },
   {
     code: "CHANTIER",
@@ -30,6 +33,12 @@ const steps = [
     title: "Réception",
     description: "Les finitions sont vérifiées avec vous avant la clôture et la remise du projet.",
   },
+  {
+    code: "GARANTIE",
+    title: "Suivi & garantie",
+    description:
+      "Nous restons disponibles après livraison pour tout ajustement et pour honorer nos engagements de garantie.",
+  },
 ]
 
 function StepBlueprintMark({ index, code }: { index: number; code: string }) {
@@ -37,8 +46,18 @@ function StepBlueprintMark({ index, code }: { index: number; code: string }) {
     <div className="relative min-h-24 overflow-hidden rounded-2xl border border-primary/25 bg-primary/[0.055] p-4 text-primary-text">
       <div className="absolute inset-0 opacity-35">
         <svg viewBox="0 0 160 96" fill="none" className="h-full w-full">
-          <path d="M12 18H148M12 48H148M12 78H148" stroke="currentColor" strokeWidth="0.6" opacity="0.35" />
-          <path d="M28 8V88M80 8V88M132 8V88" stroke="currentColor" strokeWidth="0.6" opacity="0.28" />
+          <path
+            d="M12 18H148M12 48H148M12 78H148"
+            stroke="currentColor"
+            strokeWidth="0.6"
+            opacity="0.35"
+          />
+          <path
+            d="M28 8V88M80 8V88M132 8V88"
+            stroke="currentColor"
+            strokeWidth="0.6"
+            opacity="0.28"
+          />
           <path d="M28 72L80 24L132 72" stroke="currentColor" strokeWidth="1.2" opacity="0.55" />
           <path d="M48 72V46H112V72" stroke="currentColor" strokeWidth="1" opacity="0.42" />
           <path d="M56 58H72M88 58H104" stroke="currentColor" strokeWidth="1" opacity="0.45" />
@@ -62,7 +81,7 @@ function ProcessSection() {
   const itemVariants = shouldReduceMotion ? {} : slideUp
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-28 lg:py-36">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/35 to-background" />
       <div
         className="absolute inset-0 opacity-[0.05] dark:opacity-[0.08]"
@@ -83,11 +102,23 @@ function ProcessSection() {
           className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start"
         >
           <motion.div variants={itemVariants} transition={transitionSmooth} className="space-y-5">
-            <p className="premium-surtitre">Méthode chantier</p>
-            <h2 className="premium-section-title max-w-xl">Un parcours clair, du premier échange à la livraison.</h2>
+            <div>
+              <span className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3">
+                02 — Méthode chantier
+              </span>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-10 bg-primary/40" />
+                <span className="text-[11px] uppercase tracking-[0.25em] font-semibold text-primary-text">
+                  Notre approche
+                </span>
+              </div>
+            </div>
+            <h2 className="premium-section-title max-w-xl">
+              Un parcours clair, du premier échange à la livraison.
+            </h2>
             <p className="premium-lead">
-              Une bonne expérience BTP ne repose pas sur des pictogrammes génériques, mais sur une méthode lisible : étapes,
-              décisions, validations et réception.
+              Une bonne expérience BTP ne repose pas sur des pictogrammes génériques, mais sur une
+              méthode lisible : étapes, décisions, validations et réception.
             </p>
           </motion.div>
 
@@ -102,7 +133,9 @@ function ProcessSection() {
                 <div className="relative flex min-h-full flex-col gap-5">
                   <StepBlueprintMark index={index} code={step.code} />
                   <div className="space-y-2">
-                    <h3 className="text-xl font-extrabold tracking-[-0.035em] text-foreground">{step.title}</h3>
+                    <h3 className="text-xl font-extrabold tracking-[-0.035em] text-foreground">
+                      {step.title}
+                    </h3>
                     <p className="text-sm leading-7 text-muted-foreground">{step.description}</p>
                   </div>
                 </div>

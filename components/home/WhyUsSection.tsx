@@ -214,9 +214,9 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const isInView = useInView(ref, { once: true, amount: 0.5 })
   const shouldReduceMotion = useReducedMotion()
 
-  const motionValue = useMotionValue(value)
+  const motionValue = useMotionValue(0)
   const rounded = useTransform(motionValue, (latest) => Math.round(latest))
-  const [display, setDisplay] = useState(value)
+  const [display, setDisplay] = useState(0)
 
   useEffect(() => {
     const unsubscribe = rounded.on("change", (latest) => setDisplay(latest))
@@ -229,7 +229,6 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
       return
     }
 
-    motionValue.set(Math.max(0, Math.floor(value * 0.72)))
     const controls = animate(motionValue, value, {
       duration: 1.25,
       ease: [0.16, 1, 0.3, 1],
@@ -255,7 +254,7 @@ function WhyUsSection() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="relative isolate overflow-hidden py-16 sm:py-28 lg:py-36">
+    <section className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-28">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/55 via-background to-muted/30" />
 
@@ -294,6 +293,7 @@ function WhyUsSection() {
         className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.025]"
         viewBox="0 0 600 600"
         fill="none"
+        aria-hidden="true"
         initial={false}
         animate={shouldReduceMotion ? undefined : { rotate: 360 }}
         transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
@@ -325,16 +325,26 @@ function WhyUsSection() {
             <motion.span
               variants={slideUp}
               transition={transitionSmooth}
-              className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/60 px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground backdrop-blur-sm"
+              className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
             >
-              <span className="h-1 w-1 rounded-full bg-primary/60" />
-              Pourquoi nous
+              04 — Pourquoi nous
             </motion.span>
+
+            <motion.div
+              variants={slideUp}
+              transition={transitionSmooth}
+              className="flex items-center gap-3 mb-5"
+            >
+              <div className="h-px w-10 bg-primary/40" />
+              <span className="text-[11px] uppercase tracking-[0.25em] font-semibold text-primary-text">
+                Nos atouts
+              </span>
+            </motion.div>
 
             <motion.h2
               variants={slideUp}
               transition={transitionSmooth}
-              className="mt-6 text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] font-heading"
+              className="text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] font-heading"
             >
               On ne promet pas.
               <br />

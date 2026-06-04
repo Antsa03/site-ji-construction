@@ -811,7 +811,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
       >
-        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+        <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" aria-hidden="true">
           <path
             d="M100 0 L100 100 L0 100"
             stroke={service.isAccent ? "oklch(0.72 0.14 85 / 0.08)" : "oklch(0.55 0.015 50 / 0.05)"}
@@ -943,7 +943,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
 
 function CraftServicesSection() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 lg:py-40 concrete-texture blueprint-overlay">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28 concrete-texture blueprint-overlay">
       {/* Subtle warm gradient wash */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -992,7 +992,7 @@ function CraftServicesSection() {
             transition={transitionSmooth}
             className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
           >
-            02 — Prestations
+            01 — Prestations
           </motion.span>
 
           {/* Surtitle with accent bar */}

@@ -19,6 +19,7 @@ const navigation = {
   principal: [
     { name: "Accueil", href: "/" },
     { name: "Prestations", href: "/prestations" },
+    { name: "BTP", href: "/btp" },
     { name: "Bungalows", href: "/bungalows" },
     { name: "Devis", href: "/devis" },
     { name: "Contact", href: "/contact" },
@@ -26,10 +27,12 @@ const navigation = {
   prestations: [
     { name: "Construction neuve", href: "/prestations" },
     { name: "Rénovation", href: "/prestations" },
+    { name: "Projets BTP", href: "/btp" },
     { name: "Bungalows sur mesure", href: "/bungalows" },
     { name: "Études et plans", href: "/prestations" },
   ],
   informations: [
+    { name: "Projets BTP", href: "/btp" },
     { name: "Modèles de bungalows", href: "/bungalows" },
     { name: "Demander un devis", href: "/devis" },
     { name: "Nous contacter", href: "/contact" },

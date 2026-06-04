@@ -62,7 +62,7 @@ function GuaranteesSection() {
   const itemVariants = shouldReduceMotion ? {} : slideUp
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-28 lg:py-36">
+    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-28">
       <div
         className="absolute inset-0"
         style={{
@@ -72,9 +72,35 @@ function GuaranteesSection() {
           backgroundPosition: "center",
         }}
       />
-      <div className="absolute inset-0 bg-background/74 dark:bg-background/[0.8]" />
+      <div className="absolute inset-0 bg-background/74 dark:bg-background/80" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <motion.div
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer(0.1)}
+          className="mb-12 sm:mb-16 max-w-2xl"
+        >
+          <motion.span
+            variants={itemVariants}
+            transition={transitionSmooth}
+            className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-3"
+          >
+            06 — Contrôle chantier
+          </motion.span>
+          <motion.div
+            variants={itemVariants}
+            transition={transitionSmooth}
+            className="flex items-center gap-3 mb-5"
+          >
+            <div className="h-px w-10 bg-primary/40" />
+            <span className="text-[11px] uppercase tracking-[0.25em] font-semibold text-primary-text">
+              Nos garanties
+            </span>
+          </motion.div>
+        </motion.div>
+
         <motion.div
           initial={shouldReduceMotion ? false : "hidden"}
           whileInView="visible"
@@ -87,14 +113,7 @@ function GuaranteesSection() {
             transition={transitionSmooth}
             className="surface-contrast rounded-[2rem] p-6 sm:p-8 lg:p-10"
           >
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/25 bg-primary/[0.08] px-4 py-2">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.24em] text-primary-text">
-                Contrôle chantier
-              </span>
-            </div>
-            <p className="premium-surtitre">Engagements</p>
-            <h2 className="mt-5 text-4xl font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-5xl">
+            <h2 className="text-4xl font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-5xl">
               Des preuves concrètes, pas seulement des promesses.
             </h2>
             <p className="mt-5 text-base leading-8 text-muted-foreground">

@@ -248,12 +248,20 @@ export default function DevisPage() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <Button asChild variant="outline" className="min-h-11 rounded-full">
-                <a href={siteConfig.phoneHref}>Appeler directement</a>
+              <Button asChild variant="outline" className="min-h-11 rounded-full gap-2">
+                <a href={siteConfig.phoneHref}>
+                  <Phone className="size-4" aria-hidden="true" />
+                  Appeler directement
+                </a>
               </Button>
 
-              <Button asChild className="min-h-11 rounded-full">
-                <a href={siteConfig.whatsappHref} target="_blank" rel="noopener noreferrer">
+              <Button asChild className="min-h-11 rounded-full gap-2">
+                <a
+                  href={`${siteConfig.whatsappHref}?text=${encodeURIComponent(`Bonjour JI Construction, j'ai envoyé une demande de devis pour ${selectedProjectLabel ?? "un projet"} au nom de ${formData.nom}. Pouvez-vous confirmer la réception ?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="size-4" aria-hidden="true" />
                   WhatsApp
                 </a>
               </Button>

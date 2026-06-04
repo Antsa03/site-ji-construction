@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 function SectionDivider({ variant = "default" }: { variant?: "default" | "copper" | "dots" }) {
   if (variant === "copper") {
     return (
-      <div className="relative overflow-hidden py-14">
+      <div className="relative overflow-hidden py-8">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="flex items-center gap-6">
             <motion.div
@@ -53,7 +53,7 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
 
   if (variant === "dots") {
     return (
-      <div className="relative py-12">
+      <div className="relative py-6">
         <div className="flex items-center justify-center gap-4">
           {Array.from({ length: 5 }).map((_, i) => (
             <motion.div
@@ -81,9 +81,9 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
 
   /* Default: architectural line with stronger measurement marks */
   return (
-    <div className="relative overflow-hidden py-16">
+    <div className="relative overflow-hidden py-8">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <svg className="h-24 w-full" viewBox="0 0 1200 72" preserveAspectRatio="xMidYMid meet">
+        <svg className="h-14 w-full" viewBox="0 0 1200 56" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="dividerGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="oklch(0.55 0.015 50 / 0)" />
@@ -96,9 +96,9 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
           {/* Main line */}
           <motion.line
             x1="0"
-            y1="36"
+            y1="28"
             x2="1200"
-            y2="36"
+            y2="28"
             stroke="url(#dividerGrad)"
             strokeWidth="1"
             initial={{ pathLength: 0 }}
@@ -107,7 +107,7 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {/* Measurement ticks — larger and more visible */}
+          {/* Measurement ticks */}
           {[150, 300, 450, 600, 750, 900, 1050].map((x, i) => (
             <motion.g
               key={x}
@@ -118,18 +118,18 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
             >
               <line
                 x1={x}
-                y1={x === 600 ? "16" : "24"}
+                y1={x === 600 ? "10" : "18"}
                 x2={x}
-                y2={x === 600 ? "56" : "48"}
+                y2={x === 600 ? "46" : "38"}
                 stroke="oklch(0.55 0.015 50 / 0.32)"
                 strokeWidth="1"
               />
             </motion.g>
           ))}
 
-          {/* Center diamond — bigger and stronger */}
+          {/* Center diamond */}
           <motion.path
-            d="M600 18 L614 36 L600 54 L586 36 Z"
+            d="M600 12 L612 28 L600 44 L588 28 Z"
             stroke="oklch(0.72 0.14 85 / 0.58)"
             strokeWidth="1.1"
             fill="oklch(0.72 0.14 85 / 0.14)"
@@ -137,12 +137,12 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 1 }}
-            style={{ transformOrigin: "600px 36px" }}
+            style={{ transformOrigin: "600px 28px" }}
           />
 
-          {/* Outer diamond ring — bigger and more visible */}
+          {/* Outer diamond ring */}
           <motion.path
-            d="M600 8 L622 36 L600 64 L578 36 Z"
+            d="M600 4 L618 28 L600 52 L582 28 Z"
             stroke="oklch(0.72 0.14 85 / 0.26)"
             strokeWidth="0.8"
             fill="none"
@@ -150,7 +150,7 @@ function SectionDivider({ variant = "default" }: { variant?: "default" | "copper
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.7, delay: 1.1 }}
-            style={{ transformOrigin: "600px 36px" }}
+            style={{ transformOrigin: "600px 28px" }}
           />
         </svg>
       </div>

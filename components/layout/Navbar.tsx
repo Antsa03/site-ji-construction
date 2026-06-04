@@ -23,6 +23,7 @@ import {
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/prestations", label: "Prestations" },
+  { href: "/btp", label: "BTP" },
   { href: "/bungalows", label: "Bungalows" },
   { href: "/devis", label: "Devis gratuit" },
   { href: "/contact", label: "Contact" },

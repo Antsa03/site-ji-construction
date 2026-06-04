@@ -15,27 +15,35 @@ export default function Home() {
       <HeroSection />
       <SectionDivider variant="copper" />
 
+      {/* 1- Prestations */}
       <CraftServicesSection />
       <SectionDivider variant="dots" />
 
+      {/* 2- Méthode Chantier */}
       <ProcessSection />
       <SectionDivider variant="default" />
 
-      <WhyUsSection />
-      <SectionDivider variant="default" />
-
+      {/* 3- Réalisations */}
       <ProjectsSection />
       <SectionDivider variant="copper" />
 
+      {/* 4 - Pourquoi nous */}
+      <WhyUsSection />
+      <SectionDivider variant="default" />
+
+      {/* 5 - Témoignages */}
       <TestimonialsSection />
       <SectionDivider variant="dots" />
 
+      {/* 6 - Contrôle chantier */}
       <GuaranteesSection />
       <SectionDivider variant="dots" />
 
+      {/* 7 - Questions fréquentes */}
       <FAQSection />
       <SectionDivider variant="copper" />
 
+      {/* 8 - On en parle */}
       <CtaSection />
     </div>
   )

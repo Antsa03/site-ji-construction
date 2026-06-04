@@ -153,8 +153,9 @@ function BtpBlueprintPattern() {
     <svg
       className="absolute inset-0 h-full w-full pointer-events-none"
       viewBox="0 0 1600 900"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMaxYMid slice"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <defs>
         <linearGradient id="ji-gold-line" x1="0" y1="0" x2="1" y2="1">
@@ -190,7 +191,7 @@ function BtpBlueprintPattern() {
             x2={160 * (i + 1)}
             y2="900"
             stroke="#b8860b"
-            strokeOpacity="0.16"
+            strokeOpacity="0.22"
             strokeWidth="1"
           />
         ))}
@@ -203,7 +204,7 @@ function BtpBlueprintPattern() {
             x2="1600"
             y2={140 * (i + 1)}
             stroke="#b8860b"
-            strokeOpacity="0.16"
+            strokeOpacity="0.22"
             strokeWidth="1"
           />
         ))}
@@ -892,7 +893,7 @@ function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100svh] overflow-hidden pt-28 pb-28 sm:flex sm:min-h-[92svh] sm:items-center sm:pt-20 sm:pb-0"
+      className="relative min-h-svh overflow-hidden pt-28 pb-28 sm:flex sm:min-h-[92svh] sm:items-center sm:pt-20 sm:pb-0"
     >
       {/* Layer 1 : base */}
       <div className="absolute inset-0 bg-background" />
@@ -956,21 +957,21 @@ function HeroSection() {
 
       {/* Layer 5 : masque de lisibilité */}
       <div
-        className="absolute inset-0 z-[1] pointer-events-none"
+        className="absolute inset-0 z-1 pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklch, var(--background) 72%, transparent) 22%, color-mix(in oklch, var(--background) 28%, transparent) 45%, color-mix(in oklch, var(--background) 6%, transparent) 64%, transparent 100%)",
+            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklch, var(--background) 76%, transparent) 24%, color-mix(in oklch, var(--background) 20%, transparent) 44%, color-mix(in oklch, var(--background) 4%, transparent) 58%, transparent 100%)",
         }}
       />
 
       {/* Layer 6 : motif BTP prioritaire */}
       <div
-        className="absolute inset-0 z-[3] opacity-100"
+        className="absolute inset-0 z-3 opacity-100"
         style={{
           WebkitMaskImage:
-            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 26%, black 42%, black 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.45) 28%, black 46%, black 100%)",
           maskImage:
-            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 26%, black 42%, black 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.45) 28%, black 46%, black 100%)",
         }}
       >
         <BtpBlueprintPattern />
@@ -978,7 +979,7 @@ function HeroSection() {
 
       {/* Layer 7 : grain subtil */}
       <div
-        className="absolute inset-0 z-[4] opacity-[0.026] dark:opacity-[0.045] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 z-4 opacity-[0.026] dark:opacity-[0.045] mix-blend-overlay pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         }}
@@ -994,7 +995,7 @@ function HeroSection() {
           whileInView="visible"
           viewport={replayViewport}
           variants={staggerContainer(0.11, 0.15)}
-          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80 bg-background/90 p-5 backdrop-blur-sm sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
+          className="flex max-w-3xl flex-col gap-5 lg:gap-6"
         >
           {/* Label */}
           <motion.div variants={fadeInLeft} className="flex items-center gap-3">
@@ -1049,7 +1050,7 @@ function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="min-h-12 w-full rounded-full border-border/80 bg-background/[0.88] px-7 text-sm font-bold shadow-sm backdrop-blur-sm sm:w-auto"
+                className="min-h-12 w-full rounded-full border-border/80 bg-background/88 px-7 text-sm font-bold shadow-sm backdrop-blur-sm sm:w-auto"
                 asChild
               >
                 <Link href="/bungalows" className="inline-flex items-center gap-2">

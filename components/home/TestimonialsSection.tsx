@@ -41,7 +41,7 @@ const testimonials = [
 
 function TestimonialsSection() {
   return (
-    <section className="py-24 sm:py-36 relative overflow-hidden">
+    <section className="py-16 sm:py-24 lg:py-28 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-muted/30 to-transparent" />
 
@@ -50,7 +50,7 @@ function TestimonialsSection() {
 
       {/* Copper glow — bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] pointer-events-none"
+        className="absolute bottom-0 left-0 w-150 h-150 pointer-events-none"
         style={{
           background: "radial-gradient(circle, oklch(0.72 0.14 85 / 0.04), transparent 60%)",
         }}
@@ -64,7 +64,10 @@ function TestimonialsSection() {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-16 right-8 sm:right-16 pointer-events-none select-none"
       >
-        <span className="text-[7rem] sm:text-[18rem] leading-none font-heading text-primary/80">
+        <span
+          className="text-[7rem] sm:text-[18rem] leading-none font-heading text-foreground/[0.04]"
+          aria-hidden="true"
+        >
           &ldquo;
         </span>
       </motion.div>

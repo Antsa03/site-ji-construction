@@ -15,9 +15,10 @@ import { siteConfig } from "@/lib/site-config"
 function AnimatedBlueprint() {
   return (
     <motion.svg
-      className="absolute right-4 top-1/2 -translate-y-1/2 w-[22rem] h-[22rem] hidden lg:block pointer-events-none"
+      className="absolute right-4 top-1/2 -translate-y-1/2 w-88 h-88 hidden lg:block pointer-events-none"
       viewBox="0 0 200 200"
       fill="none"
+      aria-hidden="true"
       initial={{ opacity: 0, rotate: -5 }}
       whileInView={{ opacity: 1, rotate: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -381,7 +382,7 @@ function CtaSection() {
       {/* Animated blueprint decoration */}
       <AnimatedBlueprint />
 
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-28 sm:py-40">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 sm:py-32">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -394,7 +395,7 @@ function CtaSection() {
             transition={transitionSmooth}
             className="text-xs text-muted-foreground uppercase tracking-[0.3em] font-mono block mb-4"
           >
-            06 — On en parle ?
+            08 — On en parle ?
           </motion.span>
 
           <motion.div
@@ -464,7 +465,7 @@ function CtaSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 sm:w-auto dark:border-white/25 dark:bg-white/[0.08] dark:text-white dark:hover:border-white/35 dark:hover:bg-white/[0.14]"
+                className="w-full rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 sm:w-auto dark:border-white/25 dark:bg-white/8 dark:text-white dark:hover:border-white/35 dark:hover:bg-white/[0.14]"
                 asChild
               >
                 <Link href="/bungalows" className="inline-flex items-center gap-2">
