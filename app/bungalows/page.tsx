@@ -97,7 +97,7 @@ export default function BungalowsPage() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer(0.08, 0.1)}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7"
         >
@@ -141,7 +141,7 @@ export default function BungalowsPage() {
 
                   {/* Titre sur image */}
                   <div className="absolute inset-x-4 bottom-4">
-                    <h3 className="font-[family-name:var(--font-heading)] text-2xl font-semibold leading-none tracking-[-0.04em] text-white">
+                    <h3 className="font-heading text-2xl font-semibold leading-none tracking-[-0.04em] text-white">
                       {bungalow.name}
                     </h3>
                   </div>
@@ -238,7 +238,7 @@ export default function BungalowsPage() {
               key={item.title}
               className="rounded-[1.5rem] border border-border/70 bg-background/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-md"
             >
-              <h2 className="font-[family-name:var(--font-heading)] text-lg font-semibold tracking-tight text-foreground">
+              <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground">
                 {item.title}
               </h2>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.text}</p>

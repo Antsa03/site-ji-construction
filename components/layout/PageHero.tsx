@@ -31,7 +31,7 @@ function PageHero({
         className
       )}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,theme(colors.primary/0.10),transparent_34%),linear-gradient(to_bottom,theme(colors.background),theme(colors.card))] dark:bg-[radial-gradient(circle_at_top_left,theme(colors.primary/0.12),transparent_36%),linear-gradient(to_bottom,theme(colors.background),theme(colors.card))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,theme(colors.primary/0.06),transparent_20%),linear-gradient(to_bottom,theme(colors.background),theme(colors.card))] dark:bg-[radial-gradient(circle_at_top_left,theme(colors.primary/0.08),transparent_22%),linear-gradient(to_bottom,theme(colors.background),theme(colors.card))]" />
 
       <div
         className="absolute inset-0 text-foreground opacity-[0.025] dark:opacity-[0.045]"
@@ -56,7 +56,7 @@ function PageHero({
             variants={slideUp}
             transition={transitionSmooth}
             className={cn(
-              "max-w-2xl font-[family-name:var(--font-heading)] text-[2.45rem] font-extrabold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-4xl lg:text-5xl",
+              "max-w-2xl font-heading text-[2.45rem] font-extrabold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-4xl lg:text-5xl",
               titleClassName
             )}
           >

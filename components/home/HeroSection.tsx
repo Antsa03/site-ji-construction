@@ -1,7 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import { motion, useScroll, useTransform, type Transition, type Variants } from "framer-motion"
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type Transition,
+  type Variants,
+} from "framer-motion"
 import { useRef } from "react"
 import { ChevronRight, ArrowRight } from "lucide-react"
 
@@ -27,7 +34,7 @@ const staggerContainer = (staggerChildren = 0.1, delayChildren = 0) => ({
 })
 
 const replayViewport = {
-  once: false,
+  once: true,
   amount: 0.35,
   margin: "0px 0px -10% 0px",
 }
@@ -139,6 +146,7 @@ const statVariant: Variants = {
    PROFESSIONAL BTP BLUEPRINT PATTERN
    ═══════════════════════════════════════════════════════ */
 function BtpBlueprintPattern() {
+  const shouldReduceMotion = useReducedMotion()
   const motifOffsetY = 140
 
   return (
@@ -211,7 +219,7 @@ function BtpBlueprintPattern() {
 
         {/* Cadre technique centre-droite */}
         <motion.g
-          initial={{ opacity: 0, x: 24 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={replayViewport}
           transition={{
@@ -285,7 +293,7 @@ function BtpBlueprintPattern() {
 
         {/* Bungalow / élévation */}
         <motion.g
-          initial={{ opacity: 0, x: 28 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, x: 28 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={replayViewport}
           transition={{
@@ -495,7 +503,7 @@ function BtpBlueprintPattern() {
 
         {/* Plan intérieur */}
         <motion.g
-          initial={{ opacity: 0, y: 18 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={replayViewport}
           transition={{
@@ -633,7 +641,7 @@ function BtpBlueprintPattern() {
 
         {/* Grue de chantier */}
         <motion.g
-          initial={{ opacity: 0, x: 25 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, x: 25 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={replayViewport}
           transition={{
@@ -753,7 +761,7 @@ function BtpBlueprintPattern() {
 
         {/* Ligne de cote principale */}
         <motion.g
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={replayViewport}
           transition={{
@@ -986,7 +994,7 @@ function HeroSection() {
           whileInView="visible"
           viewport={replayViewport}
           variants={staggerContainer(0.11, 0.15)}
-          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80 p-5 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
+          className="flex max-w-3xl flex-col gap-5 rounded-[2rem] border border-border/80 bg-background/90 p-5 backdrop-blur-sm sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-0 lg:gap-6"
         >
           {/* Label */}
           <motion.div variants={fadeInLeft} className="flex items-center gap-3">

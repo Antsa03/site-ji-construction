@@ -259,7 +259,7 @@ function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="inline-flex rounded-full text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                          className="inline-flex py-1.5 rounded-full text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                         >
                           {item.name}
                         </Link>

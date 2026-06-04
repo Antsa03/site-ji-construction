@@ -60,11 +60,11 @@ function TestimonialsSection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-16 right-8 sm:right-16 pointer-events-none select-none"
       >
-        <span className="text-[12rem] sm:text-[18rem] leading-none font-heading text-primary/80">
+        <span className="text-[7rem] sm:text-[18rem] leading-none font-heading text-primary/80">
           &ldquo;
         </span>
       </motion.div>
@@ -74,7 +74,7 @@ function TestimonialsSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer(0.1)}
           className="mb-16 sm:mb-20 max-w-2xl"
         >
@@ -100,7 +100,7 @@ function TestimonialsSection() {
           <motion.h2
             variants={slideUp}
             transition={transitionSmooth}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] leading-[1.05]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground font-heading leading-[1.05]"
           >
             Ils nous ont fait
             <br />
@@ -112,7 +112,7 @@ function TestimonialsSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer(0.15, 0.1)}
           className="space-y-12 sm:space-y-0 sm:grid sm:gap-8 sm:grid-cols-3"
         >
@@ -137,7 +137,7 @@ function TestimonialsSection() {
                         key={i}
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         transition={{
                           duration: 0.3,
                           delay: 0.5 + i * 0.06,
@@ -150,7 +150,7 @@ function TestimonialsSection() {
                   </div>
 
                   {/* Quote — editorial serif */}
-                  <blockquote className="text-base sm:text-lg text-foreground leading-relaxed mb-6 font-[family-name:var(--font-heading)] font-light">
+                  <blockquote className="text-base sm:text-lg text-foreground leading-relaxed mb-6 font-heading font-light">
                     &ldquo;{testimonial.content}&rdquo;
                   </blockquote>
 

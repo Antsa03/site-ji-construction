@@ -380,7 +380,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
         </div>
 
         <div className="relative z-10 mt-7">
-          <h3 className="font-[family-name:var(--font-heading)] text-[1.35rem] font-semibold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.5rem]">
+          <h3 className="font-heading text-[1.35rem] font-semibold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.5rem]">
             {service.title}
           </h3>
 

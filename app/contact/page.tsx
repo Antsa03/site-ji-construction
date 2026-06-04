@@ -72,7 +72,9 @@ export default function ContactPage() {
 
       setSubmitted(true)
     } catch {
-      setSubmitError("Impossible d’envoyer le message pour le moment. Réessayez ou contactez-nous par téléphone.")
+      setSubmitError(
+        "Impossible d’envoyer le message pour le moment. Réessayez ou contactez-nous par téléphone."
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -127,7 +129,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <h2 className="mb-3 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-foreground">
+                  <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight text-foreground">
                     Message envoyé
                   </h2>
 
@@ -142,11 +144,7 @@ export default function ContactPage() {
                     </Button>
 
                     <Button asChild className="min-h-11 rounded-full">
-                      <a
-                        href={siteConfig.whatsappHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href={siteConfig.whatsappHref} target="_blank" rel="noopener noreferrer">
                         WhatsApp
                       </a>
                     </Button>
@@ -169,7 +167,7 @@ export default function ContactPage() {
                       Formulaire
                     </span>
 
-                    <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-semibold tracking-tight text-foreground">
+                    <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground">
                       Écrivez-nous
                     </h2>
 
@@ -240,7 +238,8 @@ export default function ContactPage() {
                       className="border-t border-border/60 pt-6"
                     >
                       <Button
-                        type="submit" disabled={isSubmitting}
+                        type="submit"
+                        disabled={isSubmitting}
                         size="lg"
                         className="min-h-12 rounded-full px-8 text-sm font-semibold"
                       >
@@ -383,8 +382,6 @@ export default function ContactPage() {
           </motion.aside>
         </div>
       </PremiumSection>
-
-
     </>
   )
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight, ChevronRight } from "lucide-react"
+import { ArrowRight, ChevronRight, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { slideUp, staggerContainer, transitionSmooth } from "@/lib/animations"
@@ -20,7 +20,7 @@ function AnimatedBlueprint() {
       fill="none"
       initial={{ opacity: 0, rotate: -5 }}
       whileInView={{ opacity: 1, rotate: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
     >
       <defs>
@@ -42,7 +42,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 2, delay: 0.3 }}
       />
 
@@ -59,7 +59,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 2, delay: 0.5 }}
       />
 
@@ -75,7 +75,7 @@ function AnimatedBlueprint() {
         fill="url(#ctaBlueprintGrad)"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5, delay: 0.6 }}
       />
 
@@ -90,7 +90,7 @@ function AnimatedBlueprint() {
         opacity="0.12"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.8 }}
       />
       <motion.line
@@ -103,7 +103,7 @@ function AnimatedBlueprint() {
         opacity="0.12"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1, delay: 1 }}
       />
 
@@ -119,7 +119,7 @@ function AnimatedBlueprint() {
         opacity="0.07"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1.2, delay: 1.1 }}
       />
       <motion.line
@@ -133,7 +133,7 @@ function AnimatedBlueprint() {
         opacity="0.07"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1.2, delay: 1.2 }}
       />
 
@@ -146,7 +146,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 1.2 }}
       />
       {/* Corner brackets — top right */}
@@ -158,7 +158,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 1.3 }}
       />
       {/* Corner brackets — bottom right */}
@@ -170,7 +170,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 1.4 }}
       />
       {/* Corner brackets — bottom left */}
@@ -182,7 +182,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 1.5 }}
       />
 
@@ -197,7 +197,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0, scale: 0 }}
         whileInView={{ pathLength: 1, scale: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5, delay: 1 }}
         style={{ transformOrigin: "100px 100px" }}
       />
@@ -214,7 +214,7 @@ function AnimatedBlueprint() {
         fill="none"
         initial={{ pathLength: 0, scale: 0 }}
         whileInView={{ pathLength: 1, scale: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1.2, delay: 1.2 }}
         style={{ transformOrigin: "100px 100px" }}
       />
@@ -228,7 +228,7 @@ function AnimatedBlueprint() {
         opacity="0.2"
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 1.6 }}
         style={{ transformOrigin: "100px 100px" }}
       />
@@ -245,7 +245,7 @@ function AnimatedBlueprint() {
           strokeWidth="0.5"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.15 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.3, delay: 1.6 + i * 0.05 }}
         />
       ))}
@@ -262,7 +262,7 @@ function AnimatedBlueprint() {
           strokeWidth="0.5"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.15 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.3, delay: 1.8 + i * 0.05 }}
         />
       ))}
@@ -278,7 +278,7 @@ function AnimatedBlueprint() {
           key={i}
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 0.25, scale: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 2 + i * 0.08 }}
           style={{ transformOrigin: `${pos.x}px ${pos.y}px` }}
         >
@@ -313,7 +313,7 @@ function AnimatedBlueprint() {
       <motion.g
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.12 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 2.2 }}
       >
         <line x1="35" y1="6" x2="165" y2="6" stroke="oklch(0.72 0.14 85)" strokeWidth="0.4" />
@@ -325,7 +325,7 @@ function AnimatedBlueprint() {
       <motion.g
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.12 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 2.3 }}
       >
         <line x1="6" y1="35" x2="6" y2="165" stroke="oklch(0.72 0.14 85)" strokeWidth="0.4" />
@@ -385,7 +385,7 @@ function CtaSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer(0.12)}
           className="max-w-2xl text-foreground"
         >
@@ -431,9 +431,9 @@ function CtaSection() {
           <motion.div
             variants={slideUp}
             transition={transitionSmooth}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
           >
-            <div className="relative inline-block">
+            <div className="relative w-full sm:w-auto">
               <motion.div
                 className="absolute -inset-1 bg-primary/10 rounded-full blur-lg"
                 animate={{ opacity: [0.5, 1, 0.5] }}
@@ -442,15 +442,15 @@ function CtaSection() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="relative cursor-pointer"
+                className="relative"
               >
                 <Button
                   size="lg"
-                  className="rounded-full px-7 py-3 text-sm font-semibold shadow-lg shadow-primary/20"
+                  className="w-full rounded-full px-7 py-3 text-sm font-semibold shadow-lg shadow-primary/20 sm:w-auto"
                   asChild
                 >
                   <Link href="/devis" className="inline-flex items-center gap-2">
-                    Lancer votre projet BTP
+                    Demander un devis gratuit
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -459,12 +459,12 @@ function CtaSection() {
             <motion.div
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="cursor-pointer"
+              className="w-full sm:w-auto"
             >
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 dark:border-white/25 dark:bg-white/[0.08] dark:text-white dark:hover:border-white/35 dark:hover:bg-white/[0.14]"
+                className="w-full rounded-full border-border/80 bg-background/50 px-7 py-3 text-sm font-semibold text-foreground shadow-lg shadow-black/5 backdrop-blur-sm hover:border-border hover:bg-muted/80 sm:w-auto dark:border-white/25 dark:bg-white/[0.08] dark:text-white dark:hover:border-white/35 dark:hover:bg-white/[0.14]"
                 asChild
               >
                 <Link href="/bungalows" className="inline-flex items-center gap-2">
@@ -481,15 +481,13 @@ function CtaSection() {
             className="mt-8 flex items-center gap-4"
           >
             <div className="h-px flex-1 bg-linear-to-r from-border/60 to-transparent max-w-24" />
-            <p className="text-lg text-muted-foreground">
-              ou appelez le{" "}
-              <a
-                href={siteConfig.phoneHref}
-                className="text-primary-text/70 hover:text-primary-text transition-colors duration-200"
-              >
-                {siteConfig.phoneDisplay}
-              </a>
-            </p>
+            <a
+              href={siteConfig.phoneHref}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-4 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-primary/50 hover:text-primary-text"
+            >
+              <Phone className="size-4 shrink-0" aria-hidden="true" />
+              {siteConfig.phoneDisplay}
+            </a>
           </motion.div>
         </motion.div>
       </div>

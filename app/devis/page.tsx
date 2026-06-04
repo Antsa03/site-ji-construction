@@ -213,7 +213,7 @@ export default function DevisPage() {
               />
             </div>
 
-            <h1 className="mb-3 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-foreground">
+            <h1 className="mb-3 font-heading text-3xl font-bold tracking-tight text-foreground">
               Demande de devis reçue
             </h1>
 
@@ -288,7 +288,10 @@ export default function DevisPage() {
         <div className="grid gap-10 lg:grid-cols-[1.35fr_0.85fr] lg:gap-12">
           {/* Main panel */}
           <div className="rounded-[2rem] border border-border/70 bg-card/90 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.06)] backdrop-blur sm:p-8">
-            <ol className="mb-10 grid gap-3 sm:grid-cols-3" aria-label="Progression du formulaire">
+            <ol
+              className="mb-10 grid grid-cols-3 gap-2 sm:gap-3"
+              aria-label="Progression du formulaire"
+            >
               {steps.map((step, i) => {
                 const state =
                   i < currentStep ? "terminée" : i === currentStep ? "en cours" : "à venir"
@@ -296,7 +299,7 @@ export default function DevisPage() {
                 return (
                   <li
                     key={step.title}
-                    className={`relative flex items-center gap-3 rounded-2xl border p-3 transition-all duration-300 ${
+                    className={`relative flex items-center gap-2 rounded-2xl border p-2.5 transition-all duration-300 sm:gap-3 sm:p-3 ${
                       i === currentStep
                         ? "border-primary/35 bg-primary/[0.06] shadow-sm"
                         : i < currentStep
@@ -305,7 +308,7 @@ export default function DevisPage() {
                     }`}
                   >
                     <span
-                      className={`flex size-10 shrink-0 items-center justify-center rounded-full text-xs font-mono font-bold transition-all duration-300 ${
+                      className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-mono font-bold transition-all duration-300 sm:size-10 ${
                         i <= currentStep
                           ? "bg-primary text-primary-foreground shadow-sm"
                           : "bg-background text-muted-foreground ring-1 ring-border"
@@ -315,11 +318,11 @@ export default function DevisPage() {
                       {i < currentStep ? "✓" : step.number}
                     </span>
 
-                    <span>
-                      <span className="block text-sm font-semibold text-foreground">
+                    <span className="min-w-0">
+                      <span className="block truncate text-xs font-semibold text-foreground sm:text-sm">
                         {step.title}
                       </span>
-                      <span className="block text-xs text-muted-foreground">
+                      <span className="hidden text-xs text-muted-foreground sm:block">
                         Étape {i + 1} — {state}
                       </span>
                     </span>
@@ -337,7 +340,7 @@ export default function DevisPage() {
                 transition={{ duration: 0.25 }}
                 className="mb-8 border-b border-border/60 pb-6"
               >
-                <h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold tracking-tight text-foreground">
+                <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground">
                   {steps[currentStep].title}
                 </h2>
 

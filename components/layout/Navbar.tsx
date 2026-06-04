@@ -114,7 +114,7 @@ function Navbar() {
           </button>
 
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Button size="sm" className="rounded-full px-5 text-[13px] shadow-sm" asChild>
+            <Button size="sm" className="min-h-11 rounded-full px-5 text-[13px] shadow-sm" asChild>
               <Link href="/devis">Devis gratuit</Link>
             </Button>
           </motion.div>
@@ -136,6 +136,7 @@ function Navbar() {
 
           <SheetContent
             side="right"
+            aria-describedby={undefined}
             className="w-[min(92vw,24rem)] border-l border-border bg-background/[0.98] px-0"
           >
             <SheetHeader>

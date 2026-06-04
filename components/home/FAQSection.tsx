@@ -1,9 +1,12 @@
 "use client"
 
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 import { slideUp, staggerContainer, transitionSmooth } from "@/lib/animations"
+import { Button } from "@/components/ui/button"
 import {
   Accordion,
   AccordionContent,
@@ -71,7 +74,7 @@ function FAQSection() {
           <motion.div
             initial={shouldReduceMotion ? false : "hidden"}
             whileInView="visible"
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.25 }}
             variants={containerVariants}
             className="lg:sticky lg:top-28 lg:self-start"
           >
@@ -109,13 +112,20 @@ function FAQSection() {
                 Envoyez-nous le lieu du chantier, le type de travaux et votre budget approximatif.
                 Nous vous orientons rapidement.
               </p>
+
+              <Button asChild size="sm" className="mt-4 min-h-11 rounded-full px-5 font-bold">
+                <Link href="/devis" className="inline-flex items-center gap-2">
+                  Demander un devis
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              </Button>
             </motion.div>
           </motion.div>
 
           <motion.div
             initial={shouldReduceMotion ? false : "hidden"}
             whileInView="visible"
-            viewport={{ once: false, amount: 0.12 }}
+            viewport={{ once: true, amount: 0.12 }}
             variants={containerVariants}
           >
             <Accordion type="single" collapsible defaultValue="faq-0" className="grid gap-4">
@@ -145,7 +155,7 @@ function FAQSection() {
                               {item.code}
                             </p>
 
-                            <h3 className="font-[family-name:var(--font-heading)] text-lg font-extrabold leading-snug tracking-[-0.035em] text-foreground sm:text-xl">
+                            <h3 className="font-heading text-lg font-extrabold leading-snug tracking-[-0.035em] text-foreground sm:text-xl">
                               {item.question}
                             </h3>
                           </div>

@@ -808,7 +808,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
         className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
       >
         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
@@ -834,7 +834,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
           <motion.span
             initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
             className="select-none text-6xl font-black leading-none tracking-[-0.09em] sm:text-7xl"
             style={{
@@ -881,7 +881,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
         </div>
 
         {/* Feature tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="mt-5 flex flex-wrap gap-2 mb-6">
           {service.features.map((feat) => (
             <span
               key={feat}
@@ -912,11 +912,11 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
             }
           >
             <span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-sm border transition-all duration-300
-               text-[var(--link-color)]
-               border-[var(--link-border)]
-               group-hover/link:bg-[var(--link-color)]
-               group-hover/link:border-[var(--link-color)]
+              className="inline-flex min-h-11 items-center gap-2 px-4 py-2 rounded-sm border transition-all duration-300
+               text-(--link-color)
+               border-(--link-border)
+               group-hover/link:bg-(--link-color)
+               group-hover/link:border-(--link-color)
                group-hover/link:text-white"
             >
               {service.cta}
@@ -982,7 +982,7 @@ function CraftServicesSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer(0.1)}
           className="mb-16 sm:mb-20 lg:mb-24 max-w-2xl"
         >
@@ -1011,7 +1011,7 @@ function CraftServicesSection() {
           <motion.h2
             variants={slideUp}
             transition={transitionSmooth}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] text-foreground font-[family-name:var(--font-heading)]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] text-foreground font-heading"
           >
             On construit,
             <br />
@@ -1025,7 +1025,7 @@ function CraftServicesSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer(0.12, 0.15)}
           className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
         >
