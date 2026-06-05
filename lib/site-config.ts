@@ -3,9 +3,9 @@ export const siteConfig = {
   tagline: "Construire juste. Bâtir durable.",
   description:
     "Entreprise BTP à Madagascar spécialisée en construction neuve, rénovation, études techniques et bungalows sur mesure.",
-  phoneDisplay: "+261 34 12 345 67",
-  phoneHref: "tel:+261341234567",
-  whatsappHref: "https://wa.me/261341234567",
+  phoneDisplay: "+261 34 40 275 27",
+  phoneHref: "tel:+261344027527",
+  whatsappHref: "https://wa.me/261344027527",
   email: "contact@jiconstruction.mg",
   emailHref: "mailto:contact@jiconstruction.mg",
   address: "Lot II A 45 Analakely",
