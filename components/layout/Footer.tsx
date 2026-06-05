@@ -175,7 +175,7 @@ function Footer() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group grid min-h-[168px] grid-cols-[auto_1fr] gap-4 border-b border-border px-0 py-6 transition-colors duration-200 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
+                  className="group grid min-h-42 grid-cols-[auto_1fr] gap-4 border-b border-border px-0 py-6 transition-colors duration-200 hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:border-b-0 lg:border-r lg:px-6 first:lg:pl-0 last:lg:border-r-0 last:lg:pr-0"
                 >
                   <div className="flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:border-foreground/30 group-hover:text-foreground">
                     <Icon className="size-4" />

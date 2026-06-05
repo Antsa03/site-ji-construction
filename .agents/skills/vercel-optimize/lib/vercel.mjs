@@ -6,7 +6,10 @@ import { readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { getMetricThrottle, isDailyQuotaExceeded, retryOnRateLimit } from './throttle.mjs';
 
-const exec = promisify(execFile);
+const _execFile = promisify(execFile);
+// On Windows, .cmd wrappers require shell:true to be executable via execFile.
+const exec = (cmd, args, opts = {}) =>
+  _execFile(cmd, args, { ...(process.platform === 'win32' ? { shell: true } : {}), ...opts });
 const MIN_CLI_VERSION = [53, 0, 0];
 
 // Pre-v53 lacks `vercel metrics` and `vercel contract`.

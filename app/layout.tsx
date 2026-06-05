@@ -44,6 +44,7 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background pb-28 font-sans text-foreground selection:bg-primary/25 selection:text-foreground md:pb-0">

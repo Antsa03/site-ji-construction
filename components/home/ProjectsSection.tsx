@@ -233,7 +233,7 @@ function ProjectsSection() {
           className="mt-12 flex justify-center"
         >
           <Link
-            href="/prestations"
+            href="/btp"
             className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             <span className="relative">

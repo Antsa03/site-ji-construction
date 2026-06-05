@@ -1,4 +1,3 @@
-import Script from "next/script"
 import { siteConfig } from "@/lib/site-config"
 
 function JsonLd() {
@@ -89,10 +88,8 @@ function JsonLd() {
   }
 
   return (
-    <Script
-      id="ji-construction-jsonld"
+    <script
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(schema),
       }}

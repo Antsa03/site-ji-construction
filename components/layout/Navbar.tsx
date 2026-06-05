@@ -33,8 +33,13 @@ function Navbar() {
   const pathname = usePathname()
   const { resolvedTheme, setTheme } = useTheme()
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
+  const [mounted, setMounted] = React.useState(false)
 
-  const isDark = resolvedTheme === "dark"
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isDark = mounted && resolvedTheme === "dark"
 
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark")
@@ -43,7 +48,7 @@ function Navbar() {
   return (
     <header
       style={{ viewTransitionName: "site-header" }}
-      className="fixed left-0 right-0 top-0 z-50 border-b border-border/80 bg-background/[0.92] shadow-sm backdrop-blur-xl transition-all duration-300 supports-[backdrop-filter]:bg-background/[0.84]"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-border/80 bg-background/0.92 shadow-sm backdrop-blur-xl transition-all duration-300 supports-backdrop-filter:bg-background/84"
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
@@ -138,7 +143,7 @@ function Navbar() {
           <SheetContent
             side="right"
             aria-describedby={undefined}
-            className="w-[min(92vw,24rem)] border-l border-border bg-background/[0.98] px-0"
+            className="w-[min(92vw,24rem)] border-l border-border bg-background/98 px-0"
           >
             <SheetHeader>
               <SheetTitle className="text-left">
